@@ -59,3 +59,18 @@ The design includes safeguards against double booking, unavailable menu items at
 | SRS drafted and reviewed | ✅ Complete |
 | Test Plan | ✅ Complete |
 | SAD prepared and reviewed | ✅ Complete |
+
+## Local Setup Instructions
+
+### Backend (Django)
+1. `cd backend`
+2. Activate virtual environment: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
+3. Install dependencies: `pip install -r requirements.txt`
+4. Copy `.env.example` to `.env` and fill in your PostgreSQL credentials.
+5. Run server: `python manage.py runserver`
+
+### Real-time Service (Node.js)
+1. `cd realtime`
+2. Install dependencies: `npm install`
+3. Copy `.env.example` to `.env`.
+4. Run server: `node index.js`

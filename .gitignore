@@ -1,0 +1,6 @@
+# Environments and Secrets
+.env
+venv/
+node_modules/
+__pycache__/
+*.sqlite3
