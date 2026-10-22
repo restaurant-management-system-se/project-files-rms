@@ -107,7 +107,9 @@ class ConfirmationTests(TransactionTestCase):
         self.assertEqual(first.json(), retry.json())
         self.assertEqual(self.post({**self.payload,'party_size':3}).status_code, 409)
         # Even a retry after its start returns the persisted record.
-        with patch('booking.services.timezone.now', return_value=self.start+timedelta(days=1)):
+        with patch('booking.services.timezone') as business_clock:
+            # Patch only this service's clock, not Django's session-expiry clock.
+            business_clock.now.return_value = self.start + timedelta(days=1)
             self.assertEqual(self.post().status_code, 200)
         table = RestaurantTable.objects.create(table_number=2, capacity=4)
         self.assertEqual(self.post({**self.payload,'table_id':table.pk}).status_code,409)
