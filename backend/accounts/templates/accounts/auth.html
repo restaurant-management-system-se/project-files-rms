@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% if registration %}Sign up{% else %}Log in{% endif %} — RMS</title></head>
+<body><main><h1>{% if registration %}Create your customer account{% else %}Log in{% endif %}</h1>
+{% if registration %}<p>Use at least 8 characters for your password. Staff accounts are provided by the restaurant administrator.</p>{% endif %}
+<form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">{% if registration %}Sign up{% else %}Log in{% endif %}</button></form>
+<p>{% if registration %}<a href="{% url 'login-page' %}">Already registered? Log in</a>{% else %}<a href="{% url 'register-page' %}">Create an account</a>{% endif %}</p></main></body></html>
