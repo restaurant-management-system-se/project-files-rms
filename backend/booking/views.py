@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from accounts.resources import OwnedResourceView
+from .models import Booking
 
-# Create your views here.
+
+class BookingReadView(OwnedResourceView):
+    model = Booking
+    fields = ("id", "table_id", "start_at", "end_at", "party_size", "status")
