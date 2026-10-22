@@ -5,6 +5,7 @@ from booking.views import BookingReadView
 from orders.views import OrderReadView
 
 urlpatterns = [
+    path("", include("booking.urls")),
     path("admin/", admin.site.urls),
     path("api/auth/", include("accounts.urls")),
     path("register/", views.auth_page, {"mode": "register"}, name="register-page"),
