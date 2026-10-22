@@ -78,3 +78,7 @@ See [backend database setup](backend/README.md) for model details, safe demo dat
 2. Install dependencies: `npm install`
 3. Copy `.env.example` to `.env`.
 4. Run server: `node index.js`
+
+## Booking feature work
+
+The public `/book/` search and `/api/tables/availability` endpoint are described in [RMS-08 contract/evidence](backend/docs/RMS-08-contract-and-evidence.md). The implementation reuses the merged RMS-03 migrations/data. Sprint allocation remains pending; integration contracts require teammate review.
