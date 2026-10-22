@@ -1,0 +1,99 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+Found 59 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: accounts, admin, auth, booking, contenttypes, menu, orders, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying accounts.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying booking.0001_initial... OK
+  Applying booking.0002_bookingrequestkey... OK
+  Applying menu.0001_initial... OK
+  Applying orders.0001_initial... OK
+  Applying sessions.0001_initial...test_activity_resets_deadline_but_status_poll_does_not (accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not) ... ok
+test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs (accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs) ... ok
+test_anonymous_login_and_registration_require_csrf (accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf) ... ok
+test_auth_page_rejects_non_post_mutations (accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations) ... ok
+test_authenticated_logout_csrf_missing_invalid_valid_and_replay (accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay) ... ok
+test_concurrent_duplicate_is_validation_error (accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error) ... ok
+test_csrf_bad_origin_and_rotated_prelogin_token_rejected (accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected) ... ok
+test_duplicate_email_case_insensitive_and_phone (accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone) ... ok
+test_existing_admin_session_gets_idle_deadline (accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline) ... ok
+test_form_flow_inline_validation_safe_output_and_logout (accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout) ... ok
+test_https_cookie_flags (accounts.test_auth.AuthTests.test_https_cookie_flags) ... ok
+test_idle_boundary_before_at_after_and_replay (accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay) ... ok
+test_invalid_unknown_inactive_and_sql_like_login_are_generic (accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic) ... ok
+test_login_email_and_phone_rotates_session_and_csrf (accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf) ... ok
+test_malformed_input_and_unknown_fields_fail_safely (accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely) ... ok
+test_optional_phone_and_required_email_preserve_model_contract (accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract) ... ok
+test_password_boundary_seven_rejected_eight_accepted (accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted) ... ok
+test_protected_api_missing_auth_401 (accounts.test_auth.AuthTests.test_protected_api_missing_auth_401) ... ok
+test_public_registration_rejects_all_escalation_fields (accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields) ... ok
+test_registration_defaults_customer_and_no_password_response (accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response) ... ok
+test_list_and_direct_object_role_matrix (accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix) ... ok
+test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation (accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation) ... ok
+test_role_guards_enforce_real_api_requests (accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests) ... ok
+test_role_permissions_and_anonymous_default_deny (accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny) ... ok
+test_shared_api_csrf_guard_covers_all_mutation_verbs (accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs) ... ok
+test_admin_can_provision_staff_and_maintain_tables (accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables) ... ok
+test_admin_pages_reject_customer_and_staff (accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff) ... ok
+test_booking_constraints_and_retention (accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention) ... ok
+test_menu_constraints_and_zero_price (accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price) ... ok
+test_order_constraints_references_and_price_snapshot (accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot) ... ok
+test_table_constraints (accounts.tests.DatabaseFoundationTests.test_table_constraints) ... ok
+test_user_identifiers_roles_and_default (accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default) ... ok
+test_reserved_user_collision_rolls_back_seed (accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed) ... ok
+test_seed_disabled_outside_development (accounts.tests.DemoSeedTests.test_seed_disabled_outside_development) ... ok
+test_seed_is_repeatable_complete_and_has_no_passwords (accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords) ... ok
+test_request_shape_and_spoofing_validation_without_database_write (booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write) ... ok
+test_session_requires_csrf (booking.test_confirmation.PermissionTests.test_session_requires_csrf) ... ok
+test_staff_and_admin_denied_customer_flow (booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow) ... ok
+test_unauthenticated_is_401 (booking.test_confirmation.PermissionTests.test_unauthenticated_is_401) ... ok
+test_adjacent_and_cancelled_intervals_are_free (booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free) ... ok
+test_configurable_duration (booking.tests.AvailabilityTests.test_configurable_duration) ... ok
+test_nearest_merges_busy_intervals_and_crosses_day (booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day) ... ok
+test_nearest_sorts_tables_deterministically (booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically) ... ok
+test_nearest_tie_uses_earlier_start (booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start) ... ok
+test_public_api_and_page_timing (booking.tests.AvailabilityTests.test_public_api_and_page_timing) ... ok
+test_ut01_filters_capacity_active_and_overlap (booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap) ... ok
+test_ut02_api_rejects_bad_dates_and_guest_counts (booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts) ... ok
+test_active_capacity_rechecked_after_search (booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_adjacent_and_cancelled_bookings (booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_failed_metadata_write_rolls_back_booking (booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_idempotency_retry_changed_payload_and_customer_scope (booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_invalid_requests_and_spoofed_customer (booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_real_register_login_book_read_and_logout_flow (booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_real_session_valid_missing_and_invalid_csrf (booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_simultaneous_different_customers_exactly_one_booking (booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_simultaneous_key_reused_for_different_tables (booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_simultaneous_same_key_returns_same_booking (booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_ut03_confirmation_persisted_and_correct (booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+test_ut04_overlap_409_and_alternatives (booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives) ... skipped 'Real PostgreSQL required; SQLite is not concurrency evidence'
+
+----------------------------------------------------------------------
+Ran 59 tests in 1.198s
+
+OK (skipped=12)
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+ OK
+System check identified no issues (0 silenced).
+RMS-08 local API+template smoke duration: 0.0048s (not browser/load evidence)
