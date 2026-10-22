@@ -23,7 +23,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-`createsuperuser` prompts for credentials; none are supplied by this repository. Open `/admin/` with that account. Restaurant Admins may provision Staff/Customer users and maintain table capacity/active state. Staff and Customers cannot use these administration pages. Passwords are hashed by Django's admin forms. Normal customer registration must use `User.objects.create_user()` and explicitly allowlist public fields; the manager rejects role/staff/superuser escalation. A public registration API is a later issue, not implemented here.
+`createsuperuser` prompts for credentials; none are supplied by this repository. Open `/admin/` with that account. Restaurant Admins may provision Staff/Customer users and maintain table capacity/active state. Staff and Customers cannot use these administration pages. Passwords are hashed by Django's admin forms. Normal customer registration must use `User.objects.create_user()` and explicitly allowlist public fields; the manager rejects role/staff/superuser escalation. The public registration API now uses that manager and an allowlist; see the authentication contract below.
 
 ## Demo data and repeatability
 
@@ -63,3 +63,7 @@ The SQLite setting uses an in-memory database and a fast password hasher for tes
 ## Reset and existing development databases
 
 `AUTH_USER_MODEL=accounts.User` must be set **before the first migration**. If you previously migrated the empty RMS-02 skeleton with Django's default `auth.User`, do not apply this change blindly to that database. For disposable local development, configure a **new empty database name**, run the migrations and seed command, then create your local admin again. Keep the old database until you have checked that nothing is needed. Existing databases containing real data require a separately reviewed data migration; no automatic destructive reset is included. Preserve all committed migration files.
+
+### Authentication and scoped security
+
+Customer forms are available at `/register/`, `/login/` and `/account/`. The JSON authentication endpoints use Django cookie sessions and CSRF, including public register/login requests. See [the authentication contract and actual test evidence](docs/auth-security-contract.md) for payloads, permissions, the 30-minute idle boundary, teammate integration points and pending cross-module checks. This work reuses `accounts.User` from RMS-03 without changing migrations.
