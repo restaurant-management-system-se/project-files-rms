@@ -36,3 +36,7 @@ class Booking(models.Model):
             models.CheckConstraint(condition=Q(status__in=["Confirmed", "Cancelled"]), name="booking_valid_status"),
         ]
         indexes = [models.Index(fields=["table", "status", "start_at"], name="booking_availability_idx")]
+
+
+# Register the booking-owned idempotency model without altering shared entities.
+from .request_models import BookingRequestKey  # noqa: E402,F401

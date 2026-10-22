@@ -82,3 +82,5 @@ See [backend database setup](backend/README.md) for model details, safe demo dat
 ## Booking feature work
 
 The public `/book/` search and `/api/tables/availability` endpoint are described in [RMS-08 contract/evidence](backend/docs/RMS-08-contract-and-evidence.md). The implementation reuses the merged RMS-03 migrations/data. Sprint allocation remains pending; integration contracts require teammate review.
+
+Transactional Customer confirmation, retry safety, PostgreSQL concurrency tests and demonstration steps are recorded in [RMS-09](backend/docs/RMS-09-contract-and-evidence.md). Keep linked issues In Review pending teammate review and owner merge.

@@ -5,4 +5,7 @@
 <form id="search">{% csrf_token %}<label>Date and time <input id="start" type="datetime-local" required aria-describedby="message"></label><label>Guests <input id="guests" type="number" min="1" max="32767" value="2" required aria-describedby="message"></label><button>Check availability</button></form>
 <p id="message" role="alert"></p><section id="results" aria-live="polite"></section>
 <p>Availability can change before confirmation.</p>
+{% if request.user.is_authenticated %}<p>Signed in as {{ request.user.first_name|default:request.user.username }}. <a href="/account/">My account</a></p>
+{% else %}<p><a href="/login/">Sign in</a> or <a href="/register/">create a customer account</a> to confirm a booking.</p>{% endif %}
 </main><script src="{% static 'booking/book.js' %}" defer></script></body></html>
+<!-- Customer authentication is supplied by RMS-04; this page creates no login endpoint. -->

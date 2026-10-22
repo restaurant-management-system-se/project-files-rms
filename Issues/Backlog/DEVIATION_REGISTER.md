@@ -39,3 +39,12 @@ The current GitHub Project still describes sprint planning as deferred and expos
 | PENDING-07 | DEV-05 assigns ST_09/ST_10 but the two source test documents still carry competing variants; reporting/staff-account scope and approval evidence were requested by RMS-01. | Keep current canonical IDs; document a variant-to-canonical crosswalk and Admin-only staff provisioning/report-only payment field in a future source-document revision. Existing PR #35 provisioning is reused. Source docs are not silently marked revised or fully reconciled. | **Pending source-document/traceability review** — Noctowl with Akul; team approval required. |
 
 Verification: document inspection of the current SRS, SAD, Test Plan, additional Test Cases, merged PR #33/#35, issues #1/2/3/4/7/8 and GitHub Project on 22 October 2026. A coordination request was posted by Noctowl-Abhay on issue #2 tagging the three verified project owners. A posted proposal is not a teammate approval. Authentication implementation/test evidence is maintained separately in its feature PR and `backend/docs/auth-security-contract.md` when merged.
+
+## Implementation clarifications awaiting review (22 Oct 2026)
+
+These are proposals, not additional approved deviations. See #11 and the RMS-08/09 contract/evidence documents.
+
+- Nearest availability: minimize absolute start-time distance; equal distance selects earlier start, then capacity/table number. No opening-hours/calendar policy exists in the baseline; owner confirmation pending.
+- Shared integration: preserve RMS-03 entity fields; propose booking-owned durable retry metadata and Customer self-booking using Django sessions. Uses Noctowl's owner-published session contract and merged PR #36 permissions. Peer review remains pending; on-behalf staff flow and ownership remain unchanged.
+- Formal Sprint 1 allocations remain unset under DEV-07; the user-proposed RMS-03/08/09 selection is the working scope, not an approved team-wide sprint plan.
+- PR #35 is already merged with a successful PostgreSQL check; no submitted review was returned by GitHub. Reused as-is; no retroactive reviewer approval is claimed.
