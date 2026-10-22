@@ -64,10 +64,14 @@ The design includes safeguards against double booking, unavailable menu items at
 
 ### Backend (Django)
 1. `cd backend`
-2. Activate virtual environment: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
+2. Create a virtual environment with `python -m venv venv`, then activate: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
 3. Install dependencies: `pip install -r requirements.txt`
 4. Copy `.env.example` to `.env` and fill in your PostgreSQL credentials.
-5. Run server: `python manage.py runserver`
+5. Run `python manage.py migrate`, then `python manage.py seed_demo` for development data.
+6. Create your own administrator: `python manage.py createsuperuser`.
+7. Run server: `python manage.py runserver`.
+
+See [backend database setup](backend/README.md) for model details, safe demo data, tests and existing-database guidance.
 
 ### Real-time Service (Node.js)
 1. `cd realtime`
