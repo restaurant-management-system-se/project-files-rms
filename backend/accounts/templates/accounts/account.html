@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your account — RMS</title></head>
+<body><main><h1>Your account</h1><p>Welcome, {{ request.user.first_name }}.</p><p>Role: {{ request.user.role }}</p>
+<nav aria-label="Account"><a href="/api/bookings">Bookings</a> <a href="/api/orders">Orders</a>{% if request.user.role == 'Admin' %} <a href="/admin/">Administration</a>{% endif %}</nav>
+<p>After 30 minutes without activity, log in again to continue.</p>
+<form method="post" action="{% url 'logout-page' %}">{% csrf_token %}<button type="submit">Log out</button></form>
+</main></body></html>
