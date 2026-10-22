@@ -71,3 +71,7 @@ Customer forms are available at `/register/`, `/login/` and `/account/`. The JSO
 ## Table availability (RMS-08)
 
 Open `/book/` for the public search form. Configure `BOOKING_DURATION_MINUTES` (default 90) if needed. Search never guarantees a booking until transactional confirmation succeeds. See [API contract, nearest-slot rule and evidence](docs/RMS-08-contract-and-evidence.md). Merged RMS-04/05 provides `/login/`, `/register/` and `/account/`; this issue reuses that authentication foundation. Confirmation is added by RMS-09.
+
+## Booking confirmation (RMS-09)
+
+The `/book/` flow can confirm Customer reservations through `/api/bookings` with a valid Django session and CSRF token. PostgreSQL is required; a client request key makes retries safe. Run `python manage.py migrate` for the additive booking retry metadata migration. See [transaction, API, demo and evidence](docs/RMS-09-contract-and-evidence.md). Merged RMS-04/05 login and shared permissions are reused. Staff booking/cancellation remain separate issues.
