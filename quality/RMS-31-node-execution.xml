@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="H_NODE_01 client receives a fixture event after subscription" time="0.036879" classname="test"/>
+	<testcase name="H_NODE_02 rejected fixture handshake remains a failure" time="0.007906" classname="test"/>
+	<testcase name="H_NODE_03 missing fixture event expires instead of passing" time="0.036099" classname="test"/>
+	<!-- tests 3 -->
+	<!-- suites 0 -->
+	<!-- pass 3 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 214.721331 -->
+</testsuites>
