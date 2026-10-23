@@ -162,3 +162,8 @@ SESSION_COOKIE_SAMESITE = "Lax"
 CSRF_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SAMESITE = "Lax"
 ALLOWED_HOSTS = [host for host in os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if host]
+
+# Standard table turnaround; shared by search and confirmation.
+BOOKING_DURATION_MINUTES = int(os.environ.get("BOOKING_DURATION_MINUTES", "90"))
+if not 1 <= BOOKING_DURATION_MINUTES <= 1440:
+    raise ValueError("BOOKING_DURATION_MINUTES must be between 1 and 1440")
