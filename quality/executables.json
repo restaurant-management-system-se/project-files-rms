@@ -1,0 +1,392 @@
+{
+  "accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response": {
+    "requirements": [
+      "REQ-12"
+    ],
+    "planned_ids": [
+      "UT_17"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response"
+  },
+  "accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields": {
+    "requirements": [
+      "REQ-12"
+    ],
+    "planned_ids": [
+      "UT_17"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields"
+  },
+  "accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone": {
+    "requirements": [
+      "REQ-12"
+    ],
+    "planned_ids": [
+      "UT_18"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone"
+  },
+  "accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract"
+  },
+  "accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error": {
+    "requirements": [
+      "REQ-12"
+    ],
+    "planned_ids": [
+      "UT_18"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error"
+  },
+  "accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted": {
+    "requirements": [
+      "REQ-12"
+    ],
+    "planned_ids": [
+      "UT_22"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted"
+  },
+  "accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs": {
+    "requirements": [
+      "REQ-12",
+      "SEC-1"
+    ],
+    "planned_ids": [
+      "SV_01",
+      "UT_19"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs"
+  },
+  "accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf": {
+    "requirements": [
+      "REQ-12",
+      "REQ-13",
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "IT_10",
+      "SV_06"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf"
+  },
+  "accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic": {
+    "requirements": [
+      "REQ-12",
+      "SEC-4"
+    ],
+    "planned_ids": [
+      "SV_04",
+      "UT_17"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic"
+  },
+  "accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely": {
+    "requirements": [
+      "SEC-4"
+    ],
+    "planned_ids": [
+      "SV_04"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely"
+  },
+  "accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf": {
+    "requirements": [
+      "REQ-12",
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "SV_06",
+      "UT_17"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf"
+  },
+  "accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay": {
+    "requirements": [
+      "REQ-14",
+      "SEC-5",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "SV_06",
+      "SV_10"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay"
+  },
+  "accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected": {
+    "requirements": [
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "SV_06"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected"
+  },
+  "accounts.test_auth.AuthTests.test_protected_api_missing_auth_401": {
+    "requirements": [
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "SV_03"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_protected_api_missing_auth_401"
+  },
+  "accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay": {
+    "requirements": [
+      "REQ-14",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "SV_10",
+      "UT_20"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay"
+  },
+  "accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not": {
+    "requirements": [
+      "REQ-14",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "UT_20"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not"
+  },
+  "accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline": {
+    "requirements": [
+      "REQ-14",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "SV_10",
+      "UT_20"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline"
+  },
+  "accounts.test_auth.AuthTests.test_https_cookie_flags": {
+    "requirements": [
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "SV_09"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_https_cookie_flags"
+  },
+  "accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout": {
+    "requirements": [
+      "REQ-12",
+      "REQ-14",
+      "SEC-4",
+      "SEC-5",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "ST_07",
+      "SV_05",
+      "SV_06",
+      "SV_10"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout"
+  },
+  "accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations"
+  },
+  "accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix": {
+    "requirements": [
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "SV_03"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix"
+  },
+  "accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny": {
+    "requirements": [
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "SV_03"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny"
+  },
+  "accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation": {
+    "requirements": [
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "ST_14"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation"
+  },
+  "accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs": {
+    "requirements": [
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "SV_06"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs"
+  },
+  "accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests": {
+    "requirements": [
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "SV_03"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default": {
+    "requirements": [
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "SV_03"
+    ],
+    "scope": "Automated subcase only; full canonical procedure still pending",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_table_constraints": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_table_constraints"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention": {
+    "requirements": [
+      "REQ-2",
+      "QA-3"
+    ],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price": {
+    "requirements": [
+      "REQ-5",
+      "REQ-7"
+    ],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot": {
+    "requirements": [
+      "REQ-8",
+      "QA-3"
+    ],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff"
+  },
+  "accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables"
+  },
+  "accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords"
+  },
+  "accounts.tests.DemoSeedTests.test_seed_disabled_outside_development": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DemoSeedTests.test_seed_disabled_outside_development"
+  },
+  "accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed": {
+    "requirements": [],
+    "planned_ids": [],
+    "scope": "Foundation support; no complete feature or canonical case claimed",
+    "executable_id": "accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed"
+  },
+  "quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports": {
+    "requirements": [
+      "QA-2"
+    ],
+    "planned_ids": [
+      "SR_01"
+    ],
+    "scope": "Complete static SR_01 check over current four-app source",
+    "executable_id": "quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports"
+  },
+  "quality.test_harness.ModuleBoundaryTests.test_H_01_evidence_keeps_failure_skip_and_success_distinct": {
+    "requirements": [
+      "QA-2"
+    ],
+    "planned_ids": [],
+    "scope": "H_01 harness self-check; intentional child failure is expected and verified",
+    "executable_id": "quality.test_harness.ModuleBoundaryTests.test_H_01_evidence_keeps_failure_skip_and_success_distinct"
+  },
+  "quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary": {
+    "requirements": [
+      "REQ-12",
+      "REQ-14",
+      "SEC-8"
+    ],
+    "planned_ids": [
+      "IT_10",
+      "UT_20"
+    ],
+    "scope": "H_02 shared role/clock integration support",
+    "executable_id": "quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary"
+  },
+  "quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out": {
+    "requirements": [
+      "REQ-12",
+      "REQ-13",
+      "REQ-14"
+    ],
+    "planned_ids": [
+      "IT_10",
+      "ST_07"
+    ],
+    "scope": "H_03 partial customer flow; booking/menu/checkout absent on main",
+    "executable_id": "quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out"
+  }
+}
