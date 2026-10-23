@@ -24,3 +24,9 @@ Published harness head `5254e6328ff98236b5188839e2cf46d75e164953` was fetched in
 - This local container maps only uid 0 and lacks a PostgreSQL service; Actions is the actual PostgreSQL execution environment. SQLite-only confirmation/race skips are reported as skips.
 
 The Test Plan release gate remains unmet. Keep unexecuted canonical procedures pending, all three issues In Review, and require independent teammate review and owner merge.
+
+## Updated main observed during final verification
+
+PR #38 is now merged into main `9b4f49f80152e2f2fe1395c89a1abd74e49b1854`, including #39. Earlier open/candidate statements above describe their recorded baseline and are superseded for the current repository. No human review submission was returned for #38; merge is observed, independent review is not invented. REQ-1 now maps to `backend/booking/availability.py`, `serializers.py`, `tests.py` and the booking page; REQ-2 maps to `backend/booking/services.py`, `request_models.py`, migration 0002 and `test_confirmation.py`. Availability/confirmation are implemented on main; performance/full browser acceptance remain pending. The external executable map now includes all 24 booking tests with scoped requirement/case support.
+
+The initial RMS-31 CI run [39899949518](https://github.com/restaurant-management-system-se/project-files-rms/actions/runs/39899949518) passed PostgreSQL and Node jobs. The follow-up prepares current main in the disposable PostgreSQL job to test all 63 Django executables together; its outcome remains Pending until run. No production source from the booking owner is rewritten or pushed by Akul.

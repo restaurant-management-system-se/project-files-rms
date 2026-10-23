@@ -388,5 +388,305 @@
     ],
     "scope": "H_03 partial customer flow; booking/menu/checkout absent on main",
     "executable_id": "quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out"
+  },
+  "booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap"
+  },
+  "booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free"
+  },
+  "booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start"
+  },
+  "booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day"
+  },
+  "booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically"
+  },
+  "booking.tests.AvailabilityTests.test_configurable_duration": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_configurable_duration"
+  },
+  "booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts"
+  },
+  "booking.tests.AvailabilityTests.test_public_api_and_page_timing": {
+    "requirements": [
+      "REQ-1"
+    ],
+    "planned_ids": [
+      "UT_01",
+      "UT_02"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.tests.AvailabilityTests.test_public_api_and_page_timing"
+  },
+  "booking.test_confirmation.PermissionTests.test_unauthenticated_is_401": {
+    "requirements": [
+      "REQ-2",
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_03"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.PermissionTests.test_unauthenticated_is_401"
+  },
+  "booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow": {
+    "requirements": [
+      "REQ-2",
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_03"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow"
+  },
+  "booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write": {
+    "requirements": [
+      "REQ-2",
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_03"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write"
+  },
+  "booking.test_confirmation.PermissionTests.test_session_requires_csrf": {
+    "requirements": [
+      "REQ-2",
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_06"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.PermissionTests.test_session_requires_csrf"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer": {
+    "requirements": [
+      "REQ-2",
+      "REQ-13",
+      "SEC-3"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_03"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf": {
+    "requirements": [
+      "REQ-2",
+      "SEC-5"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "SV_06"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables": {
+    "requirements": [
+      "REQ-2"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables"
+  },
+  "booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow": {
+    "requirements": [
+      "REQ-2",
+      "REQ-12",
+      "REQ-14"
+    ],
+    "planned_ids": [
+      "UT_03",
+      "UT_04",
+      "IT_01",
+      "ST_07",
+      "IT_10"
+    ],
+    "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied",
+    "executable_id": "booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow"
   }
 }

@@ -13,3 +13,7 @@ The PR template records the owned issue, SRS IDs, executed checks, exact build/d
 Review order: RMS-29 traceability → RMS-30 harness → RMS-31 workflow. Stacked PRs target their predecessor to keep diffs focused. After owner merge, retarget the next PR to main and rerun its checks. Keep #30/#31/#32 open/In Review until independent teammate review and owner merge; do not silently close them because local tests pass.
 
 Current release limitations remain in INTEGRATION.md and the deviation register. Production realtime, menu/cart/checkout, deployed TLS/browser/security acceptance and PERF/QA procedures remain pending. Actions status is regression evidence, not a release sign-off.
+
+## Latest main integration
+
+The PostgreSQL job first fetches current main and merges it into the disposable CI checkout, without pushing or changing feature-owner branches. All code conflicts fail for owner resolution. The sole automated conflict handling preserves both append-only README sections; other document edits fail too. The JSON records the PR revision, integrated main SHA and exact staged tree hash, and explicitly reports dirty state for an uncommitted integration merge. This tests newly merged features together with the harness while stacked PRs remain reviewable.
