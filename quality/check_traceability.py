@@ -24,6 +24,11 @@ def validate(root):
         assert test['requirements'] or test.get('business_rule'), f"Orphan test {test['id']}"
         assert test['variants'] and 0 <= test['canonical_variant'] < len(test['variants'])
         assert test['result'] == 'Not Executed' or test['evidence'], 'Result requires execution evidence'
+    mapping_path = root / 'quality/executables.json'
+    if mapping_path.exists():
+        for name, mapping in json.loads(mapping_path.read_text()).items():
+            assert set(mapping['requirements']) <= expected_requirements, f'Unknown requirement: {name}'
+            assert set(mapping['planned_ids']) <= expected_tests, f'Unknown test ID: {name}'
     print('Traceability valid: 29 requirements, 58 canonical cases, source digests and actual paths verified. No execution pass inferred.')
 
 
