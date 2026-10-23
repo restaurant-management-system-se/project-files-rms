@@ -78,3 +78,9 @@ See [backend database setup](backend/README.md) for model details, safe demo dat
 2. Install dependencies: `npm install`
 3. Copy `.env.example` to `.env`.
 4. Run server: `node index.js`
+
+## Regression and traceability
+
+See [quality/README.md](quality/README.md) for the 29-requirement / 58-case inventory, [quality/HARNESS.md](quality/HARNESS.md) for repeatable PostgreSQL and Node client tests, [quality/INTEGRATION.md](quality/INTEGRATION.md) for current contracts/demo blockers, and [quality/CI.md](quality/CI.md) for review and evidence. A green regression check is not full release acceptance.
+
+The realtime manifests currently have no production index.js; the Node harness tests a client against a labelled synthetic fixture. Production server startup/live tracking remain with RMS-18. Completed RMS-02 is reused.

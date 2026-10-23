@@ -1,6 +1,7 @@
 """Validate the canonical inventory without claiming test execution."""
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 
@@ -19,11 +20,21 @@ def validate(root):
         for test_id in requirement['tests']:
             assert test_id in by_test and requirement['id'] in by_test[test_id]['requirements'], 'Broken reciprocal mapping'
         for path in requirement['actual_paths']:
-            assert (root / path).is_file(), f'Actual path absent: {path}'
+            ref = manifest.get('implementation_ref')
+            if ref:
+                exists = subprocess.run(['git', '-C', str(root), 'cat-file', '-e', f'{ref}:{path}'], capture_output=True)
+                assert exists.returncode == 0, f'Actual path absent at {ref}: {path}'
+            else:
+                assert (root / path).is_file(), f'Actual path absent: {path}'
     for test in tests:
         assert test['requirements'] or test.get('business_rule'), f"Orphan test {test['id']}"
         assert test['variants'] and 0 <= test['canonical_variant'] < len(test['variants'])
         assert test['result'] == 'Not Executed' or test['evidence'], 'Result requires execution evidence'
+        if test['result'] == 'Passed':
+            for evidence in test['evidence']:
+                report = json.loads((root / evidence['path']).read_text())
+                assert any(row['executable'] == evidence['executable'] and row['outcome'] == 'passed'
+                           for row in report['executables']), 'Passed case lacks matching executed evidence'
     mapping_path = root / 'quality/executables.json'
     if mapping_path.exists():
         for name, mapping in json.loads(mapping_path.read_text()).items():

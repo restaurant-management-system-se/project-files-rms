@@ -3,17 +3,28 @@ on:
   pull_request:
     paths:
       - 'backend/**'
+      - 'realtime/**'
+      - 'quality/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
   push:
     branches: [main]
     paths:
       - 'backend/**'
+      - 'realtime/**'
+      - 'quality/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
 permissions:
   contents: read
 jobs:
   postgres:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     services:
       postgres:
         image: postgres:16
@@ -39,15 +50,70 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Integrate current main in this disposable checkout
+        working-directory: .
+        run: python3 quality/prepare_integration.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: backend/requirements.txt
       - run: pip install -r requirements.txt
+      - run: python ../quality/check_traceability.py
+      - name: Record PostgreSQL environment
+        run: |
+          mkdir -p ../test-results
+          python --version > ../test-results/environment.txt
+          psql --version >> ../test-results/environment.txt
+          psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" -c 'SELECT version();' >> ../test-results/environment.txt
+        env:
+          PGPASSWORD: ${{ env.DB_PASSWORD }}
       - run: python manage.py check
       - run: python manage.py makemigrations --check --dry-run
       - run: python manage.py migrate --noinput
       - run: python manage.py seed_demo
       - run: python manage.py seed_demo
-      - run: python manage.py test accounts booking menu orders --verbosity=2
+      - name: Django regression with per-executable evidence
+        shell: bash
+        run: |
+          set -o pipefail
+          python manage.py test accounts booking menu orders quality.test_harness --testrunner=quality.runner.EvidenceRunner --verbosity=2 2>&1 | tee ../test-results/django.log
+      - name: Preserve PostgreSQL evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-evidence-${{ github.sha }}
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 30
+  node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: realtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: realtime/package-lock.json
+      - run: npm ci
+      - name: Socket.io client harness with JUnit evidence
+        run: |
+          mkdir -p ../test-results
+          node --version > ../test-results/node-environment.txt
+          npm --version >> ../test-results/node-environment.txt
+          git rev-parse HEAD >> ../test-results/node-environment.txt
+          node --test --test-reporter=junit test/*.test.js > ../test-results/node.xml
+      - name: Preserve Node evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-evidence-${{ github.sha }}
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 30

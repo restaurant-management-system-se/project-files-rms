@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "baseline_commit": "b171c48cf07c0742891151c58df68dbe1876be35",
+  "baseline_commit": "9b4f49f80152e2f2fe1395c89a1abd74e49b1854",
   "inspected_on": "2026-10-23",
   "sources": [
     {
@@ -33,12 +33,16 @@
       ],
       "issue": 11,
       "owner": "Captain-King-2024",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/booking/availability.py",
+        "backend/booking/serializers.py",
+        "backend/booking/views.py",
+        "backend/booking/templates/booking/book.html"
+      ],
+      "implementation": "Implemented",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
-      "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
+      "limitation": "Functional search and nearest alternatives merged via #38; 2-second browser/load and full system acceptance remain pending."
     },
     {
       "id": "REQ-2",
@@ -53,13 +57,14 @@
       "issue": 12,
       "owner": "Captain-King-2024",
       "actual_paths": [
-        "backend/booking/models.py"
+        "backend/booking/services.py",
+        "backend/booking/request_models.py",
+        "backend/booking/migrations/0002_bookingrequestkey.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Implemented",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
-      "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
+      "limitation": "Atomic Customer confirmation and retries merged through #39/#38; PostgreSQL subcases passed; full system acceptance remains pending."
     },
     {
       "id": "REQ-3",
@@ -483,9 +488,12 @@
         "backend/orders/apps.py"
       ],
       "implementation": "Implemented",
-      "result": "Not Executed",
+      "result": "Passed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Static boundary execution recorded separately; startup of realtime missing at baseline."
+      "limitation": "Complete SR_01 static procedure passed; production Node startup is a separate documented foundation/integration gap.",
+      "evidence": [
+        "quality/RMS-31-postgres-execution.json"
+      ]
     },
     {
       "id": "QA-3",
@@ -1580,8 +1588,14 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Passed",
+      "evidence": [
+        {
+          "path": "quality/RMS-31-postgres-execution.json",
+          "executable": "quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports",
+          "workflow_run": 39900859010
+        }
+      ],
       "requirements": [
         "QA-2"
       ],
@@ -1928,5 +1942,6 @@
       "source": "SAD 10.1",
       "note": "Design suggestion outside 58 canonical tests; no execution claimed."
     }
-  ]
+  ],
+  "implementation_ref": "9b4f49f80152e2f2fe1395c89a1abd74e49b1854"
 }
