@@ -50,6 +50,11 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Integrate current main in this disposable checkout
+        working-directory: .
+        run: python3 quality/prepare_integration.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
