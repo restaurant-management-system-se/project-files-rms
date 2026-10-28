@@ -19,3 +19,5 @@ urlpatterns = [
 ]
 
 urlpatterns += [path('', include('menu.urls'))]
+
+urlpatterns += [path('', include('orders.urls'))]
