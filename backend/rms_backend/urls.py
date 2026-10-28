@@ -17,3 +17,5 @@ urlpatterns = [
     path("api/orders", OrderReadView.as_view()),
     path("api/orders/<int:pk>", OrderReadView.as_view()),
 ]
+
+urlpatterns += [path('', include('menu.urls'))]
