@@ -1,0 +1,19 @@
+'use strict';
+const http=require('node:http');const crypto=require('node:crypto');const express=require('express');const {Server}=require('socket.io');
+function createRealtime({djangoUrl,key,origin,checkMs=1000,sessionCookie='sessionid'}){
+ if(typeof key!=='string'||key.length<32)throw Error('RMS_REALTIME_KEY must contain at least 32 characters.');
+ const target=new URL(djangoUrl);if(!['http:','https:'].includes(target.protocol)||target.username||target.password)throw Error('Invalid Django URL');
+ if(target.protocol!=='https:'&&!['127.0.0.1','localhost','[::1]'].includes(target.hostname))throw Error('Use HTTPS for non-loopback Django.');
+ const publicOrigin=new URL(origin).origin;const app=express();app.disable('x-powered-by');app.use(express.json({limit:'1kb'}));const server=http.createServer(app);
+ const io=new Server(server,{cors:{origin:publicOrigin,credentials:true},allowRequest:(req,done)=>done(null,req.headers.origin===publicOrigin),maxHttpBufferSize:1024});
+ function trusted(value){const a=Buffer.from(value||''),b=Buffer.from(key);return a.length===b.length&&crypto.timingSafeEqual(a,b);}
+ async function api(path,headers={}){const r=await fetch(new URL(path,target),{headers,redirect:'error',signal:AbortSignal.timeout(3000)});if(!r.ok)throw Error('Access denied');return r.json();}
+ function cookieFor(socket){const match=(socket.request.headers.cookie||'').split(';').map(s=>s.trim()).find(s=>s.startsWith(sessionCookie+'='));if(!match||match.length>4096)throw Error('Session required');return match;}
+ async function authorize(socket){const session=await api('/api/auth/session',{Cookie:cookieFor(socket)});if(!Number.isSafeInteger(session.user?.id))throw Error('Session required');await api('/api/internal/orders/'+socket.data.orderId+'/access',{'X-RMS-Key':key,'X-RMS-Actor':String(session.user.id)});}
+ io.use(async(socket,next)=>{try{const id=socket.handshake.auth?.orderId;if(!Number.isSafeInteger(id)||id<1)throw Error('Invalid order');socket.data.orderId=id;socket.data.version=0;await authorize(socket);next();}catch{next(Error('Order access denied'));}});
+ io.on('connection',socket=>{socket.join('order:'+socket.data.orderId);let busy=false;const timer=setInterval(async()=>{if(busy)return;busy=true;try{await authorize(socket);}catch{socket.disconnect(true);}finally{busy=false;}},checkMs);timer.unref();socket.on('disconnect',()=>clearInterval(timer));});
+ app.post('/internal/events',async(req,res)=>{if(!trusted(req.get('X-RMS-Key')))return res.status(403).json({detail:'Forbidden'});if(typeof req.body?.event_id!=='string'||!/^[0-9a-f-]{36}$/i.test(req.body.event_id))return res.status(400).json({detail:'Invalid event'});try{const event=await api('/api/internal/order-events/'+req.body.event_id,{'X-RMS-Key':key});if(!Number.isSafeInteger(event.order_id)||!Number.isSafeInteger(event.version)||!['Received','Preparing','Served'].includes(event.status))throw Error('Invalid persisted event');const sockets=await io.in('order:'+event.order_id).fetchSockets();await Promise.all(sockets.map(async socket=>{try{await authorize(socket);if(event.version>socket.data.version){socket.data.version=event.version;socket.emit('order_status_changed',event);}}catch{socket.disconnect(true);}}));res.json({accepted:true});}catch{res.status(503).json({detail:'Event delivery unavailable'});}});
+ return {server,io,close:()=>new Promise(resolve=>io.close(()=>server.close(resolve)))};
+}
+module.exports={createRealtime};
+if(require.main===module){require('dotenv').config({quiet:true});const service=createRealtime({djangoUrl:process.env.RMS_DJANGO_URL||'http://127.0.0.1:8000',key:process.env.RMS_REALTIME_KEY,origin:process.env.RMS_PUBLIC_ORIGIN||'http://127.0.0.1:8000'});service.server.listen(Number(process.env.PORT||3000),'127.0.0.1',()=>console.log(JSON.stringify({port:service.server.address().port})));}
