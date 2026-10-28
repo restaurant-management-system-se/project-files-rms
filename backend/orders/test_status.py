@@ -32,10 +32,12 @@ class StatusPostgresTests(TransactionTestCase):
         self.order.refresh_from_db();self.assertEqual((self.order.status,self.order.version),('Served',3))
     def test_simultaneous_repeat_changes_once(self):
         barrier=Barrier(2)
-        def attempt(_):
+        second=User.objects.create_user(username='status2',email='status2@example.invalid',password='Test#123');second.role='Staff';second.save()
+        actors=[self.user,second]
+        def attempt(index):
             close_old_connections()
             try:
-                barrier.wait(timeout=10);return change_status(user=self.user,order_id=self.order.pk,status='Preparing',expected_version=1)[1]
+                barrier.wait(timeout=10);return change_status(user=actors[index],order_id=self.order.pk,status='Preparing',expected_version=1)[1]
             finally:close_old_connections()
         with ThreadPoolExecutor(2) as pool:results=list(pool.map(attempt,range(2)))
         self.assertEqual(sorted(results),[False,True]);self.order.refresh_from_db();self.assertEqual(self.order.version,2)
