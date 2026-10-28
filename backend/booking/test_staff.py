@@ -46,6 +46,14 @@ class StaffReadTests(TestCase):
         self.client.force_login(self.admin)
         self.assertEqual(self.client.get('/api/staff/bookings').status_code,200)
 
+    def test_reference_search_does_not_match_table_with_same_number(self):
+        self.table.table_number=self.booking.pk
+        self.table.save()
+        Booking.objects.create(customer=self.customer,table=self.table,start_at=self.start,end_at=self.start+timedelta(hours=1),party_size=2)
+        self.client.force_login(self.staff)
+        response=self.client.get('/api/staff/bookings',{'q':f'BK-{self.booking.pk}'})
+        self.assertEqual([b['id'] for b in response.json()['results']],[self.booking.pk])
+
     def test_validation_and_no_delete_or_customer_create_regression(self):
         self.client.force_login(self.staff)
         for data in [[],{}, {'reason':' '},{'reason':'x','status':'Cancelled'}]:

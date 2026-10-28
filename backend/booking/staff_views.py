@@ -53,7 +53,9 @@ def search_bookings(data):
         match=Q(customer__email__icontains=q)|Q(customer__first_name__icontains=q)|Q(customer__username__icontains=q)
         reference=q[3:] if q.upper().startswith('BK-') else q
         if reference.isdecimal() and len(reference)<19:
-            match |= Q(pk=int(reference))|Q(table__table_number=int(reference))
+            match |= Q(pk=int(reference))
+            if not q.upper().startswith('BK-'):
+                match |= Q(table__table_number=int(reference))
         records=records.filter(match)
     return Paginator(records,25).get_page(data['page'])
 
