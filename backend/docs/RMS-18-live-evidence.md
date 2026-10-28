@@ -15,3 +15,36 @@ Remaining acceptance: real deployed HTTPS/WSS, browser/device tests and commit-t
 Local full feature stack: 81 discovered, 60 passed, 21 skipped (PostgreSQL and optional audit-only), 1.218 seconds. Node service tests: 2/2 passed. Disposable merge with Noctowl audit head c14d446: 119 discovered, 78 passed, 41 PostgreSQL-only skipped, 1.692 seconds. Menu API audit capture including description-only edit passed. This does not prove PostgreSQL audit rollback/live delivery yet. CI reuses the existing single PostgreSQL service and runs the feature stack, then a disposable pinned RMS23 merge without committing/pushing any owner branch. It preserves logs; exact outcomes must be recorded from the run.
 
 The workflow test prerequisites overlap Akul PR42's unmerged extension. Akul must review/resolve that shared workflow diff when retargeting; this does not claim an agreed pipeline change or implement a second pipeline.
+
+## PostgreSQL execution completed — 28 October 2026
+
+Published/tested live head: `bd1e3e58d3934e0f433f249912a3e41aa6eccf81`. All seven feature branches byte-matched their tested local source trees before the documentation-only update. [Run 40642103210](https://github.com/restaurant-management-system-se/project-files-rms/actions/runs/40642103210), job 122662354063, passed:
+
+- Feature stack: **79 passed, 2 optional audit-stack tests skipped**; 81 discovered, 35.084 seconds.
+- Disposable merge with pinned audit head `c14d4469a409003db99af322471ab2fb5f4f7751`: **118 passed, 1 SQLite-only test skipped**; 119 discovered, 39.937 seconds.
+- Node service unit tests: **2 passed**, no failures/skips.
+
+Real PostgreSQL + Django LiveServer + the actual Node server delivered committed Preparing version 2 to the owning customer and rejected another customer and an expired session. The session last_activity value was unchanged by socket authorization. Audit-stack endpoint tests passed menu create/description-only update/delete attribution, one status event on safe retry, and rollback of status/version/outbox on audit failure. Original booking/cancellation/staff races were included in the combined run. Fresh migrations, two demo seeds and migration consistency passed. Raw feature/audit logs are retained in the run artifact. Expected negative constraint tests produce database ERROR log entries; their assertions passed and they are not unhandled suite failures.
+
+| Owned issue | PR | PostgreSQL run | Actual cumulative result |
+|---|---|---|---|
+| RMS12 / #18 | #47 | 40639798301 | 63/63 passed, 26.624s |
+| RMS13 / #19 | #48 | 40640308326 | 65/65 passed, 16.624s |
+| RMS14 / #20 | #49 | 40640583588 | 68/68 passed, 28.751s |
+| RMS15 / #21 | #50 | 40640765198 | 72/72 passed, 18.165s |
+| RMS16 / #22 | #51 | 40641063250 | 73/73 passed, 30.619s |
+| RMS17 / #23 | #52 | 40641685307 | 76/76 passed, 32.326s; distinct Staff actors |
+| RMS18 / #24 | #53 | 40642103210 | 79 passed/2 optional skips, then 118 passed/1 SQLite-only skip with audit |
+
+These are cumulative regression executables, not a sum of independent canonical Test Plan procedures. All six earlier suites had no skips. Local smoke uses SQLite; concurrency evidence above uses PostgreSQL. Full planned-case execution, deployed security/browser acceptance and universal one-second/95th-percentile render timing remain unexecuted. PR53 stays draft; issues stay open/In Review until independent review and owner merge.
+
+### Demonstration after reviewed dependency merges
+
+1. Admin logs in at /login/ and opens /manage/menu/. Create Soup under Starters with description and price, edit it, and toggle availability.
+2. Customer opens /menu/, adds available dishes, edits positive whole quantities at /cart/, and selects takeaway or their own confirmed booking.
+3. Place the order; the server confirms a Received order with saved total and a tracking link. Repeating a network request with its UUID returns the same order.
+4. Staff opens /staff/orders/, moves Received to Preparing then Served. With the documented Node service and same-origin proxy, the customer's /orders/<id>/ page receives committed versioned changes.
+5. To demonstrate stale cart, add two dishes, have Admin disable one, then submit: no partial order is created. Remove the flagged dish and confirm the remaining contents.
+6. With Noctowl's reviewed RMS23 installed, Admin views /admin/auditlog/auditevent/ for menu, booking and status actions. Referenced menu deletion preserves history by disabling the item.
+
+Deployment blockers: configure private service URLs, a strong shared secret, same-origin HTTPS/WSS proxy and trusted retry scheduling; verify browser rendering/timing in that environment. Akul owns reconnect/resynchronization and percentile/load/restart evidence. No teammate issue is closed or merged by this work.
