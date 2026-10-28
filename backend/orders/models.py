@@ -13,6 +13,7 @@ class Order(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="orders")
     booking = models.ForeignKey("booking.Booking", on_delete=models.PROTECT, null=True, blank=True, related_name="orders")
     status = models.CharField(max_length=10, choices=Status, default=Status.RECEIVED)
+    version = models.PositiveIntegerField(default=1)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2)
     payment_mode = models.CharField(max_length=30, blank=True)
     placed_at = models.DateTimeField(auto_now_add=True)
