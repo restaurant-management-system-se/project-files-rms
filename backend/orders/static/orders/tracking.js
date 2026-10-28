@@ -1,0 +1,5 @@
+'use strict';
+const orderId=Number(document.getElementById('tracking').dataset.orderId);let version=0;
+function show(data){if(data.order_id!==orderId&&data.id!==orderId)return;if(!Number.isInteger(data.version)||data.version<version)return;version=data.version;document.getElementById('status').textContent=data.status;}
+fetch('/api/orders/'+orderId,{cache:'no-store'}).then(async r=>{if(!r.ok)throw Error('Login or order access required.');show(await r.json());}).catch(e=>document.getElementById('connection').textContent=e.message);
+if(typeof io==='function'){const socket=io({auth:{orderId},transports:['websocket'],reconnection:false});socket.on('connect',()=>document.getElementById('connection').textContent='Live updates connected');socket.on('order_status_changed',show);socket.on('connect_error',()=>document.getElementById('connection').textContent='Live access unavailable. Refresh to view saved status.');socket.on('disconnect',()=>document.getElementById('connection').textContent='Live connection lost. Refresh to view saved status.');}else document.getElementById('connection').textContent='Live service unavailable. Saved status remains available.';
