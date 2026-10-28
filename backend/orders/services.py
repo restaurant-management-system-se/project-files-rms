@@ -26,7 +26,7 @@ def create_order(*,user,items,context,idempotency_key,booking_id=None):
             if booking is None: raise OrderError('INVALID_BOOKING','Use your own confirmed booking.',400)
         menu={i.pk:i for i in MenuItem.objects.select_for_update().filter(pk__in=[line['menu_item_id'] for line in items]).order_by('pk')}
         invalid=[line['menu_item_id'] for line in items if line['menu_item_id'] not in menu or not menu[line['menu_item_id']].available]
-        if invalid: raise OrderError('UNAVAILABLE_ITEMS','Some dishes are no longer available.')
+        if invalid: raise OrderError('UNAVAILABLE_ITEMS','Some dishes are no longer available. Review your cart before confirming again.', details={'unavailable_items':[{'menu_item_id':pk,'name':menu[pk].name if pk in menu else 'Removed dish'} for pk in invalid]})
         total=sum((menu[line['menu_item_id']].price*line['quantity'] for line in items),Decimal('0'))
         if total>Decimal('9999999999.99'): raise OrderError('INVALID_TOTAL','Order total exceeds the supported limit.',400)
         order=Order.objects.create(customer=actor,booking=booking,status='Received',total_amount=total)
