@@ -47,3 +47,6 @@ class User(AbstractUser):
         if kwargs.get("update_fields") is not None:
             kwargs["update_fields"] = set(kwargs["update_fields"]) | {"email", "phone", "is_staff", "is_superuser"}
         super().save(*args, **kwargs)
+
+
+from .lockout_models import LoginGuard  # noqa: E402,F401
