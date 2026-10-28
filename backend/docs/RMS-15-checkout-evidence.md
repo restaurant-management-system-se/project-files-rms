@@ -1,0 +1,5 @@
+# RMS-15 / issue #21
+
+POST /api/orders requires Customer session, CSRF, items [{menu_item_id,quantity}], context (takeaway/booking), owned confirmed booking_id only for booking, UUID idempotency_key. Unknown fields/client prices rejected. PostgreSQL durable transaction locks customer → optional booking → menu rows by ID, re-reads availability/prices, snapshots unit prices, computes Decimal totals, creates all rows/retry identity atomically, and responds after commit. Same-user/key retries return the existing order; changed payload returns 409. SQLite mutation is refused. No payment processing. GET /api/orders/<id> reuses original ownership rules and returns saved items/totals. /cart/ submits reviewed contents and retains retry key on network failure.
+
+Tests include validation, roles, snapshots, protected reads, rollback, unavailable rejection and two simultaneous retries; PostgreSQL results must come from CI. Retains schema's historical Cancelled option without exposing it; RMS17 owns transitions. Demo: /menu/ → cart → choose takeaway/owned booking → Place order → confirm saved total; reread via API.
