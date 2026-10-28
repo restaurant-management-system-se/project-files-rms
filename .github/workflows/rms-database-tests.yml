@@ -3,11 +3,13 @@ on:
   pull_request:
     paths:
       - 'backend/**'
+      - 'realtime/**'
       - '.github/workflows/rms-database-tests.yml'
   push:
     branches: [main]
     paths:
       - 'backend/**'
+      - 'realtime/**'
       - '.github/workflows/rms-database-tests.yml'
 permissions:
   contents: read
@@ -39,15 +41,45 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: backend/requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install and test real-time service
+        working-directory: realtime
+        run: npm ci && npm test
       - run: pip install -r requirements.txt
       - run: python manage.py check
       - run: python manage.py makemigrations --check --dry-run
       - run: python manage.py migrate --noinput
       - run: python manage.py seed_demo
       - run: python manage.py seed_demo
-      - run: python manage.py test accounts booking menu orders --verbosity=2
+      - name: Test owned feature stack on PostgreSQL
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p ../test-results
+          python manage.py test accounts booking menu orders --verbosity=2 2>&1 | tee ../test-results/feature-postgres.log
+      - name: Verify proposed RMS-23 integration in disposable checkout
+        working-directory: .
+        shell: bash
+        run: |
+          set -o pipefail
+          git fetch origin c14d4469a409003db99af322471ab2fb5f4f7751
+          git -c user.name='RMS disposable integration' -c user.email='rms-ci@example.invalid' merge --no-commit --no-ff FETCH_HEAD
+          python backend/manage.py makemigrations --check --dry-run
+          python backend/manage.py test accounts booking menu orders --verbosity=2 2>&1 | tee test-results/audit-postgres.log
+      - name: Preserve executed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prasanna-postgres-${{ github.sha }}
+          path: test-results/
+          retention-days: 30
+          if-no-files-found: warn
