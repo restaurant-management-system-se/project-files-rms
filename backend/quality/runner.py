@@ -24,6 +24,8 @@ def git(*args):
 
 def metadata():
     return {'revision': git('rev-parse', 'HEAD'), 'dirty': bool(git('status', '--porcelain')),
+            'integration_main_sha': git('rev-parse', 'origin/main'),
+            'tested_index_tree': git('write-tree'),
             'python': platform.python_version(), 'django': django.get_version(),
             'database_vendor': connection.vendor,
             'database_server_version': getattr(connection, 'pg_version', None) if connection.vendor == 'postgresql' else None}
@@ -109,7 +111,12 @@ class EvidenceRunner(DiscoverRunner):
         mapping_path = ROOT / 'quality' / 'executables.json'
         mapping = json.loads(mapping_path.read_text()) if mapping_path.exists() else {}
         try:
-            return super().run_tests(test_labels, **kwargs)
+            failures = super().run_tests(test_labels, **kwargs)
+            self.successful = self.successful and failures == 0
+            return failures
+        except BaseException:
+            self.successful = False
+            raise
         finally:
             report = build_report(self.records, build, mapping, self.successful, started)
             report['manifest_sha256'] = hashlib.sha256(mapping_path.read_bytes()).hexdigest() if mapping_path.exists() else None

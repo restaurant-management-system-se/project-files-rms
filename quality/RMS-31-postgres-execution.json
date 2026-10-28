@@ -1,0 +1,837 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-23T04:33:00.007129+00:00",
+  "finished_utc": "2026-10-23T04:33:17.414191+00:00",
+  "build": {
+    "revision": "848cc3d432109ebbfa5d23c39c3c46df657795bc",
+    "dirty": true,
+    "integration_main_sha": "9b4f49f80152e2f2fe1395c89a1abd74e49b1854",
+    "tested_index_tree": "481979204c38e9858827478fb45abe6927a2b846",
+    "python": "3.12.15",
+    "django": "6.1.2",
+    "database_vendor": "postgresql",
+    "database_server_version": 160015
+  },
+  "successful": true,
+  "executables": [
+    {
+      "executable": "accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not",
+      "outcome": "passed",
+      "seconds": 0.641757,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs",
+      "outcome": "passed",
+      "seconds": 0.796518,
+      "requirements": [
+        "REQ-12",
+        "SEC-1"
+      ],
+      "planned_ids": [
+        "SV_01",
+        "UT_19"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf",
+      "outcome": "passed",
+      "seconds": 0.267699,
+      "requirements": [
+        "REQ-12",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06",
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations",
+      "outcome": "passed",
+      "seconds": 0.002667,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay",
+      "outcome": "passed",
+      "seconds": 0.538484,
+      "requirements": [
+        "REQ-14",
+        "SEC-5",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_06",
+        "SV_10"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error",
+      "outcome": "passed",
+      "seconds": 0.512954,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_18"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected",
+      "outcome": "passed",
+      "seconds": 0.535822,
+      "requirements": [
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone",
+      "outcome": "passed",
+      "seconds": 0.271529,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_18"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline",
+      "outcome": "passed",
+      "seconds": 0.271342,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_10",
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout",
+      "outcome": "passed",
+      "seconds": 0.542123,
+      "requirements": [
+        "REQ-12",
+        "REQ-14",
+        "SEC-4",
+        "SEC-5",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "ST_07",
+        "SV_05",
+        "SV_06",
+        "SV_10"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_https_cookie_flags",
+      "outcome": "passed",
+      "seconds": 0.52002,
+      "requirements": [
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_09"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay",
+      "outcome": "passed",
+      "seconds": 1.061818,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_10",
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic",
+      "outcome": "passed",
+      "seconds": 1.34552,
+      "requirements": [
+        "REQ-12",
+        "SEC-4"
+      ],
+      "planned_ids": [
+        "SV_04",
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf",
+      "outcome": "passed",
+      "seconds": 0.802305,
+      "requirements": [
+        "REQ-12",
+        "REQ-13",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely",
+      "outcome": "passed",
+      "seconds": 0.012698,
+      "requirements": [
+        "SEC-4"
+      ],
+      "planned_ids": [
+        "SV_04"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract",
+      "outcome": "passed",
+      "seconds": 0.278746,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted",
+      "outcome": "passed",
+      "seconds": 0.283599,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_22"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_protected_api_missing_auth_401",
+      "outcome": "passed",
+      "seconds": 0.002057,
+      "requirements": [
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields",
+      "outcome": "passed",
+      "seconds": 0.009087,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response",
+      "outcome": "passed",
+      "seconds": 0.519392,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix",
+      "outcome": "passed",
+      "seconds": 0.591467,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation",
+      "outcome": "passed",
+      "seconds": 0.563545,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "ST_14"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests",
+      "outcome": "passed",
+      "seconds": 0.512644,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny",
+      "outcome": "passed",
+      "seconds": 0.526768,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs",
+      "outcome": "passed",
+      "seconds": 0.526306,
+      "requirements": [
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables",
+      "outcome": "passed",
+      "seconds": 0.803486,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff",
+      "outcome": "passed",
+      "seconds": 0.275772,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention",
+      "outcome": "passed",
+      "seconds": 0.265778,
+      "requirements": [
+        "REQ-2",
+        "QA-3"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price",
+      "outcome": "passed",
+      "seconds": 0.258671,
+      "requirements": [
+        "REQ-5",
+        "REQ-7"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot",
+      "outcome": "passed",
+      "seconds": 0.300761,
+      "requirements": [
+        "REQ-8",
+        "QA-3"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_table_constraints",
+      "outcome": "passed",
+      "seconds": 0.26103,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default",
+      "outcome": "passed",
+      "seconds": 0.528574,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed",
+      "outcome": "passed",
+      "seconds": 0.268484,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_seed_disabled_outside_development",
+      "outcome": "passed",
+      "seconds": 0.00109,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords",
+      "outcome": "passed",
+      "seconds": 0.030662,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write",
+      "outcome": "passed",
+      "seconds": 0.019097,
+      "requirements": [
+        "REQ-2",
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_03"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_session_requires_csrf",
+      "outcome": "passed",
+      "seconds": 0.007043,
+      "requirements": [
+        "REQ-2",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_06"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow",
+      "outcome": "passed",
+      "seconds": 0.010328,
+      "requirements": [
+        "REQ-2",
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_03"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_unauthenticated_is_401",
+      "outcome": "passed",
+      "seconds": 0.00064,
+      "requirements": [
+        "REQ-2",
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_03"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free",
+      "outcome": "passed",
+      "seconds": 0.004884,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_configurable_duration",
+      "outcome": "passed",
+      "seconds": 0.002205,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day",
+      "outcome": "passed",
+      "seconds": 0.002593,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically",
+      "outcome": "passed",
+      "seconds": 0.003111,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start",
+      "outcome": "passed",
+      "seconds": 0.002154,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_public_api_and_page_timing",
+      "outcome": "passed",
+      "seconds": 0.004958,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap",
+      "outcome": "passed",
+      "seconds": 0.004553,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts",
+      "outcome": "passed",
+      "seconds": 0.005294,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [
+        "UT_01",
+        "UT_02"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary",
+      "outcome": "passed",
+      "seconds": 0.013347,
+      "requirements": [
+        "REQ-12",
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "UT_20"
+      ],
+      "scope": "H_02 shared role/clock integration support"
+    },
+    {
+      "executable": "quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out",
+      "outcome": "passed",
+      "seconds": 0.018368,
+      "requirements": [
+        "REQ-12",
+        "REQ-13",
+        "REQ-14"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "ST_07"
+      ],
+      "scope": "H_03 partial customer flow; booking/menu/checkout absent on main"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search",
+      "outcome": "passed",
+      "seconds": 0.028866,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings",
+      "outcome": "passed",
+      "seconds": 0.035003,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking",
+      "outcome": "passed",
+      "seconds": 0.026612,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope",
+      "outcome": "passed",
+      "seconds": 0.046995,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer",
+      "outcome": "passed",
+      "seconds": 0.049175,
+      "requirements": [
+        "REQ-2",
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_03"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow",
+      "outcome": "passed",
+      "seconds": 0.596838,
+      "requirements": [
+        "REQ-2",
+        "REQ-12",
+        "REQ-14"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "ST_07",
+        "IT_10"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf",
+      "outcome": "passed",
+      "seconds": 0.032171,
+      "requirements": [
+        "REQ-2",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "SV_06"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking",
+      "outcome": "passed",
+      "seconds": 0.048946,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables",
+      "outcome": "passed",
+      "seconds": 0.039986,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking",
+      "outcome": "passed",
+      "seconds": 0.052108,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct",
+      "outcome": "passed",
+      "seconds": 0.022247,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives",
+      "outcome": "passed",
+      "seconds": 0.042763,
+      "requirements": [
+        "REQ-2"
+      ],
+      "planned_ids": [
+        "UT_03",
+        "UT_04",
+        "IT_01"
+      ],
+      "scope": "Current main 9b4f49f booking automated subcase; no full browser/load acceptance implied"
+    },
+    {
+      "executable": "quality.test_harness.ModuleBoundaryTests.test_H_01_evidence_keeps_failure_skip_and_success_distinct",
+      "outcome": "passed",
+      "seconds": 0.000865,
+      "requirements": [
+        "QA-2"
+      ],
+      "planned_ids": [],
+      "scope": "H_01 harness self-check; intentional child failure is expected and verified"
+    },
+    {
+      "executable": "quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports",
+      "outcome": "passed",
+      "seconds": 0.022487,
+      "requirements": [
+        "QA-2"
+      ],
+      "planned_ids": [
+        "SR_01"
+      ],
+      "scope": "Complete static SR_01 check over current four-app source"
+    }
+  ],
+  "canonical_case_results": "Not Executed unless separately evidenced in manual execution records",
+  "note": "Passing automated subcases do not prove a full system/security procedure. Skips are not passes.",
+  "manifest_sha256": "5c5ab7f357067d2b2212dad2c6e3a7a6498c1a38193a62e3ba2dddb3958bf4e3"
+}
