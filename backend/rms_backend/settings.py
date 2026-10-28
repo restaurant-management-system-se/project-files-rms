@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -131,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Email
@@ -167,3 +169,9 @@ ALLOWED_HOSTS = [host for host in os.environ.get("ALLOWED_HOSTS", "localhost,127
 BOOKING_DURATION_MINUTES = int(os.environ.get("BOOKING_DURATION_MINUTES", "90"))
 if not 1 <= BOOKING_DURATION_MINUTES <= 1440:
     raise ValueError("BOOKING_DURATION_MINUTES must be between 1 and 1440")
+
+# --- Production / deployment ---
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_TRUSTED_ORIGINS = [
+    o for o in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if o
+]
