@@ -30,21 +30,29 @@ def confirm_booking(*, user, table_id, start_at, party_size, idempotency_key):
             if previous.payload != payload:
                 raise BookingError('IDEMPOTENCY_CONFLICT', 'Use a new key for a changed booking request.', 409)
             return previous.booking, False
-        if start_at <= timezone.now():
-            raise BookingError('INVALID_REQUEST', 'Choose a future date and time.', 400,
-                               {'start_at': ['Choose a future date and time.']})
-        try:
-            table = RestaurantTable.objects.select_for_update().get(pk=table_id)
-        except RestaurantTable.DoesNotExist:
-            raise BookingError('TABLE_NOT_FOUND', 'The selected table does not exist.', 404)
-        if not table.active or table.capacity < party_size:
-            raise BookingError('TABLE_UNAVAILABLE', 'The selected table cannot seat this party.', 409)
-        end_at = start_at + duration()
-        if Booking.objects.filter(table=table, status=Booking.Status.CONFIRMED,
-                                  start_at__lt=end_at, end_at__gt=start_at).exists():
-            raise BookingError('TABLE_UNAVAILABLE', 'The selected table is no longer available.', 409)
-        booking = Booking.objects.create(customer=actor, table=table, start_at=start_at,
-                                        end_at=end_at, party_size=party_size)
+        booking = create_locked_booking(customer=actor, table_id=table_id,
+                                        start_at=start_at, party_size=party_size)
         BookingRequestKey.objects.create(customer=actor, key=idempotency_key,
                                          payload=payload, booking=booking)
     return booking, True
+
+
+def create_locked_booking(*, customer, table_id, start_at, party_size):
+    """Caller owns a PostgreSQL transaction and customer lock; lock table next."""
+    if connection.vendor != 'postgresql' or not connection.in_atomic_block:
+        raise RuntimeError('A PostgreSQL transaction is required.')
+    if start_at <= timezone.now():
+        raise BookingError('INVALID_REQUEST', 'Choose a future date and time.', 400,
+                           {'start_at': ['Choose a future date and time.']})
+    try:
+        table = RestaurantTable.objects.select_for_update().get(pk=table_id)
+    except RestaurantTable.DoesNotExist:
+        raise BookingError('TABLE_NOT_FOUND', 'The selected table does not exist.', 404)
+    if not table.active or table.capacity < party_size:
+        raise BookingError('TABLE_UNAVAILABLE', 'The selected table cannot seat this party.', 409)
+    end_at = start_at + duration()
+    if Booking.objects.filter(table=table, status=Booking.Status.CONFIRMED,
+                              start_at__lt=end_at, end_at__gt=start_at).exists():
+        raise BookingError('TABLE_UNAVAILABLE', 'The selected table is no longer available.', 409)
+    return Booking.objects.create(customer=customer, table=table, start_at=start_at,
+                                  end_at=end_at, party_size=party_size)
