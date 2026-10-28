@@ -1,0 +1,22 @@
+{% load static %}<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Staff bookings · RMS</title>
+<style>body{font:17px system-ui;background:#f5f2ec;color:#20322b;margin:0}main{max-width:900px;margin:2rem auto;padding:1.5rem;background:white;border-radius:18px}label{display:block;margin:.6rem 0}input,select,button{font:inherit;padding:.5rem;max-width:100%;box-sizing:border-box}button{background:#165e46;color:white;border:0;border-radius:6px;cursor:pointer}button:disabled{opacity:.5}article,section{padding:1rem 0;border-bottom:1px solid #c8d1ca}nav{display:flex;gap:1rem;flex-wrap:wrap}a{color:#165e46}#message{white-space:pre-line;color:#92330f}li{overflow-wrap:anywhere}</style></head><body><main>
+<nav><a href="/account/">My account</a><a href="/book/">Availability search</a></nav><h1>Staff booking management</h1>
+<p>Staff and Admin can create and cancel bookings. A reason is required for every override. History is retained.</p>
+{% csrf_token %}<p id="message" role="alert"></p>
+<section><h2>Find bookings</h2><form method="get">
+<label>Reference, customer name/email or table number <input name="q" maxlength="100" value="{{ request.GET.q }}"></label>
+<label>Date (server UTC) <input name="date" type="date" value="{{ request.GET.date }}"></label>
+<label>Status <select name="status"><option value="">All</option value="Confirmed" {% if request.GET.status == 'Confirmed' %}selected{% endif %}>Confirmed</option><option value="Cancelled" {% if request.GET.status == 'Cancelled' %}selected{% endif %}>Cancelled</option></select></label>
+<button>Search bookings</button><a href="/staff/bookings/">Clear filters</a></form></section>
+<section><h2>Create manual booking</h2><p>Use the customer's existing account ID and the table ID from availability results. Register a customer account for a walk-in before booking. Times use this device's timezone.</p>
+<form id="manual-create"><label>Customer account ID <input name="customer_id" type="number" min="1" required></label><label>Table ID <input name="table_id" type="number" min="1" required></label>
+<label>Start date and time <input name="start_at" type="datetime-local" required></label><label>Guests <input name="party_size" type="number" min="1" max="32767" value="2" required></label><label>Reason <input name="reason" maxlength="500" required></label><button>Create booking</button></form></section>
+<h2>Booking records ({{ page.paginator.count }})</h2>
+{% for b in page %}<article><h3>BK-{{ b.pk }} · {{ b.status }}</h3><p>{{ b.customer.first_name|default:b.customer.username }} · {{ b.customer.email }} · Customer ID {{ b.customer_id }}</p>
+<p>Table {{ b.table.table_number }} (ID {{ b.table_id }}) · {{ b.party_size }} guests<br><time datetime="{{ b.start_at|date:'c' }}">{{ b.start_at|date:'c' }}</time> – <time datetime="{{ b.end_at|date:'c' }}">{{ b.end_at|date:'c' }}</time></p>
+{% if b.status == 'Confirmed' %}<form data-cancel="/api/staff/bookings/{{ b.pk }}/cancel"><label>Cancellation / cutoff override reason <input name="reason" maxlength="500" required></label><button>Cancel booking</button></form>{% endif %}
+<ul aria-label="Override history">{% for event in b.overrides.all %}<li>{{ event.action }} by {{ event.actor.username }} (ID {{ event.actor_id }}) at {{ event.created_at|date:'c' }}: {{ event.reason }}</li>{% endfor %}</ul></article>
+{% empty %}<p>No matching bookings.</p>{% endfor %}
+<nav aria-label="Booking pages">{% if page.has_previous %}<a href="?{{ query_string }}&amp;page={{ page.previous_page_number }}">Previous</a>{% endif %}<p>Page {{ page.number }} of {{ page.paginator.num_pages }}</p>{% if page.has_next %}<a href="?{{ query_string }}&amp;page={{ page.next_page_number }}">Next</a>{% endif %}</nav>
+<noscript><p>Enable JavaScript for manual booking and cancellation. Search remains available.</p></noscript>
+</main><script src="{% static 'booking/staff.js' %}" defer></script></body></html>
