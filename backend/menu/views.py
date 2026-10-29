@@ -38,3 +38,18 @@ def manage_page(request):
     if not has_role(request.user, 'Admin'):
         return render(request, 'accounts/expired.html', status=403 if request.user.is_authenticated else 401)
     return render(request, 'menu/manage.html')
+
+
+from rest_framework.permissions import AllowAny
+class PublicMenu(MenuManage):
+    permission_classes = [AllowAny]
+    authentication_classes = []
+    http_method_names = ['get','head','options']
+    def get(self, request):
+        items = MenuItem.objects.filter(available=True).order_by('name','pk')
+        grouped = [{'category': category, 'items': MenuWrite([i for i in items if i.category == category],many=True).data} for category in MenuItem.Category.values]
+        return Response({'categories': grouped})
+
+@never_cache
+def menu_page(request):
+    return render(request, 'menu/menu.html')
