@@ -36,3 +36,12 @@ class OrderItem(models.Model):
             models.CheckConstraint(condition=Q(quantity__gt=0), name="orderitem_positive_quantity"),
             models.CheckConstraint(condition=Q(unit_price__gte=0), name="orderitem_nonnegative_price"),
         ]
+
+
+class OrderRequestKey(models.Model):
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+    key = models.UUIDField()
+    payload = models.JSONField()
+    order = models.OneToOneField(Order,on_delete=models.PROTECT)
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['customer','key'],name='order_customer_retry_unique')]
