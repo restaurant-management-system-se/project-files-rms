@@ -46,3 +46,15 @@ class OrderRequestKey(models.Model):
     order = models.OneToOneField(Order,on_delete=models.PROTECT)
     class Meta:
         constraints = [models.UniqueConstraint(fields=['customer','key'],name='order_customer_retry_unique')]
+
+
+import uuid
+class OrderEvent(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    order = models.ForeignKey(Order,on_delete=models.PROTECT)
+    version = models.PositiveIntegerField()
+    status = models.CharField(max_length=10)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    delivered_at = models.DateTimeField(null=True,blank=True)
+    class Meta:
+        constraints=[models.UniqueConstraint(fields=['order','version'],name='order_event_version_unique')]

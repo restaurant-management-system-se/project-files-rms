@@ -51,4 +51,6 @@ def change_status(*,user,order_id,status,expected_version):
                 raise OrderError('INVALID_TRANSITION','Use Received → Preparing → Served.')
             order.status=status;order.version+=1
             order.save(update_fields=['status','version','updated_at'])
+            from .events import queue_event
+            queue_event(order)
     return order,True
