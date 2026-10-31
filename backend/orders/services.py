@@ -35,4 +35,20 @@ def create_order(*,user,items,context,idempotency_key,booking_id=None):
     return order,True
 
 def order_payload(order):
-    return {'id':order.pk,'booking_id':order.booking_id,'context':'booking' if order.booking_id else 'takeaway','status':order.status,'total_amount':str(order.total_amount),'placed_at':order.placed_at,'items':[{'menu_item_id':i.menu_item_id,'name':i.menu_item.name,'quantity':i.quantity,'unit_price':str(i.unit_price),'line_total':str(i.unit_price*i.quantity)} for i in order.items.select_related('menu_item').order_by('pk')]}
+    return {'id':order.pk,'version':order.version,'booking_id':order.booking_id,'context':'booking' if order.booking_id else 'takeaway','status':order.status,'total_amount':str(order.total_amount),'placed_at':order.placed_at,'items':[{'menu_item_id':i.menu_item_id,'name':i.menu_item.name,'quantity':i.quantity,'unit_price':str(i.unit_price),'line_total':str(i.unit_price*i.quantity)} for i in order.items.select_related('menu_item').order_by('pk')]}
+
+
+def change_status(*,user,order_id,status,expected_version):
+    if connection.vendor!='postgresql':raise OrderError('POSTGRESQL_REQUIRED','Status updates require PostgreSQL.',503)
+    from menu.services import privileged_change
+    with transaction.atomic(durable=True):
+        with privileged_change(user):
+            try:order=Order.objects.select_for_update().get(pk=order_id)
+            except Order.DoesNotExist:raise OrderError('NOT_FOUND','Order not found.',404)
+            if order.status==status:return order,False
+            if order.version!=expected_version:raise OrderError('VERSION_CONFLICT','Order changed. Reload the queue.')
+            if {'Received':'Preparing','Preparing':'Served'}.get(order.status)!=status:
+                raise OrderError('INVALID_TRANSITION','Use Received → Preparing → Served.')
+            order.status=status;order.version+=1
+            order.save(update_fields=['status','version','updated_at'])
+    return order,True
