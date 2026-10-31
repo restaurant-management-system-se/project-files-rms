@@ -1,86 +1,90 @@
-# project-documentation
-Central repository for all project documents: SRS, Test Plan, Design Documents, etc.
+# Restaurant Management System
 
-## Project
+A single-restaurant application built by Captain-King-2024, Noctowl-Abhay, AkulkrishnaMS and prasanna-p2006. Django/DRF owns business rules and PostgreSQL transactions; Node.js/Socket.io is the planned realtime delivery layer. Original requirements/design authorship is retained in the source documents.
 
-**Restaurant Management System** — a web-based application for managing table bookings, food ordering, and menu management for a single restaurant outlet.
+## Implementation status
 
-- **Backend:** Python (Django REST Framework)
-- **Real-time layer:** Node.js (WebSocket / Socket.io) for live order-status updates
-- **Author:** Abhay Dubey H (PES1UG24CS551), Dept. of Computer Science and Engineering, PES University
+**Status reviewed 31 October 2026 against main `fa71e740ac1117fe57ac1be4c358d19aa2549dd0`.** The repository is still under integration and acceptance testing. An issue being closed or a PR being merged into another feature branch does not prove its code reached `main`.
 
-## Repository Structure
-
-```
-project-documentation/
-├── .github/
-│   └── workflows/
-│       └── readme-reminder.yml
-├── SRS and Test Plan Details/
-│   ├── SRS/
-│   │   ├── SRS - Restaurant Management System.docx
-│   │   └── SRS - Restaurant Management System.pdf
-│   └── Test-Plan/
-│       ├── Test-Plan - Restaurant Management System.docx
-│       └── Test-Plan - Restaurant Management System.pdf
-├── Software Design And Architecture Specification/
-│   ├── SAD- Restaurant Management System.docx
-│   └── SAD- Restaurant Management System.pdf
-├── Test cases related update for Test plan/
-│   └── UpdateThemHere
-└── README.md
-```
-
-## Documents
-
-| Document | Status | Description |
-|---|---|---|
-| Software Requirements Specification (SRS) | ✅ Added | Functional & non-functional requirements, system features (Table Booking, Menu Management, Ordering & Tracking, Auth), and requirement traceability matrix. |
-| Test Plan | ✅ Complete | Test strategy and functional test cases mapped to SRS requirements (REQ-1 → REQ-14). |
-| Software Architecture and Design Specification (SAD) | ✅ Complete | Architecture, data design, security design, APIs, sequence diagrams, error handling, deployment view, and requirements traceability. |
-
-## SAD Summary
-
-The SAD defines an implementable, real-world design for the Restaurant Management System. It uses Django REST Framework for business logic and database transactions, Node.js and Socket.io for live order-status updates, and a relational database for durable booking and order data.
-
-The design includes safeguards against double booking, unavailable menu items at checkout, unauthorized actions, session expiry, and missed WebSocket updates. The UML component diagram uses proper component notation with provided lollipop interfaces and required socket interfaces for REST API, real-time updates, event publishing, and database access.
-
-## Conventions
-
-- **File naming:** `<Document Type> - <Project Name>.<ext>` (e.g. `SRS - Restaurant Management System.docx`).
-- **Revision history:** every document should carry its own Revision History table for tracked changes.
-- **Traceability:** requirement IDs introduced in the SRS (`REQ-1` … `REQ-14`) should be reused as-is in the Test Plan and Design Documents so items stay traceable across all three.
-- **Format:** `.docx` for formal deliverables; `.md` acceptable for lighter-weight or working documents.
-
-## Status
-
-| Milestone | Status |
+| Present in this main revision | Remaining integration / acceptance |
 |---|---|
-| SRS drafted and reviewed | ✅ Complete |
-| Test Plan | ✅ Complete |
-| SAD prepared and reviewed | ✅ Complete |
+| Database migrations and repeatable demo data (#35) | Staff booking management #44 was merged into a feature branch; absent from main |
+| Customer registration, sessions, roles/ownership and CSRF (#36), login lockout (#45) | Audit #46, staff status #52 and live tracking #53 remain open |
+| Availability, nearest alternatives, atomic confirmation and customer cancellation (#38, #39, #43) | Stale-cart #51 was merged into #50's feature branch; absent from main |
+| Admin menu, public menu, cart and atomic checkout (#47–50) | Expanded harness/workflow #41/#42 merged into feature branches; absent from main while #40 remains open |
+| Basic PostgreSQL foundation CI | HTTPS/WSS, reconnect, load/latency/restart/browser/human acceptance and complete CD remain pending |
 
-## Local Setup Instructions
+**Later update during this session:** teammate-merged PR #40 advanced main to `566d0a8af49683e97eba02f00def91d03513dbe7`. The canonical RTM and #41 regression harness are now integrated (`quality/` and `backend/quality/`); #42's expanded workflow is still absent. The dated table above describes the earlier fa71e740 snapshot. Staff integration is now proposed in #58, reusing #44 and correcting booking view imports to the existing shared resource interface. Latest-main local integration checks passed 76 tests with 35 PostgreSQL-only skips, including the module-boundary check; 29 requirements / 58 canonical cases validate. Full deployment/human/browser acceptance remains pending.
 
-### Backend (Django)
-1. `cd backend`
-2. Create a virtual environment with `python -m venv venv`, then activate: `source venv/bin/activate` (Linux/Mac) or `venv\Scripts\activate` (Windows)
-3. Install dependencies: `pip install -r requirements.txt`
-4. Copy `.env.example` to `.env` and fill in your PostgreSQL credentials.
-5. Run `python manage.py migrate`, then `python manage.py seed_demo` for development data.
-6. Create your own administrator: `python manage.py createsuperuser`.
-7. Run server: `python manage.py runserver`.
+The detailed [delivery status and evidence](backend/docs/RMS-32-delivery-status.md) records dependencies, original test heads, review gaps and demo limits. Captain's remaining work is scoped to #15 (usability), #16 (browser verification) and #17 (documentation), with a separate PR for each. Do not self-review, merge or close acceptance issues based on preparation alone.
 
-See [backend database setup](backend/README.md) for model details, safe demo data, tests and existing-database guidance.
+## Repository structure
 
-### Real-time Service (Node.js)
-1. `cd realtime`
-2. Install dependencies: `npm install`
-3. Copy `.env.example` to `.env`.
-4. Run server: `node index.js`
+- `backend/`: Django project (`rms_backend`) and `accounts`, `booking`, `menu`, `orders` apps, migrations, templates/static assets and evidence in `backend/docs/`.
+- `quality/` and `backend/quality/`: canonical traceability and regression harness, integrated through #40 during this session.
+- `realtime/`: Node package manifests/client fixtures in main; the runnable Socket.io server is proposed in PR #53, not present here.
+- `.github/workflows/`: PostgreSQL foundation checks and documentation reminder. PR #42 proposes the expanded workflow; PR #54 proposes production Django configuration, without a CD workflow.
+- `Issues/Backlog/DEVIATION_REGISTER.md`: recorded decisions and pending clarifications; proposals are distinct from approvals.
+- `SRS and Test Plan Details/`: source SRS and Test Plan.
+- `Software Design And Architecture Specification/`: source SAD.
+- `Test Cases related to Test Plan/`: additional source test cases. Folder names above are case-sensitive and match the repository.
 
-## Booking feature work
+## Local setup (Windows, Linux or macOS)
 
-The public `/book/` search and `/api/tables/availability` endpoint are described in [RMS-08 contract/evidence](backend/docs/RMS-08-contract-and-evidence.md). The implementation reuses the merged RMS-03 migrations/data. Sprint allocation remains pending; integration contracts require teammate review.
+Use Python 3.12+ and PostgreSQL 16 to reproduce the foundation CI environment. Create a **new empty development database** through pgAdmin or `createdb`; keep any old database intact. From a fresh clone:
 
-Transactional Customer confirmation, retry safety, PostgreSQL concurrency tests and demonstration steps are recorded in [RMS-09](backend/docs/RMS-09-contract-and-evidence.md). Keep linked issues In Review pending teammate review and owner merge.
+```bash
+git clone https://github.com/restaurant-management-system-se/project-files-rms.git
+cd project-files-rms
+python -m venv .venv
+```
+
+Windows PowerShell uses `.venv\Scripts\Activate.ps1`; Windows Command Prompt uses `.venv\Scripts\activate.bat`; Linux/macOS uses `source .venv/bin/activate`.
+
+```bash
+python -m pip install -r backend/requirements.txt
+cd backend
+```
+
+Copy `.env.example` to `.env` (`Copy-Item .env.example .env` in PowerShell; `copy .env.example .env` in Command Prompt; `cp .env.example .env` on Linux/macOS). Edit it locally: `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST=127.0.0.1`, `DB_PORT=5432`, `DEBUG=True` and a random `SECRET_KEY`. Generate the key with `python -c "import secrets; print(secrets.token_urlsafe(48))"`, then paste it only into your local `.env`. Never commit credentials. The database must exist and be owned by the configured user before migration.
+
+```bash
+python manage.py migrate
+python manage.py seed_demo
+python manage.py createsuperuser
+python manage.py runserver 127.0.0.1:8000
+```
+
+Open http://127.0.0.1:8000/register/ to create a Customer, then `/login/`. Use `/book/` for search/confirmation, `/my-bookings/` for cancellation/history, `/menu/` for dishes and `/cart/` for checkout. `/` currently has no home page. Admin signs in at `/admin/` to maintain tables/provision Staff; `/manage/menu/` manages menu dishes. Staff booking/status interfaces require their owner PRs to reach main first.
+
+`seed_demo` is development-only (`DEBUG=True`), atomic and repeatable; its demo accounts have **unusable passwords**. Create real local test accounts yourself; do not enable passwords on reserved `rms_demo_*` accounts. Preserve all committed migrations. The detailed [backend setup](backend/README.md) explains the custom-user/old-database boundary.
+
+There is no runnable Node server in this main revision; do not run the old `node index.js` instruction. After reviewed #53 reaches the integration build, follow [its runtime contract](https://github.com/restaurant-management-system-se/project-files-rms/pull/53) for shared private key, internal URLs, exact public origin and a same-origin proxy. Node 22 is the feature's CI baseline. Node never writes business data. Akul's reconnect/CD and Noctowl's HTTPS/WSS work remain separate ownership.
+
+These commands run a local development instance, not an implemented deployment pipeline. PR #54's Gunicorn/WhiteNoise/health configuration is still proposed; Gunicorn is a Linux server dependency. No public host, local self-hosted deployment runner or deployed HTTPS/WSS result is claimed.
+
+## Verification
+
+From `backend/`, with a disposable PostgreSQL database configured and a role allowed to create the separate test database:
+
+```bash
+python manage.py check
+python manage.py makemigrations --check --dry-run
+python manage.py test accounts booking menu orders --verbosity=2
+python verification/check_documentation.py
+```
+
+The test runner creates/destroys `test_<DB_NAME>`. Do not point tests at a production database. For fast local regression only: `python manage.py test accounts booking menu orders --settings=rms_backend.test_settings`. SQLite cannot verify row locking, concurrency or checkout and must not be used to run the application.
+
+The usability protocol and browser suite are in the separate #15/#16 PRs; their execution gaps must remain visible. Akul owns the canonical RTM/harness (#40/#41 now integrated; #42 workflow pending); documentation does not replace its planned cases with automatic “Passed” statuses.
+
+## Source documents and governance
+
+- [SRS (PDF)](SRS%20and%20Test%20Plan%20Details/SRS/SRS-_Restaurant_Management_System.pdf)
+- [Test Plan (PDF)](SRS%20and%20Test%20Plan%20Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.pdf)
+- [SAD (PDF)](Software%20Design%20And%20Architecture%20Specification/SAD-%20Restaurant%20Management%20System.pdf)
+- [Additional test cases (PDF)](Test%20Cases%20related%20to%20Test%20Plan/Test_Cases-Restaurant_Management_System.pdf)
+- [Deviation register](Issues/Backlog/DEVIATION_REGISTER.md)
+- [Dated status snapshot](backend/docs/repository-status-2026-10-31.json) and [unaltered source hashes](backend/docs/source-document-hashes.json).
+
+The user selected Sprint 1 **19–23 October 2026** and Sprint 2 **26–31 October 2026**. These dates supersede earlier deferred-planning notes for this working session, but the Project still exposes no formal Sprint allocation field. Human acceptance, team-wide sprint outcomes, videos and a release freeze have not been evidenced. Do not infer historical burndown values from today's issue state.

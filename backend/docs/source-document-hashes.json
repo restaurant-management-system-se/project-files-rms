@@ -1,0 +1,15 @@
+{
+  "base_sha": "fa71e740ac1117fe57ac1be4c358d19aa2549dd0",
+  "observed_at": "2026-10-31",
+  "purpose": "Verify formal source files were not silently rewritten; hashes do not imply requirements approval or test execution.",
+  "sha256": {
+    "SRS and Test Plan Details/SRS/SRS-_Restaurant_Management_System.docx": "c4347af5dc3a6a8d8af462e5db692b50000c9ceea489383d92b317607f3d4c1b",
+    "SRS and Test Plan Details/SRS/SRS-_Restaurant_Management_System.pdf": "32381ec183a90edfd4ed3226bfefcfed9e479f39182aa59cea14d7c832d7c760",
+    "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx": "6280d07847f2930ec41497ba6d5aacc0dac7ff63cac5306657fe3f87f1003ad6",
+    "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.pdf": "d3f4c02e625208746c6d719f480af4f0832773cfc9d5cfa76b8bf9e0c6c46d44",
+    "Software Design And Architecture Specification/SAD- Restaurant Management System.docx": "a9d6493d514f37bd622574e3320c7555593d5af2f8779bbe9ed156e89f6705f0",
+    "Software Design And Architecture Specification/SAD- Restaurant Management System.pdf": "dce8bc34762337162f1b9fd53c168e4e601be312f436a2ce47b39847cfcdcbcb",
+    "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx": "e5db433e6669c37fd0f4c34c597738c35b6c9ee6e443082f0b4a1363392c1e15",
+    "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.pdf": "c29c0e83d86d98c09a8645fcdee2270821042d83ec39250068e96c1c87080a12"
+  }
+}
