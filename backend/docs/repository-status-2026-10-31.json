@@ -1,0 +1,561 @@
+{
+  "observed_at": "2026-10-31",
+  "base_sha": "fa71e740ac1117fe57ac1be4c358d19aa2549dd0",
+  "scope": "Snapshot before Captain RMS-26/27/32 PRs; GitHub issue state is not proof of integrated functionality.",
+  "issues": [
+    {
+      "number": 32,
+      "title": "[RMS-31] Prepare pull-request workflow and GitHub Actions checks",
+      "state": "closed",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/32"
+    },
+    {
+      "number": 31,
+      "title": "[RMS-30] Prepare regression test harness and evidence records",
+      "state": "closed",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/31"
+    },
+    {
+      "number": 30,
+      "title": "[RMS-29] Complete requirement and test traceability",
+      "state": "open",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/30"
+    },
+    {
+      "number": 29,
+      "title": "[RMS-28] Verify restart durability and transaction rollback",
+      "state": "open",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/29"
+    },
+    {
+      "number": 28,
+      "title": "[RMS-25] Measure end-to-end WebSocket delivery latency",
+      "state": "open",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/28"
+    },
+    {
+      "number": 27,
+      "title": "[RMS-24] Verify response time and 50-user capacity",
+      "state": "open",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/27"
+    },
+    {
+      "number": 26,
+      "title": "[RMS-19] Recover tracking after disconnects and stale events",
+      "state": "open",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/26"
+    },
+    {
+      "number": 25,
+      "title": "[RMS-02] Set up modular Django and Node.js application structure",
+      "state": "closed",
+      "assignees": [
+        "AkulkrishnaMS"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/25"
+    },
+    {
+      "number": 24,
+      "title": "[RMS-18] Deliver authorized live order-status updates",
+      "state": "closed",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/24"
+    },
+    {
+      "number": 23,
+      "title": "[RMS-17] Manage order status from staff dashboard",
+      "state": "open",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/23"
+    },
+    {
+      "number": 22,
+      "title": "[RMS-16] Reject stale unavailable cart items at checkout",
+      "state": "open",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/22"
+    },
+    {
+      "number": 21,
+      "title": "[RMS-15] Persist orders and server-calculated totals atomically",
+      "state": "closed",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/21"
+    },
+    {
+      "number": 20,
+      "title": "[RMS-14] Build cart and checkout review",
+      "state": "closed",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/20"
+    },
+    {
+      "number": 19,
+      "title": "[RMS-13] Display available dishes grouped by category",
+      "state": "closed",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/19"
+    },
+    {
+      "number": 18,
+      "title": "[RMS-12] Implement admin menu management",
+      "state": "closed",
+      "assignees": [
+        "prasanna-p2006"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/18"
+    },
+    {
+      "number": 17,
+      "title": "[RMS-32] Maintain documentation and deviation evidence",
+      "state": "open",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/17"
+    },
+    {
+      "number": 16,
+      "title": "[RMS-27] Verify supported browsers and viewports",
+      "state": "open",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/16"
+    },
+    {
+      "number": 15,
+      "title": "[RMS-26] Validate simple responsive booking usability",
+      "state": "open",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/15"
+    },
+    {
+      "number": 14,
+      "title": "[RMS-11] Build staff booking search and manual management",
+      "state": "closed",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/14"
+    },
+    {
+      "number": 13,
+      "title": "[RMS-10] Cancel own bookings using the 30-minute rule",
+      "state": "closed",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/13"
+    },
+    {
+      "number": 12,
+      "title": "[RMS-09] Confirm bookings atomically and prevent double booking",
+      "state": "closed",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/12"
+    },
+    {
+      "number": 11,
+      "title": "[RMS-08] Show table availability and nearest alternatives",
+      "state": "closed",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/11"
+    },
+    {
+      "number": 10,
+      "title": "[RMS-03] Create database migrations and reusable demo data",
+      "state": "closed",
+      "assignees": [
+        "Captain-King-2024"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/10"
+    },
+    {
+      "number": 9,
+      "title": "[RMS-23] Audit privileged actions with 90-day retention",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/9"
+    },
+    {
+      "number": 8,
+      "title": "[RMS-22] Protect state-changing requests against CSRF",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/8"
+    },
+    {
+      "number": 7,
+      "title": "[RMS-21] Validate input and escape displayed user text",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/7"
+    },
+    {
+      "number": 6,
+      "title": "[RMS-20] Configure HTTPS WSS and deployment secrets",
+      "state": "open",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/6"
+    },
+    {
+      "number": 5,
+      "title": "[RMS-07] Lock accounts after repeated login failures",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/5"
+    },
+    {
+      "number": 4,
+      "title": "[RMS-06] Implement logout and secure idle-expiring sessions",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/4"
+    },
+    {
+      "number": 3,
+      "title": "[RMS-05] Enforce roles and resource ownership",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/3"
+    },
+    {
+      "number": 2,
+      "title": "[RMS-04] Implement customer registration and login",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/2"
+    },
+    {
+      "number": 1,
+      "title": "[RMS-01] Resolve baseline inconsistencies and record decisions",
+      "state": "closed",
+      "assignees": [
+        "Noctowl-Abhay"
+      ],
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/issues/1"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 54,
+      "title": "chore(RMS-CD): production config - gunicorn, whitenoise, STATIC_ROOT,\u2026",
+      "state": "open",
+      "merged_at": null,
+      "author": "AkulkrishnaMS",
+      "head": "feature/akul-rms-cd",
+      "head_sha": "c318b2745230261d98abb14c55a349a5af960ed0",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/54",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 53,
+      "title": "RMS-18: committed and authorized live order-status delivery",
+      "state": "open",
+      "merged_at": null,
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-18-live-orders",
+      "head_sha": "b5cb6d852002775154a0d08635e67e7dffbf4248",
+      "base": "feature/prasanna-rms-17-order-status",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/53",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 52,
+      "title": "RMS-17: staff order queue and atomic status transitions",
+      "state": "open",
+      "merged_at": null,
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-17-order-status",
+      "head_sha": "6042c1d36d82e8407e8de25eaa1c1a4fb8bc27e4",
+      "base": "feature/prasanna-rms-16-stale-cart",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/52",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 51,
+      "title": "RMS-16: reject stale dishes and preserve valid cart contents",
+      "state": "closed",
+      "merged_at": "2026-10-31T05:56:20Z",
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-16-stale-cart",
+      "head_sha": "a2c28f7cf336451dc5bcd9f8cb325cbb8c3ab5de",
+      "base": "feature/prasanna-rms-15-checkout",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/51",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 50,
+      "title": "RMS-15: atomic PostgreSQL checkout and price snapshots",
+      "state": "closed",
+      "merged_at": "2026-10-29T13:21:35Z",
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-15-checkout",
+      "head_sha": "902a17ea36211d88fcd3554fc92f9d26ce08e468",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/50",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 49,
+      "title": "RMS-14: authenticated cart and checkout review",
+      "state": "closed",
+      "merged_at": "2026-10-29T13:18:05Z",
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-14-cart",
+      "head_sha": "512152a3f17e578429b9e65c6d3c898c4e6970d2",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/49",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 48,
+      "title": "RMS-13: public available menu grouped by category",
+      "state": "closed",
+      "merged_at": "2026-10-29T03:58:15Z",
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-13-menu-browse",
+      "head_sha": "4b01efb27a87c524551ac52392505e6ee6c801a7",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/48",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 47,
+      "title": "RMS-12: Admin menu management and protected order history",
+      "state": "closed",
+      "merged_at": "2026-10-28T15:18:32Z",
+      "author": "prasanna-p2006",
+      "head": "feature/prasanna-rms-12-menu",
+      "head_sha": "134ca68c1f4292bbdbc88df077ba2327f12b9837",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/47",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 46,
+      "title": "RMS-23: immutable audit events, retention and booking capture",
+      "state": "open",
+      "merged_at": null,
+      "author": "Noctowl-Abhay",
+      "head": "feature/noctowl-rms-23-audit",
+      "head_sha": "c14d4469a409003db99af322471ab2fb5f4f7751",
+      "base": "feature/rms-11-staff-bookings",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/46",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 45,
+      "title": "RMS-07: atomic failed-login lockout and expiry",
+      "state": "closed",
+      "merged_at": "2026-10-28T16:42:53Z",
+      "author": "Noctowl-Abhay",
+      "head": "feature/noctowl-rms-07-lockout",
+      "head_sha": "791133e93033a1d5bee32e2c34392e56b56176b9",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/45",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 44,
+      "title": "RMS-11: staff booking search, manual actions and override history",
+      "state": "closed",
+      "merged_at": "2026-10-28T15:02:46Z",
+      "author": "Captain-King-2024",
+      "head": "feature/rms-11-staff-bookings",
+      "head_sha": "f1f76c8018e37664505cc6a19a233736043e8532",
+      "base": "feature/rms-10-customer-cancellation",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/44",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 43,
+      "title": "RMS-10: cancel own bookings with the 30-minute rule",
+      "state": "closed",
+      "merged_at": "2026-10-28T15:02:18Z",
+      "author": "Captain-King-2024",
+      "head": "feature/rms-10-customer-cancellation",
+      "head_sha": "23cfe2060a687c0484f783685064a35c16cb3328",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/43",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 42,
+      "title": "RMS-31: PostgreSQL and Node regression checks with retained evidence",
+      "state": "closed",
+      "merged_at": "2026-10-28T15:00:58Z",
+      "author": "AkulkrishnaMS",
+      "head": "feature/akul-rms-31-ci",
+      "head_sha": "2a2cebeaf2b165e63e69775f87fa05a5cf16ee0c",
+      "base": "feature/akul-rms-30-harness",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/42",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 41,
+      "title": "RMS-30: shared regression harness and honest execution records",
+      "state": "closed",
+      "merged_at": "2026-10-28T15:00:28Z",
+      "author": "AkulkrishnaMS",
+      "head": "feature/akul-rms-30-harness",
+      "head_sha": "5254e6328ff98236b5188839e2cf46d75e164953",
+      "base": "feature/akul-rms-29-traceability",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/41",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 40,
+      "title": "RMS-29: canonical requirement and test traceability",
+      "state": "open",
+      "merged_at": null,
+      "author": "AkulkrishnaMS",
+      "head": "feature/akul-rms-29-traceability",
+      "head_sha": "a4296a225214f89738661ae3a0810732ca6b0efd",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/40",
+      "head_is_ancestor_of_main": false
+    },
+    {
+      "number": 39,
+      "title": "RMS-09: atomic booking confirmation and safe retries",
+      "state": "closed",
+      "merged_at": "2026-10-22T09:09:37Z",
+      "author": "Captain-King-2024",
+      "head": "feature/rms-09-booking-confirmation",
+      "head_sha": "97012edd476506b30b8c51ff1a6d28ce4b1a4a0b",
+      "base": "feature/rms-08-table-availability",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/39",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 38,
+      "title": "RMS-08: table availability and nearest alternatives",
+      "state": "closed",
+      "merged_at": "2026-10-23T03:59:01Z",
+      "author": "Captain-King-2024",
+      "head": "feature/rms-08-table-availability",
+      "head_sha": "a9edf226440071a13da8156aff6628874b908feb",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/38",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 37,
+      "title": "RMS-01 follow-up: record pending baseline and integration decisions",
+      "state": "closed",
+      "merged_at": "2026-10-22T07:04:48Z",
+      "author": "Noctowl-Abhay",
+      "head": "feature/noctowl-rms-01-follow-up",
+      "head_sha": "9ea8fb8d879c14df6ad02e68d7bfbcfae551ba44",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/37",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 36,
+      "title": "RMS-04/05/06: customer login, ownership guards and secure sessions",
+      "state": "closed",
+      "merged_at": "2026-10-22T07:05:16Z",
+      "author": "Noctowl-Abhay",
+      "head": "feature/noctowl-rms-auth-security",
+      "head_sha": "e9c5de92e8a579f0307f412bd442b54f91e3fc36",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/36",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 35,
+      "title": "RMS-03: Add database migrations, safe demo data and restricted admin setup",
+      "state": "closed",
+      "merged_at": "2026-10-22T04:28:24Z",
+      "author": "Captain-King-2024",
+      "head": "feature/rms-03-database-demo-data",
+      "head_sha": "30646f78816f8792b797a3389a8ec635de64c532",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/35",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 34,
+      "title": "RMS-02: Modular Django and Node.js application structure",
+      "state": "closed",
+      "merged_at": "2026-10-21T07:25:42Z",
+      "author": "AkulkrishnaMS",
+      "head": "feature/rms-02-app-structure",
+      "head_sha": "eb87a62c290e705a33b282009be12c0d57fac736",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/34",
+      "head_is_ancestor_of_main": true
+    },
+    {
+      "number": 33,
+      "title": "RMS-01: Foundation and Governance Baseline & Deviation Register",
+      "state": "closed",
+      "merged_at": "2026-10-20T15:27:44Z",
+      "author": "Noctowl-Abhay",
+      "head": "feature/rms-01-governance-baseline",
+      "head_sha": "5992879475cec2dc11ac8f812069531ba9cf265c",
+      "base": "main",
+      "url": "https://github.com/restaurant-management-system-se/project-files-rms/pull/33",
+      "head_is_ancestor_of_main": true
+    }
+  ]
+}
