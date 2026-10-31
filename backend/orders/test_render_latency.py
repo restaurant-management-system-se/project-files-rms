@@ -9,12 +9,13 @@ import os
 import platform
 import subprocess
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from unittest import skipUnless
 from unittest.mock import patch
 from django.conf import settings
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.db import connection
+from django.db import connection, connections
 from django.test import Client, override_settings
 from accounts.models import User
 from .models import Order
@@ -52,6 +53,11 @@ class RenderLatencyTests(StaticLiveServerTestCase):
         session = client.session; session['last_activity'] = time.time(); session.save()
         node = proxy = None
         observations = []
+        db_pool = ThreadPoolExecutor(max_workers=1)
+        def db_call(fn, *args, **kwargs):
+            # Playwright sync API runs an event loop on its thread. Keep Django
+            # ORM work on a dedicated synchronous thread without disabling guards.
+            return db_pool.submit(fn, *args, **kwargs).result(timeout=15)
         try:
             # Proxy must start first to establish the exact Origin used by Node.
             proxy = subprocess.Popen(['node', '-e', PROXY], env=os.environ | {'TEST_DJANGO': self.live_server_url, 'TEST_NODE': 'http://127.0.0.1:1'}, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -80,7 +86,7 @@ class RenderLatencyTests(StaticLiveServerTestCase):
                   }).observe(document.getElementById('status'),{childList:true,subtree:true,characterData:true});
                 });""")
                 for index in range(10):
-                    order = Order.objects.create(customer=owner, total_amount='0')
+                    order = db_call(Order.objects.create, customer=owner, total_amount='0')
                     page.goto(origin + f'/orders/{order.pk}/')
                     page.wait_for_function("document.getElementById('connection').textContent==='Live updates connected'", timeout=10000)
                     for version, status in [(2, 'Preparing'), (3, 'Served')]:
@@ -92,37 +98,41 @@ class RenderLatencyTests(StaticLiveServerTestCase):
                             return dispatch_event(event_id)
                         with self.settings(RMS_REALTIME_INTERNAL_URL=f'http://127.0.0.1:{node_port}'):
                             with patch('orders.events.dispatch_event', side_effect=timed_dispatch):
-                                change_status(user=staff, order_id=order.pk, status=status, expected_version=version - 1)
+                                db_call(change_status, user=staff, order_id=order.pk, status=status, expected_version=version - 1)
                         self.assertEqual(len(committed), 1)
                         page.wait_for_function('(v)=>window.rmsPainted>=v', arg=version, timeout=10000)
                         elapsed = (time.perf_counter_ns() - committed[0]) / 1e6
                         self.assertEqual(page.locator('#status').inner_text(), status)
                         observations.append({'order_id': order.pk, 'version': version, 'status': status, 'elapsed_ms_upper_bound': elapsed, 'within_1s': elapsed <= 1000})
                 # RMS-19 integration: Node outage cannot undo saved business state.
-                recovery = Order.objects.create(customer=owner, total_amount='0')
+                recovery = db_call(Order.objects.create, customer=owner, total_amount='0')
                 page.goto(origin + f'/orders/{recovery.pk}/')
                 page.wait_for_function("document.getElementById('connection').textContent==='Live updates connected'", timeout=10000)
                 node.terminate(); node.wait(timeout=5)
-                change_status(user=staff, order_id=recovery.pk, status='Preparing', expected_version=1)
+                db_call(change_status, user=staff, order_id=recovery.pk, status='Preparing', expected_version=1)
                 page.wait_for_function("document.getElementById('status').textContent==='Preparing'", timeout=10000)
                 node = subprocess.Popen(['node', 'server.js'], cwd=root / 'realtime', env=os.environ | {'PORT': str(node_port), 'RMS_REALTIME_KEY': settings.RMS_REALTIME_KEY, 'RMS_DJANGO_URL': self.live_server_url, 'RMS_PUBLIC_ORIGIN': origin}, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
                 self.assertEqual(json.loads(node.stdout.readline())['port'], node_port)
                 page.wait_for_function("document.getElementById('connection').textContent==='Live updates connected'", timeout=15000)
                 with self.settings(RMS_REALTIME_INTERNAL_URL=f'http://127.0.0.1:{node_port}'):
-                    change_status(user=staff, order_id=recovery.pk, status='Served', expected_version=2)
+                    db_call(change_status, user=staff, order_id=recovery.pk, status='Served', expected_version=2)
                 page.wait_for_function("document.getElementById('status').textContent==='Served'", timeout=10000)
                 # Idle expiry is rejected by the running server and the UI stops
                 # automatically resubscribing until a fresh login/page load.
                 from django.contrib.sessions.backends.db import SessionStore
-                expired = SessionStore(session_key=session.session_key)
-                expired['last_activity'] = time.time() - settings.SESSION_IDLE_TIMEOUT - 10
-                expired.save()
+                def expire_session():
+                    expired = SessionStore(session_key=session.session_key)
+                    expired['last_activity'] = time.time() - settings.SESSION_IDLE_TIMEOUT - 10
+                    expired.save()
+                db_call(expire_session)
                 page.wait_for_function("document.getElementById('connection').textContent.includes('Log in again')", timeout=10000)
                 report_reconnect = {'node_restart': True, 'missed_state_via_REST': True, 'resubscribed_live_delivery': True, 'expired_session_requires_login': True}
                 (root / 'test-results').mkdir(exist_ok=True)
                 (root / 'test-results' / 'RMS-19-browser-reconnect.json').write_text(json.dumps(report_reconnect, indent=2))
                 browser.close()
         finally:
+            db_pool.submit(connections.close_all).result(timeout=10)
+            db_pool.shutdown(wait=True)
             for process in (proxy, node):
                 if process:
                     process.terminate()
