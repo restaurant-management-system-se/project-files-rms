@@ -1,0 +1,10 @@
+{
+  "booking_id": 2,
+  "order_id": 2,
+  "booking_partial_rows": 0,
+  "order_partial_rows": 0,
+  "status_after_failure": "Received",
+  "version_after_failure": 1,
+  "outbox_rows": 0,
+  "passed": true
+}
