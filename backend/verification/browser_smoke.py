@@ -10,6 +10,7 @@ import platform
 import secrets
 import subprocess
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 from decimal import Decimal
 from pathlib import Path
@@ -18,7 +19,7 @@ from uuid import uuid4
 
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.db import connection
+from django.db import connection, connections
 from django.test import override_settings
 from django.utils import timezone
 
@@ -53,12 +54,25 @@ class BrowserSmoke(StaticLiveServerTestCase):
         expected = os.environ.get('RMS_EXPECTED_VERSION')
         if expected and self.browser.version != expected:
             raise RuntimeError(f'Expected {expected}, launched {self.browser.version}')
+        self.pool = ThreadPoolExecutor(max_workers=1)
+        self.addCleanup(self.pool.shutdown)
         self.password = secrets.token_urlsafe(24)
-        self.table = RestaurantTable.objects.create(table_number=77, capacity=4, active=True)
-        self.item = MenuItem.objects.create(name='Browser test dish', category='Starters',
-                                           price='12.50', available=True, description='Fresh dish')
-        self.admin = get_user_model().objects.create_superuser('browser_admin', email='browser-admin@example.invalid',
-                                                        password=self.password)
+        self.table = self.db(lambda: RestaurantTable.objects.create(table_number=77, capacity=4, active=True))
+        self.item = self.db(lambda: MenuItem.objects.create(name='Browser test dish', category='Starters',
+                                           price='12.50', available=True, description='Fresh dish'))
+        self.admin = self.db(lambda: get_user_model().objects.create_superuser('browser_admin', email='browser-admin@example.invalid',
+                                                        password=self.password))
+
+    def db(self, operation):
+        # Playwright's sync facade has an event loop on its calling thread.
+        # Keep Django ORM on a separate synchronous thread; never disable its
+        # async-safety protection. Each operation closes its own connection.
+        def work():
+            try:
+                return operation()
+            finally:
+                connections.close_all()
+        return self.pool.submit(work).result(timeout=20)
 
     def login(self, page, email):
         page.goto(self.live_server_url + '/login/')
@@ -126,8 +140,8 @@ class BrowserSmoke(StaticLiveServerTestCase):
             self.no_horizontal_overflow(page)
             button.click()
             expect(page.get_by_role('heading', name='Booking confirmed', exact=True)).to_be_visible()
-            user = get_user_model().objects.get(email=email)
-            booking = Booking.objects.get(customer=user)
+            user = self.db(lambda: get_user_model().objects.get(email=email))
+            booking = self.db(lambda: Booking.objects.get(customer=user))
             self.assertEqual(booking.status, 'Confirmed')
             page.get_by_role('link', name='View or cancel my booking', exact=True).click()
             page.wait_for_url('**/my-bookings/')
@@ -135,7 +149,7 @@ class BrowserSmoke(StaticLiveServerTestCase):
             page.on('dialog', lambda dialog: dialog.accept())
             page.get_by_role('button', name='Cancel booking', exact=True).click()
             expect(page.locator('[data-status]')).to_have_text('Cancelled')
-            booking.refresh_from_db()
+            self.db(booking.refresh_from_db)
             self.assertEqual(booking.status, 'Cancelled')
             page.goto(self.live_server_url + '/menu/')
             expect(page.get_by_role('heading', name='Browser test dish', exact=True)).to_be_visible()
@@ -143,7 +157,7 @@ class BrowserSmoke(StaticLiveServerTestCase):
             expect(page.get_by_label('Quantity for Browser test dish')).to_have_value('1')
             page.get_by_role('button', name='Place order', exact=True).click()
             expect(page.locator('#message')).to_contain_text('confirmed: Received, total 12.50')
-            self.assertEqual(Order.objects.get(customer=user).total_amount, Decimal('12.50'))
+            self.assertEqual(self.db(lambda: Order.objects.get(customer=user).total_amount), Decimal('12.50'))
             page.goto(self.live_server_url + '/account/')
             page.get_by_role('button', name='Log out', exact=True).click()
             page.wait_for_url('**/login/')
@@ -171,5 +185,5 @@ class BrowserSmoke(StaticLiveServerTestCase):
             page.get_by_role('button', name='Save item', exact=True).click()
             expect(page.locator('#message')).to_have_text('Saved')
             expect(page.locator('#items')).to_contain_text(name)
-            self.assertEqual(MenuItem.objects.get(name=name).price, Decimal('5.25'))
+            self.assertEqual(self.db(lambda: MenuItem.objects.get(name=name).price), Decimal('5.25'))
         self.run_case('errors-admin', task)
