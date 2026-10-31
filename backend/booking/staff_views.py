@@ -9,7 +9,7 @@ from rest_framework import serializers
 from rest_framework.response import Response
 
 from accounts.permissions import IsStaffOrAdmin
-from accounts.views import SessionAPIView
+from .api_base import BookingActionView
 from .availability import availability
 from .models import Booking
 from .serializers import BookingCreate, StrictIntegerField
@@ -65,7 +65,8 @@ def booking_data(b):
             'start_at':b.start_at,'end_at':b.end_at,'party_size':b.party_size,'status':b.status}
 
 
-class StaffBookingsView(SessionAPIView):
+class StaffBookingsView(BookingActionView):
+    http_method_names = ['get', 'head', 'post', 'options']
     permission_classes=[IsStaffOrAdmin]
 
     def get(self,request):
@@ -88,7 +89,7 @@ class StaffBookingsView(SessionAPIView):
         return Response(booking_data(booking),status=201 if created else 200)
 
 
-class StaffCancelView(SessionAPIView):
+class StaffCancelView(BookingActionView):
     permission_classes=[IsStaffOrAdmin]
 
     def post(self,request,pk):
@@ -101,7 +102,8 @@ class StaffCancelView(SessionAPIView):
 
 
 @method_decorator(ensure_csrf_cookie,name='dispatch')
-class StaffBookingPage(SessionAPIView):
+class StaffBookingPage(BookingActionView):
+    http_method_names = ['get', 'head', 'options']
     permission_classes=[IsStaffOrAdmin]
 
     def get(self,request):
