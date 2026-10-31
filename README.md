@@ -14,13 +14,16 @@ A single-restaurant application built by Captain-King-2024, Noctowl-Abhay, Akulk
 | Admin menu, public menu, cart and atomic checkout (#47–50) | Expanded harness/workflow #41/#42 merged into feature branches; absent from main while #40 remains open |
 | Basic PostgreSQL foundation CI | HTTPS/WSS, reconnect, load/latency/restart/browser/human acceptance and complete CD remain pending |
 
+**Later update during this session:** teammate-merged PR #40 advanced main to `566d0a8af49683e97eba02f00def91d03513dbe7`. The canonical RTM and #41 regression harness are now integrated (`quality/` and `backend/quality/`); #42's expanded workflow is still absent. The dated table above describes the earlier fa71e740 snapshot. Staff integration is now proposed in #58, reusing #44 and correcting booking view imports to the existing shared resource interface. Latest-main local integration checks passed 76 tests with 35 PostgreSQL-only skips, including the module-boundary check; 29 requirements / 58 canonical cases validate. Full deployment/human/browser acceptance remains pending.
+
 The detailed [delivery status and evidence](backend/docs/RMS-32-delivery-status.md) records dependencies, original test heads, review gaps and demo limits. Captain's remaining work is scoped to #15 (usability), #16 (browser verification) and #17 (documentation), with a separate PR for each. Do not self-review, merge or close acceptance issues based on preparation alone.
 
 ## Repository structure
 
 - `backend/`: Django project (`rms_backend`) and `accounts`, `booking`, `menu`, `orders` apps, migrations, templates/static assets and evidence in `backend/docs/`.
-- `realtime/`: Node package manifests in main; the runnable Socket.io server is proposed in PR #53, not present here.
-- `.github/workflows/`: PostgreSQL foundation checks and documentation reminder. PR #42 proposes the expanded harness; PR #54 proposes production Django configuration, without a CD workflow.
+- `quality/` and `backend/quality/`: canonical traceability and regression harness, integrated through #40 during this session.
+- `realtime/`: Node package manifests/client fixtures in main; the runnable Socket.io server is proposed in PR #53, not present here.
+- `.github/workflows/`: PostgreSQL foundation checks and documentation reminder. PR #42 proposes the expanded workflow; PR #54 proposes production Django configuration, without a CD workflow.
 - `Issues/Backlog/DEVIATION_REGISTER.md`: recorded decisions and pending clarifications; proposals are distinct from approvals.
 - `SRS and Test Plan Details/`: source SRS and Test Plan.
 - `Software Design And Architecture Specification/`: source SAD.
@@ -73,7 +76,7 @@ python verification/check_documentation.py
 
 The test runner creates/destroys `test_<DB_NAME>`. Do not point tests at a production database. For fast local regression only: `python manage.py test accounts booking menu orders --settings=rms_backend.test_settings`. SQLite cannot verify row locking, concurrency or checkout and must not be used to run the application.
 
-The usability protocol and browser suite are in the separate #15/#16 PRs; their execution gaps must remain visible. Akul owns the canonical RTM/harness in #40–42; documentation does not replace its planned cases with automatic “Passed” statuses.
+The usability protocol and browser suite are in the separate #15/#16 PRs; their execution gaps must remain visible. Akul owns the canonical RTM/harness (#40/#41 now integrated; #42 workflow pending); documentation does not replace its planned cases with automatic “Passed” statuses.
 
 ## Source documents and governance
 
