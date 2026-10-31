@@ -77,7 +77,7 @@ class BrowserSmoke(StaticLiveServerTestCase):
     def login(self, page, email):
         page.goto(self.live_server_url + '/login/')
         page.get_by_label('Email or phone').fill(email)
-        page.get_by_label('Password', exact=True).fill(self.password)
+        page.get_by_label('Password').fill(self.password)
         page.get_by_role('button', name='Log in', exact=True).click()
         page.wait_for_url('**/account/')
 
@@ -122,9 +122,9 @@ class BrowserSmoke(StaticLiveServerTestCase):
         def task(page, expect):
             email = f'customer-{uuid4().hex}@example.invalid'
             page.goto(self.live_server_url + '/register/')
-            page.get_by_label('Name', exact=True).fill('Browser Customer')
-            page.get_by_label('Email', exact=True).fill(email)
-            page.get_by_label('Password', exact=True).fill(self.password)
+            page.get_by_label('Name').fill('Browser Customer')
+            page.get_by_label('Email').fill(email)
+            page.get_by_label('Password').fill(self.password)
             page.get_by_role('button', name='Sign up', exact=True).click()
             page.wait_for_url('**/login/')
             self.login(page, email)
@@ -179,7 +179,7 @@ class BrowserSmoke(StaticLiveServerTestCase):
             self.login(page, self.admin.email)
             page.goto(self.live_server_url + '/manage/menu/')
             name = f'Admin dish {uuid4().hex[:8]}'
-            page.get_by_label('Name', exact=True).fill(name)
+            page.get_by_label('Name').fill(name)
             page.get_by_label('Description', exact=True).fill('Browser-created dish')
             page.get_by_label('Price', exact=True).fill('5.25')
             page.get_by_role('button', name='Save item', exact=True).click()
