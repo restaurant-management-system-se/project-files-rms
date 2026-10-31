@@ -1,0 +1,2 @@
+# Separate from production requirements; install only for browser verification.
+playwright==1.64.1
