@@ -1,0 +1,57 @@
+name: RMS-28 acceptance
+on:
+  pull_request:
+    paths:
+      - 'backend/**'
+      - 'realtime/**'
+      - '.github/workflows/rms-28-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acceptance:
+    timeout-minutes: 25
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: rms_test
+          POSTGRES_USER: rms_ci
+          POSTGRES_PASSWORD: ephemeral-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DB_NAME: rms_test
+      DB_USER: rms_ci
+      DB_PASSWORD: ephemeral-ci-only
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DEBUG: 'True'
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r requirements.txt
+      - run: npm ci
+        working-directory: realtime
+      - run: python manage.py test orders.test_durability --verbosity=2
+      - name: Preserve measurements even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rms-28-acceptance-${{ github.sha }}
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 30

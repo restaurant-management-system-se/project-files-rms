@@ -167,3 +167,7 @@ ALLOWED_HOSTS = [host for host in os.environ.get("ALLOWED_HOSTS", "localhost,127
 BOOKING_DURATION_MINUTES = int(os.environ.get("BOOKING_DURATION_MINUTES", "90"))
 if not 1 <= BOOKING_DURATION_MINUTES <= 1440:
     raise ValueError("BOOKING_DURATION_MINUTES must be between 1 and 1440")
+
+# Same-origin proxy exposes /socket.io; internal services are private.
+RMS_REALTIME_KEY = os.environ.get('RMS_REALTIME_KEY','')
+RMS_REALTIME_INTERNAL_URL = os.environ.get('RMS_REALTIME_INTERNAL_URL','')
