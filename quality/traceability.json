@@ -1,0 +1,1932 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "b171c48cf07c0742891151c58df68dbe1876be35",
+  "inspected_on": "2026-10-23",
+  "sources": [
+    {
+      "path": "SRS and Test Plan Details/SRS/SRS-_Restaurant_Management_System.docx",
+      "sha256": "c4347af5dc3a6a8d8af462e5db692b50000c9ceea489383d92b317607f3d4c1b"
+    },
+    {
+      "path": "Software Design And Architecture Specification/SAD- Restaurant Management System.docx",
+      "sha256": "a9d6493d514f37bd622574e3320c7555593d5af2f8779bbe9ed156e89f6705f0"
+    },
+    {
+      "path": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx",
+      "sha256": "6280d07847f2930ec41497ba6d5aacc0dac7ff63cac5306657fe3f87f1003ad6"
+    },
+    {
+      "path": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx",
+      "sha256": "e5db433e6669c37fd0f4c34c597738c35b6c9ee6e443082f0b4a1363392c1e15"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "The system shall display the tables that are free for the date, time slot and party size entered by the customer within 2 seconds of the request.",
+      "tests": [
+        "UT_01",
+        "UT_02",
+        "IT_01",
+        "ST_01",
+        "ST_02"
+      ],
+      "issue": 11,
+      "owner": "Captain-King-2024",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 5.1, 6.2, 7.1",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
+      "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
+    },
+    {
+      "id": "REQ-2",
+      "text": "The system shall prevent double-booking by locking a table for its reserved time slot once a booking is confirmed.",
+      "tests": [
+        "UT_03",
+        "UT_04",
+        "IT_01",
+        "ST_01",
+        "ST_02"
+      ],
+      "issue": 12,
+      "owner": "Captain-King-2024",
+      "actual_paths": [
+        "backend/booking/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 5.1, 6.2, 7.1",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
+      "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
+    },
+    {
+      "id": "REQ-3",
+      "text": "The system shall allow a customer to cancel a booking up to 30 minutes before the reserved time, after which the table is released back into the available pool.",
+      "tests": [
+        "UT_05",
+        "UT_21",
+        "UT_23",
+        "ST_09"
+      ],
+      "issue": 13,
+      "owner": "Captain-King-2024",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 5.1, 6.2, 7.1",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-4",
+      "text": "The system shall allow restaurant staff to view, search and manually create or cancel bookings from the admin dashboard.",
+      "tests": [
+        "IT_02",
+        "IT_03",
+        "ST_09"
+      ],
+      "issue": 14,
+      "owner": "Captain-King-2024",
+      "actual_paths": [
+        "backend/booking/views.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 5.1, 6.2, 7.1",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-5",
+      "text": "The system shall allow an authenticated admin to create, update and delete menu items, including name, description, price, category and availability status.",
+      "tests": [
+        "UT_06",
+        "UT_07",
+        "UT_08",
+        "UT_09",
+        "IT_04",
+        "ST_03"
+      ],
+      "issue": 18,
+      "owner": "prasanna-p2006",
+      "actual_paths": [
+        "backend/menu/admin.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-6",
+      "text": "The system shall display only menu items marked 'available' to customers browsing the menu or placing an order.",
+      "tests": [
+        "UT_10",
+        "IT_04",
+        "IT_05",
+        "ST_04"
+      ],
+      "issue": 19,
+      "owner": "prasanna-p2006",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-7",
+      "text": "The system shall assign every menu item to exactly one category (Starters, Main Course, Desserts or Beverages) and display menu items grouped under their category.",
+      "tests": [
+        "UT_11",
+        "ST_03"
+      ],
+      "issue": 19,
+      "owner": "prasanna-p2006",
+      "actual_paths": [
+        "backend/menu/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-8",
+      "text": "The system shall allow a customer to add one or more available menu items to a cart and submit them as a single order.",
+      "tests": [
+        "UT_12",
+        "UT_13",
+        "UT_16",
+        "IT_08",
+        "ST_05"
+      ],
+      "issue": 20,
+      "owner": "prasanna-p2006",
+      "actual_paths": [
+        "backend/orders/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 5.2, 5.4, 7.2",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-9",
+      "text": "The system shall assign each order a status of Received, Preparing, or Served, and allow staff to update this status.",
+      "tests": [
+        "UT_13",
+        "UT_14",
+        "ST_05"
+      ],
+      "issue": 23,
+      "owner": "prasanna-p2006",
+      "actual_paths": [
+        "backend/orders/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 5.2, 5.4, 7.2",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-10",
+      "text": "The system shall push each order-status change to the customer's order-tracking screen over a WebSocket connection served by the Node.js component within 1 second of the change being saved.",
+      "tests": [
+        "IT_06",
+        "IT_07",
+        "ST_05"
+      ],
+      "issue": 24,
+      "owner": "prasanna-p2006",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 5.2, 5.4, 7.2",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-11",
+      "text": "The system shall reject an order containing a menu item that has since been marked unavailable, and shall notify the customer of which item was removed.",
+      "tests": [
+        "UT_15",
+        "ST_06"
+      ],
+      "issue": 22,
+      "owner": "prasanna-p2006",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 5.2, 5.4, 7.2",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "REQ-12",
+      "text": "The system shall allow a customer to register and log in with an email/phone number and a password of at least 8 characters, shall reject an email/phone number that is already registered, and shall store the password only as a salted PBKDF2-SHA256 or Argon2 hash.",
+      "tests": [
+        "UT_17",
+        "UT_18",
+        "UT_19",
+        "UT_22",
+        "IT_10",
+        "ST_07"
+      ],
+      "issue": 2,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/views.py",
+        "backend/accounts/serializers.py",
+        "backend/accounts/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Email required; optional exact phone login. Phone-only registration decision PENDING-02."
+    },
+    {
+      "id": "REQ-13",
+      "text": "The system shall restrict menu-management functions to users with the Admin role, and booking-override functions (manual create/cancel of any booking) to users with the Admin or Staff role; all other requests shall be denied with HTTP 403.",
+      "tests": [
+        "IT_09",
+        "ST_08",
+        "SV_03"
+      ],
+      "issue": 3,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/permissions.py",
+        "backend/accounts/resources.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Auth/read ownership guards exist; all feature mutations and pages still require integration."
+    },
+    {
+      "id": "REQ-14",
+      "text": "The system shall invalidate a user's session/token after 30 minutes of inactivity and require the user to log in again.",
+      "tests": [
+        "UT_20",
+        "SV_10"
+      ],
+      "issue": 4,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/middleware.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "PERF-1",
+      "text": "Under a load of up to 50 concurrent users, the system shall serve at least 95% of page loads and REST API responses within 2 seconds.",
+      "tests": [
+        "ST_10"
+      ],
+      "issue": 27,
+      "owner": "AkulkrishnaMS",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "PERF-2",
+      "text": "The system shall deliver at least 95% of WebSocket order-status updates to the customer's screen within 1 second of the status change being saved.",
+      "tests": [
+        "IT_07",
+        "ST_05"
+      ],
+      "issue": 28,
+      "owner": "AkulkrishnaMS",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 5.2, 5.4, 7.2",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "PERF-3",
+      "text": "The system shall support at least 50 concurrent users with an error rate (HTTP 5xx) of no more than 1%.",
+      "tests": [
+        "ST_10"
+      ],
+      "issue": 27,
+      "owner": "AkulkrishnaMS",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-1",
+      "text": "The system shall store passwords only as salted PBKDF2-SHA256 or Argon2 hashes, and no plain-text password shall appear in the database or in application logs.",
+      "tests": [
+        "UT_19",
+        "SV_01"
+      ],
+      "issue": 2,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/serializers.py",
+        "backend/rms_backend/settings.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-2",
+      "text": "The system shall serve all pages, REST API endpoints and WebSocket connections over TLS 1.2 or higher (HTTPS/WSS) and shall redirect any HTTP request to HTTPS.",
+      "tests": [
+        "SV_02"
+      ],
+      "issue": 6,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "HTTPS/WSS deployment and TLS scan not provided."
+    },
+    {
+      "id": "SEC-3",
+      "text": "The system shall enforce role-based access control on every page and API endpoint, returning HTTP 401 to unauthenticated requests and HTTP 403 to authenticated requests whose role is not authorised.",
+      "tests": [
+        "IT_09",
+        "ST_08",
+        "SV_03"
+      ],
+      "issue": 3,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/permissions.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Auth/read ownership guards exist; all feature mutations and pages still require integration."
+    },
+    {
+      "id": "SEC-4",
+      "text": "The system shall access the database only through the Django ORM/parameterised queries and shall escape all user-supplied text on output, so that SQL-injection and cross-site-scripting payloads are neither executed nor stored unescaped.",
+      "tests": [
+        "SV_04",
+        "SV_05"
+      ],
+      "issue": 7,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/serializers.py",
+        "backend/accounts/templates/accounts/account.html"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-5",
+      "text": "The system shall reject any state-changing request (POST/PUT/PATCH/DELETE) that lacks a valid CSRF token or authentication token, with HTTP 403.",
+      "tests": [
+        "SV_06"
+      ],
+      "issue": 8,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/accounts/views.py",
+        "backend/accounts/authentication.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-6",
+      "text": "The system shall lock a user account for 15 minutes after 5 consecutive failed login attempts.",
+      "tests": [
+        "SV_07"
+      ],
+      "issue": 5,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-7",
+      "text": "The system shall write an audit-log entry (user ID, action, timestamp) for every menu change, staff booking override and order-status change, and retain entries for at least 90 days.",
+      "tests": [
+        "SV_08"
+      ],
+      "issue": 9,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "SEC-8",
+      "text": "The system shall set the HttpOnly and Secure flags on session cookies and shall invalidate a session after 30 minutes of inactivity (see REQ-14).",
+      "tests": [
+        "UT_20",
+        "SV_09",
+        "SV_10"
+      ],
+      "issue": 4,
+      "owner": "Noctowl-Abhay",
+      "actual_paths": [
+        "backend/rms_backend/settings.py",
+        "backend/accounts/middleware.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 4, 5.3",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "QA-1",
+      "text": "A first-time customer shall be able to complete a table booking within 3 minutes and no more than 6 page interactions without training.",
+      "tests": [
+        "ST_11"
+      ],
+      "issue": 15,
+      "owner": "Captain-King-2024",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "QA-2",
+      "text": "The code base shall be divided into separate Django apps for booking, menu, orders and accounts, with no app importing another app's views.",
+      "tests": [
+        "SR_01"
+      ],
+      "issue": 25,
+      "owner": "AkulkrishnaMS",
+      "actual_paths": [
+        "backend/accounts/apps.py",
+        "backend/booking/apps.py",
+        "backend/menu/apps.py",
+        "backend/orders/apps.py"
+      ],
+      "implementation": "Implemented",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Static boundary execution recorded separately; startup of realtime missing at baseline."
+    },
+    {
+      "id": "QA-3",
+      "text": "Once a booking or order is confirmed to the customer, it shall be persisted in the database; no confirmed record shall be lost across a server restart.",
+      "tests": [
+        "ST_12"
+      ],
+      "issue": 29,
+      "owner": "AkulkrishnaMS",
+      "actual_paths": [
+        "backend/booking/models.py",
+        "backend/orders/models.py"
+      ],
+      "implementation": "Partial",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    },
+    {
+      "id": "QA-4",
+      "text": "The web interface shall render and function correctly in the latest two stable versions of Chrome, Firefox and Edge.",
+      "tests": [
+        "ST_13"
+      ],
+      "issue": 16,
+      "owner": "Captain-King-2024",
+      "actual_paths": [],
+      "implementation": "Pending",
+      "result": "Not Executed",
+      "design": "SAD 6, 7, 9",
+      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+    }
+  ],
+  "tests": [
+    {
+      "id": "UT_01",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify the system displays available tables for a valid date, time and party size (REQ-1)",
+          "preconditions": "Booking service is running; at least one table exists in the database",
+          "steps": "1: Call the availability-check function with a date, time slot and party size\n2: Inspect the list of tables returned",
+          "data": "Date: 2026-10-21, Time: 19:00, Party size: 4",
+          "expected": "Function returns all tables with capacity >= 4 that have no existing booking overlapping 19:00 on 2026-10-21",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-1"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_02",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify the system returns no tables when none are free for the requested slot (REQ-1, negative)",
+          "preconditions": "All tables are already booked for the requested slot",
+          "steps": "1: Call the availability-check function for a fully-booked date/time/party size\n2: Inspect the returned list",
+          "data": "Date: 2026-10-21, Time: 19:00, Party size: 2 (slot fully booked)",
+          "expected": "Function returns an empty list and the system suggests the closest available slot",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-1"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_03",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify creating a booking locks the selected table for its reserved slot (REQ-2)",
+          "preconditions": "Table 5 is free for the target slot",
+          "steps": "1: Submit a booking request for Table 5 at a given date/time\n2: Query the table's status immediately after",
+          "data": "Table: 5, Date: 2026-10-21, Time: 19:00, Party size: 2",
+          "expected": "Booking record is created and Table 5's status is 'Reserved' for that slot",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_04",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify a booking cannot be created for a table already locked in an overlapping slot (REQ-2, negative)",
+          "preconditions": "Table 5 already has a confirmed booking for 19:00-20:30",
+          "steps": "1: Submit a second booking request for Table 5 at 19:30 on the same date\n2: Observe the system response",
+          "data": "Table: 5, Date: 2026-10-21, Time: 19:30 (overlaps existing 19:00-20:30 booking)",
+          "expected": "Booking request is rejected with a message indicating the table is unavailable for that slot",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_05",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify a booking can be cancelled more than 30 minutes before the reserved time (REQ-3)",
+          "preconditions": "A confirmed booking exists for a slot more than 30 minutes away",
+          "steps": "1: Submit a cancellation request for the booking\n2: Query the booking status and table status",
+          "data": "Booking reserved for 19:00; cancellation submitted at 18:00",
+          "expected": "Booking status changes to 'Cancelled' and the table is released back into the available pool",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-3"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_06",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify an admin can create a new menu item with valid name, price and category (REQ-5)",
+          "preconditions": "Admin is authenticated",
+          "steps": "1: Submit a create-menu-item request with valid name, price, category and availability\n2: Query the menu items table for the new entry",
+          "data": "Name: 'Paneer Tikka', Price: 220, Category: 'Starters', Available: true",
+          "expected": "Menu item is created successfully and appears in the menu items table with the given values",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_07",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify menu item creation is rejected when the price is negative or a required field is missing (REQ-5, negative)",
+          "preconditions": "Admin is authenticated",
+          "steps": "1: Submit a create-menu-item request with a negative price and a missing name\n2: Observe the system response",
+          "data": "Name: '', Price: -50, Category: 'Starters'",
+          "expected": "Request is rejected with a validation error identifying the invalid/missing fields; no record is created",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_08",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify an admin can update an existing menu item's details (REQ-5)",
+          "preconditions": "Menu item 'Paneer Tikka' already exists",
+          "steps": "1: Submit an update request changing the item's price and availability\n2: Query the menu items table for the updated entry",
+          "data": "Item: 'Paneer Tikka', New price: 240, Available: false",
+          "expected": "Menu item record is updated with the new price and availability status",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_09",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify an admin can delete a menu item (REQ-5)",
+          "preconditions": "Menu item 'Paneer Tikka' exists and is not referenced by an open order",
+          "steps": "1: Submit a delete request for the menu item\n2: Query the menu items table",
+          "data": "Item: 'Paneer Tikka'",
+          "expected": "Menu item is removed from the menu items table and no longer returned by menu queries",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_10",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify only menu items marked 'available' are returned by the menu listing function (REQ-6)",
+          "preconditions": "Menu contains a mix of available and unavailable items",
+          "steps": "1: Call the menu-listing function\n2: Inspect the returned list of items",
+          "data": "5 items marked available, 2 items marked unavailable",
+          "expected": "Only the 5 available items are returned; the 2 unavailable items are excluded",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-6"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_11",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify menu items are grouped correctly by category (REQ-7)",
+          "preconditions": "Menu contains items across Starters, Main Course and Desserts categories",
+          "steps": "1: Call the menu-listing function with grouping enabled\n2: Inspect the grouped output",
+          "data": "3 Starters, 4 Main Course, 2 Desserts items",
+          "expected": "Items are grouped under their correct category headings with correct counts in each group",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-7"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_12",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify a customer can add one or more available menu items to the cart (REQ-8)",
+          "preconditions": "At least 2 menu items are marked available",
+          "steps": "1: Add 'Paneer Tikka' to the cart\n2: Add 'Spring Rolls' to the cart\n3: Inspect the cart contents",
+          "data": "Items: Paneer Tikka (x1), Spring Rolls (x2)",
+          "expected": "Cart contains both items with the correct quantities",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-8"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_13",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify submitting a cart creates a single order with status 'Received' (REQ-8, REQ-9)",
+          "preconditions": "Cart contains at least one available item",
+          "steps": "1: Submit the cart as an order\n2: Query the orders table for the new record",
+          "data": "Cart: Paneer Tikka (x1), Spring Rolls (x2)",
+          "expected": "A single order record is created containing both items with status 'Received'",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-8",
+        "REQ-9"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_14",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify staff can update an order's status from Received to Preparing to Served (REQ-9)",
+          "preconditions": "An order exists with status 'Received'",
+          "steps": "1: Staff updates the order status to 'Preparing'\n2: Staff updates the order status to 'Served'\n3: Query the order's status after each update",
+          "data": "Order ID: OR-2001",
+          "expected": "Order status changes to 'Preparing' and then to 'Served' as each update is applied",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-9"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_15",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify an order is rejected if it contains a menu item marked unavailable, with correct notification (REQ-11, negative)",
+          "preconditions": "One item in the cart has been marked unavailable after being added",
+          "steps": "1: Add an item to the cart while it is available\n2: Admin marks the item unavailable\n3: Submit the cart as an order",
+          "data": "Cart contains 'Spring Rolls', which is then marked unavailable",
+          "expected": "Order submission fails; customer is notified that 'Spring Rolls' is no longer available and was removed",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-11"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_16",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify the cart correctly calculates the total price for multiple items and quantities (REQ-8)",
+          "preconditions": "Menu item prices are known",
+          "steps": "1: Add Paneer Tikka (price 220) x1 and Spring Rolls (price 180) x2 to the cart\n2: Inspect the cart's calculated total",
+          "data": "Paneer Tikka x1 (220), Spring Rolls x2 (180 each)",
+          "expected": "Cart total is correctly calculated as 220 + (180 x 2) = 580",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-8"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_17",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify a new customer can register with a valid email/phone and password (REQ-12)",
+          "preconditions": "The email/phone used is not already registered",
+          "steps": "1: Submit the registration form with a valid email and password\n2: Query the Users table for the new account",
+          "data": "Email: customer1@example.com, Password: Cust@1234",
+          "expected": "A new user account is created with role 'Customer' and the password is stored hashed, not in plain text",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_18",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify registration is rejected for an email that is already registered (REQ-12, negative)",
+          "preconditions": "An account with the same email already exists",
+          "steps": "1: Submit the registration form with an email that is already registered\n2: Observe the system response",
+          "data": "Email: customer1@example.com (already registered), Password: Cust@1234 (valid)",
+          "expected": "Registration is rejected with a validation error indicating the email is already in use",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_19",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify passwords are stored using a secure salted hash and never in plain text (REQ-12, SEC-1)",
+          "preconditions": "A user account has just been created",
+          "steps": "1: Register a new user\n2: Inspect the stored password value directly in the database",
+          "data": "Email: customer2@example.com, Password: Cust@5678",
+          "expected": "The stored value is a hashed string (e.g., PBKDF2/Argon2 format); the plain-text password is not present",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12",
+        "SEC-1"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_20",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify a logged-in user's session/token is invalidated after 30 minutes of inactivity (REQ-14, SEC-8)",
+          "preconditions": "User is logged in and holds a valid session/token",
+          "steps": "1: Log in and note the issued session/token\n2: Remain inactive for 30 minutes (test clock or reduced timeout in the test environment)\n3: Attempt to access a protected page using the same token",
+          "data": "Inactivity period: 30 minutes",
+          "expected": "The session/token is rejected as expired/invalid and the user is prompted to log in again",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify a logged-in user's session/token is invalidated after 30 minutes of inactivity (REQ-14, SEC-8)",
+          "preconditions": "User is logged in and holds a valid session/token",
+          "steps": "1: Log in and note the issued session/token\n2: Remain inactive for 31 minutes\n3: Attempt to access a protected page using the same token",
+          "data": "Inactivity period: 30 minutes (idle for 31 minutes)",
+          "expected": "The session/token is rejected as expired/invalid (401 Unauthorized) and the user is prompted to log in again",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "UT_21",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify a booking cannot be cancelled less than 30 minutes before the reserved time (REQ-3, negative)",
+          "preconditions": "A confirmed booking exists for 19:00",
+          "steps": "1: Submit a cancellation request at 18:45\n2: Query the booking and table status",
+          "data": "Booking reserved for 19:00; cancellation submitted at 18:45",
+          "expected": "Cancellation is rejected with a message that bookings can be cancelled only up to 30 minutes before the reserved time; booking status remains 'Confirmed' and the table stays reserved",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Table Booking Management",
+          "description": "Verify a booking cannot be cancelled less than 30 minutes before the reserved time (REQ-3, negative)",
+          "preconditions": "A confirmed booking exists for a slot less than 30 minutes away",
+          "steps": "1: Submit a cancellation request for the booking\n2: Query the booking status and table status",
+          "data": "Booking reserved for 19:00; cancellation submitted at 18:45",
+          "expected": "Cancellation request is rejected with a message that a booking can only be cancelled up to 30 minutes before the reserved time; booking status remains 'Confirmed' and the table stays reserved",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-3"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "UT_22",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify registration is rejected when the password is shorter than 8 characters (REQ-12, negative)",
+          "preconditions": "The email/phone used is not already registered",
+          "steps": "1: Submit the registration form with a valid email and a 7-character password\n2: Observe the system response\n3: Query the Users table",
+          "data": "Email: customer4@example.com, Password: Ab@1234 (7 characters)",
+          "expected": "Registration is rejected with a validation error stating the minimum length of 8 characters; no account is created",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "UT_23",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify a booking can be cancelled exactly 30 minutes before the reserved time (REQ-3, boundary)",
+          "preconditions": "A confirmed booking exists for 19:00",
+          "steps": "1: Submit a cancellation request at exactly 18:30\n2: Query the booking status and table status",
+          "data": "Booking reserved for 19:00; cancellation submitted at 18:30",
+          "expected": "Cancellation is accepted; booking status changes to 'Cancelled' and the table is released back into the available pool",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-3"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_01",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify the booking API persists a new booking to the database and updates table status (REQ-1, REQ-2)",
+          "preconditions": "Booking API and database are both running and reachable",
+          "steps": "1: Send a POST request to the booking endpoint with valid date/time/party size/table\n2: Query the database directly for the new booking record\n3: Query the table's status in the database",
+          "data": "POST /api/bookings {table:5, date:'2026-10-21', time:'19:00', guests:2}",
+          "expected": "API returns 201 Created; a matching row exists in the Bookings table; Table 5's status is 'Reserved'",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-1",
+        "REQ-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_02",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify the staff dashboard retrieves and displays current bookings from the booking service (REQ-4)",
+          "preconditions": "At least 3 bookings exist for the current day; staff user is logged in",
+          "steps": "1: Log in as a Staff user\n2: Open the Bookings section of the admin dashboard\n3: Compare the list shown against the database records",
+          "data": "Staff credentials; 3 seeded bookings for today",
+          "expected": "All 3 bookings are listed on the dashboard with correct table, time and customer details",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-4"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_03",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "Verify staff can manually cancel a booking from the dashboard and the change reflects in the database (REQ-4)",
+          "preconditions": "A confirmed booking exists; staff user is logged in",
+          "steps": "1: Log in as Staff\n2: Open the booking in the dashboard and select 'Cancel Booking'\n3: Query the database for the booking's status",
+          "data": "Existing booking ID: BK-1001",
+          "expected": "Dashboard shows the booking as 'Cancelled'; database record for BK-1001 has status 'Cancelled'",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-4"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_04",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify a menu update made via the admin panel is immediately reflected in the customer-facing menu API (REQ-5, REQ-6)",
+          "preconditions": "Admin is logged in; customer-facing menu API is reachable",
+          "steps": "1: Update an existing item's price via the admin panel\n2: Call the customer-facing menu API for the same item",
+          "data": "Item: 'Paneer Tikka', updated price: 250",
+          "expected": "Customer-facing API returns the item with the updated price of 250, with no manual refresh needed",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5",
+        "REQ-6"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_05",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "Verify marking an item unavailable removes it from the customer menu listing returned by the API (REQ-6)",
+          "preconditions": "Item is currently available and visible to customers",
+          "steps": "1: Mark the item as unavailable via the admin panel\n2: Call the customer-facing menu listing API",
+          "data": "Item: 'Paneer Tikka' marked unavailable",
+          "expected": "The item no longer appears in the customer-facing menu API response",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-6"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_06",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify an order-status change in the backend triggers a WebSocket push event to the Node.js real-time service (REQ-10)",
+          "preconditions": "Node.js WebSocket service is running and connected to the Django backend",
+          "steps": "1: Update an order's status via the staff dashboard\n2: Inspect the WebSocket event emitted by the Node.js service",
+          "data": "Order ID: OR-2001, new status: 'Preparing'",
+          "expected": "A WebSocket event is emitted containing the order ID and the new status 'Preparing'",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-10"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_07",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify the customer's order-tracking screen updates in real time upon receiving a WebSocket status push (REQ-10)",
+          "preconditions": "Customer's order-tracking page is open with an active WebSocket connection",
+          "steps": "1: Trigger an order-status update on the backend\n2: Observe the customer's order-tracking screen without refreshing",
+          "data": "Order ID: OR-2001, status change: 'Received' -> 'Preparing'",
+          "expected": "The order-tracking screen updates to show 'Preparing' within 1 second, with no manual refresh",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify the customer's order-tracking screen updates in real time upon receiving WebSocket status pushes, with at least 95% of updates within 1 second (REQ-10, PERF-2)",
+          "preconditions": "Customer's order-tracking page is open with an active WebSocket connection for each of 20 orders with status 'Received'",
+          "steps": "1: Trigger an order-status update on the backend for each of the 20 orders\n2: Record the time each status change is saved and the time the tracking screen shows the new status, without refreshing\n3: Calculate the delay for each update\n4: Count the updates with a delay of 1 second or less",
+          "data": "Order IDs: OR-2001 to OR-2020, status change: 'Received' -> 'Preparing'",
+          "expected": "Each order-tracking screen updates to show 'Preparing' with no manual refresh; at least 19 of the 20 updates (95%) appear within 1 second of the status change being saved",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-10",
+        "PERF-2"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "IT_08",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "Verify order submission correctly persists the order and order items in the database with correct totals (REQ-8)",
+          "preconditions": "Cart contains valid available items",
+          "steps": "1: Submit the cart as an order\n2: Query the Orders and OrderItems tables",
+          "data": "Cart: Paneer Tikka x1, Spring Rolls x2",
+          "expected": "Orders table has one new row; OrderItems table has two rows linked to it; total amount matches cart total",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-8"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_09",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify an Admin-role user can access menu-management endpoints while a Customer-role user is denied (REQ-13)",
+          "preconditions": "One Admin account and one Customer account exist",
+          "steps": "1: Log in as Admin and call the menu-management endpoint\n2: Log in as Customer and call the same endpoint",
+          "data": "Admin credentials; Customer credentials",
+          "expected": "Admin request succeeds (200 OK); Customer request is denied (403 Forbidden)",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "IT_10",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "Verify login issues a valid session/token that is accepted by protected API endpoints (REQ-12, REQ-13)",
+          "preconditions": "A registered user account exists",
+          "steps": "1: Log in with valid credentials and capture the issued token\n2: Call a protected endpoint using that token",
+          "data": "Email: customer2@example.com, Password: Cust@5678",
+          "expected": "Login succeeds and returns a valid token; the protected endpoint accepts the token and returns the expected data",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_01",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "End-to-end: customer books a table via the UI; available tables are shown within 2 seconds and a confirmation with a booking reference is displayed (REQ-1, REQ-2)",
+          "preconditions": "Customer is on the Table Booking page; at least one table is free for the chosen slot",
+          "steps": "1: Select a date, time and party size\n2: Choose a table from the available options and confirm\n3: Observe the confirmation screen",
+          "data": "Date: 2026-10-22, Time: 20:00, Party size: 3",
+          "expected": "Available tables are displayed within 2 seconds of the request; booking is confirmed and a unique booking reference number is displayed to the customer",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-1",
+        "REQ-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_02",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "End-to-end: customer attempts to double-book an already reserved slot; system rejects and suggests the nearest available slot (REQ-1, REQ-2)",
+          "preconditions": "The chosen table/slot combination is already fully booked",
+          "steps": "1: Select a date, time and party size that is already fully booked\n2: Attempt to confirm the booking\n3: Observe the system's response",
+          "data": "Date: 2026-10-22, Time: 20:00 (already fully booked), Party size: 3",
+          "expected": "Booking is rejected with a message, and the system suggests the closest available time slot; the availability response is displayed within 2 seconds",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-1",
+        "REQ-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_03",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "End-to-end: admin adds a new Starters item; customer browsing the menu sees it under Starters (REQ-5, REQ-7)",
+          "preconditions": "Admin is logged in; customer has the menu page open",
+          "steps": "1: Admin adds a new item 'Spring Rolls' under category Starters\n2: Customer refreshes/browses the menu page\n3: Customer looks under the Starters category",
+          "data": "Item: 'Spring Rolls', Category: 'Starters', Price: 180",
+          "expected": "'Spring Rolls' appears under the Starters category on the customer-facing menu",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-5",
+        "REQ-7"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_04",
+      "variants": [
+        {
+          "module": "Menu Management",
+          "description": "End-to-end: admin marks an item unavailable; customer no longer sees it while browsing the live menu (REQ-6)",
+          "preconditions": "Item is currently visible to the customer",
+          "steps": "1: Admin marks the item as unavailable\n2: Customer browses/refreshes the menu page",
+          "data": "Item: 'Spring Rolls' marked unavailable",
+          "expected": "'Spring Rolls' no longer appears on the customer-facing menu",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-6"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_05",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "End-to-end: customer places an order, staff updates status through all stages, customer sees live updates within 1 second of each change (REQ-8, REQ-9, REQ-10, PERF-2)",
+          "preconditions": "Customer has items in the cart; staff dashboard is open",
+          "steps": "1: Customer submits the order\n2: Staff updates status to 'Preparing', then 'Served'\n3: Customer observes their order-tracking screen throughout",
+          "data": "Cart: Paneer Tikka x1, Spring Rolls x2",
+          "expected": "Customer's screen updates live through Received -> Preparing -> Served without any page refresh, each update appearing within 1 second of the status change being saved",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-8",
+        "REQ-9",
+        "REQ-10",
+        "PERF-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_06",
+      "variants": [
+        {
+          "module": "Food Ordering and Order Tracking",
+          "description": "End-to-end: customer attempts to order an item that becomes unavailable after adding it to the cart (REQ-11)",
+          "preconditions": "Item is available when added to the cart",
+          "steps": "1: Customer adds 'Spring Rolls' to the cart\n2: Admin marks 'Spring Rolls' unavailable before checkout\n3: Customer submits the order",
+          "data": "Cart: Spring Rolls x2, marked unavailable before submission",
+          "expected": "Order submission is blocked and the customer is notified that 'Spring Rolls' was removed as unavailable",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-11"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_07",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "End-to-end: customer registers, logs in, and books a table using their authenticated session (REQ-12)",
+          "preconditions": "Email used for registration is not already registered",
+          "steps": "1: Register a new customer account\n2: Log in with the new account\n3: Use the authenticated session to book a table",
+          "data": "Email: customer3@example.com, Password: Cust@9012",
+          "expected": "Registration, login and booking all succeed, with the booking correctly associated with the new account",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-12"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_08",
+      "variants": [
+        {
+          "module": "User Authentication and Role Management",
+          "description": "End-to-end: a Staff-role user attempts to access an Admin-only menu-management page and is denied access (REQ-13)",
+          "preconditions": "A Staff account exists and is logged in",
+          "steps": "1: Log in as Staff\n2: Navigate directly to the Admin-only menu-management page",
+          "data": "Staff credentials",
+          "expected": "Access is denied with HTTP 403 Forbidden and an appropriate message; the menu-management page is not displayed",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_09",
+      "variants": [
+        {
+          "module": "Table Booking Management",
+          "description": "End-to-end: staff creates a booking for a walk-in customer from the dashboard and cancels it more than 30 minutes ahead (REQ-3, REQ-4)",
+          "preconditions": "Staff user is logged in; Table 3 is free for the slot",
+          "steps": "1: Log in as Staff\n2: Create a booking for Table 3 via the dashboard\n3: Verify it appears in the booking list\n4: Cancel it from the dashboard",
+          "data": "Table 3, 2026-10-23, 19:00, guests: 2, customer: Walk-in Guest",
+          "expected": "Booking is created and listed as 'Confirmed'; after cancellation it shows 'Cancelled' and Table 3 is available again for that slot",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Table Booking Management",
+          "description": "End-to-end: customer cancels a booking more than 30 minutes before the reserved time; staff finds it in the dashboard, sees the table released and manually creates a new booking for that slot (REQ-3, REQ-4)",
+          "preconditions": "Customer has a confirmed booking for a slot more than 30 minutes away; Staff account exists",
+          "steps": "1: Customer logs in and cancels the booking\n2: Log in as Staff and search for the booking in the admin dashboard\n3: Check the status shown for the booking\n4: Manually create a new booking for the same table and slot on behalf of a customer\n5: Check that the new booking is listed in the dashboard",
+          "data": "Existing booking ID: BK-1002 (Table 5, 2026-10-25, 19:00), cancelled at 17:00; Staff credentials; New booking: Table 5, 2026-10-25, 19:00, Party size: 2",
+          "expected": "Customer sees BK-1002 as 'Cancelled'; staff search returns BK-1002 with status 'Cancelled'; Table 5 can be booked again for 19:00; the manual booking is created and listed in the dashboard",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-3",
+        "REQ-4"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "ST_10",
+      "variants": [
+        {
+          "module": "Performance (NFR)",
+          "description": "Load test: 50 concurrent users browse the menu, book tables and place orders (PERF-1, PERF-3)",
+          "preconditions": "System deployed on the test server with seeded data; load tool (Locust/JMeter) configured",
+          "steps": "1: Ramp up to 50 virtual users over 1 minute\n2: Each user browses the menu, checks availability and places an order\n3: Run for 10 minutes\n4: Collect response-time and error statistics",
+          "data": "50 concurrent virtual users, 10-minute run",
+          "expected": "At least 95% of page loads/API responses complete within 2 s; HTTP 5xx error rate is 1% or less",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Non-Functional Requirements (Performance)",
+          "description": "Performance: system under 50 concurrent users meets the response-time and error-rate limits (PERF-1, PERF-3)",
+          "preconditions": "System is deployed on the test server with PostgreSQL; menu items, tables and bookings are seeded; a load-testing tool is available",
+          "steps": "1: Start 50 virtual users at the same time\n2: Each user repeatedly browses the menu, checks table availability and places an order for the whole test period\n3: Record the response time of every page load and REST API request\n4: Count the HTTP 5xx responses\n5: Calculate the percentage of responses within 2 seconds and the percentage of HTTP 5xx responses",
+          "data": "Concurrent users: 50; Test period: 5 minutes; Operations: menu browse, availability check, order placement",
+          "expected": "At least 95% of page loads and REST API responses complete within 2 seconds; HTTP 5xx error rate is no more than 1%; all 50 users are served for the full test period",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "PERF-1",
+        "PERF-3"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "ST_11",
+      "variants": [
+        {
+          "module": "Usability (NFR)",
+          "description": "First-time customer completes a table booking within 3 minutes and no more than 6 page interactions without training (QA-1)",
+          "preconditions": "Tester has never used RMS; test account exists; at least one table is free",
+          "steps": "1: Give the tester the task: book a table for 2 guests tomorrow at 19:00\n2: Time the task with a stopwatch and count page interactions\n3: Record the result for each tester",
+          "data": "3 first-time testers; Party size: 2",
+          "expected": "Each tester completes the booking in 3 minutes or less using no more than 6 page interactions",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "QA-1"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_12",
+      "variants": [
+        {
+          "module": "Reliability (NFR)",
+          "description": "Confirmed bookings and orders persist across a server restart (QA-3)",
+          "preconditions": "A confirmed booking and a placed order exist",
+          "steps": "1: Note the booking reference and order ID\n2: Restart the Django and Node.js services\n3: View the booking and order again via the UI and database",
+          "data": "Booking ID: BK-1001, Order ID: OR-2001",
+          "expected": "Both records are present with unchanged details and status after restart; nothing is lost",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "QA-3"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_13",
+      "variants": [
+        {
+          "module": "Portability (NFR)",
+          "description": "Core flows work in the latest two stable versions of Chrome, Firefox and Edge (QA-4)",
+          "preconditions": "Test environment accessible from all target browsers",
+          "steps": "1: In each browser version, log in\n2: Browse the menu, book a table, place an order and open order tracking\n3: Note any rendering or functional defects",
+          "data": "Chrome, Firefox, Edge (latest two stable versions each)",
+          "expected": "All pages render and function correctly in every listed browser version",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "QA-4"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "ST_14",
+      "variants": [
+        {
+          "module": "Business Rules",
+          "description": "Staff cannot delete a confirmed booking or order (SRS 6.5)",
+          "preconditions": "Staff user is logged in; confirmed booking BK-1001 and order OR-2001 exist",
+          "steps": "1: Attempt to delete the booking from the dashboard and via the API\n2: Attempt to delete the order from the dashboard and via the API\n3: Cancel the booking (status change) from the dashboard",
+          "data": "Staff credentials; BK-1001; OR-2001",
+          "expected": "Deletion is not offered or is denied (HTTP 403) and both records remain; cancelling the booking is still allowed and sets status 'Cancelled'",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [],
+      "business_rule": "SRS 6.5 no hard delete of confirmed records",
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "SR_01",
+      "variants": [
+        {
+          "module": "Maintainability (static review)",
+          "description": "Verify no Django app imports another app's views (QA-2)",
+          "preconditions": "Source code available; apps booking, menu, orders, accounts exist",
+          "steps": "1: List import statements in each app (grep / import-linter)\n2: Check that no app imports views from another app",
+          "data": "Source code of the 4 Django apps",
+          "expected": "No cross-app view imports are found; code base is split into the 4 separate apps",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "QA-2"
+      ],
+      "canonical_variant": 0,
+      "reconciliation": "Test Plan appendix"
+    },
+    {
+      "id": "SV_01",
+      "variants": [
+        {
+          "module": "Security - SEC-1",
+          "description": "Verify passwords are stored only as salted PBKDF2-SHA256/Argon2 hashes and never appear in plain text (SEC-1, REQ-12)",
+          "preconditions": "Test environment with database and log access",
+          "steps": "1: Register two customers with the same password\n2: Inspect both stored password values in the database\n3: Search application logs and a DB dump for the plain-text password",
+          "data": "customer_sv1a@example.com and customer_sv1b@example.com, Password: Same@1234",
+          "expected": "Both values are PBKDF2-SHA256 or Argon2 hashes with different salts; the plain-text password is absent from DB and logs",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify passwords are stored only as salted PBKDF2-SHA256 or Argon2 hashes and do not appear in application logs (SEC-1)",
+          "preconditions": "Application logging is enabled; the emails used are not already registered",
+          "steps": "1: Register two new users with the same password\n2: Inspect the stored password value of both users in the database\n3: Compare the two stored values\n4: Search the application log for the plain-text password",
+          "data": "customer4@example.com and customer5@example.com, Password: Cust@7777 (for both)",
+          "expected": "Both stored values are in PBKDF2-SHA256 or Argon2 hash format with a salt; the two stored values are different; the plain-text password is not present in the database or in the application log",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-1"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_02",
+      "variants": [
+        {
+          "module": "Security - SEC-2",
+          "description": "Verify all traffic uses TLS 1.2+ and HTTP is redirected to HTTPS (SEC-2)",
+          "preconditions": "Test server deployed with TLS certificate",
+          "steps": "1: Scan with testssl.sh / nmap ssl-enum-ciphers\n2: Request the site over http://\n3: Open the WebSocket over ws:// and wss://",
+          "data": "Test server hostname",
+          "expected": "Only TLS 1.2 or higher is accepted; HTTP is redirected to HTTPS; WebSocket works only over WSS",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify all pages, REST endpoints and WebSocket connections use TLS 1.2 or higher and HTTP requests are redirected to HTTPS (SEC-2)",
+          "preconditions": "System is deployed with HTTPS enabled; an order exists for the order-tracking page",
+          "steps": "1: Open the site URL using http://\n2: Call a REST endpoint using http://\n3: Check the TLS version used by the https connection\n4: Try to connect to the server using TLS 1.1\n5: Open the order-tracking page and check the WebSocket URL",
+          "data": "http://<server-host>/ and http://<server-host>/api/menu; Order ID: OR-2001",
+          "expected": "Both http requests are redirected to https; the connection uses TLS 1.2 or higher; the TLS 1.1 connection is refused; the WebSocket connection uses wss:// and connects successfully",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-2"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_03",
+      "variants": [
+        {
+          "module": "Security - SEC-3 / REQ-13",
+          "description": "Verify role-based access control on every page and endpoint returns 401 (unauthenticated) and 403 (wrong role) (SEC-3, REQ-13)",
+          "preconditions": "Customer, Staff and Admin accounts exist; bookings/orders of another user exist",
+          "steps": "1: Call every page/API endpoint without logging in\n2: Repeat as Customer, Staff and Admin\n3: Attempt forced browsing and access to another user's booking/order by ID",
+          "data": "Role credentials; list of all endpoints",
+          "expected": "Unauthenticated requests get HTTP 401; unauthorised roles get HTTP 403; menu management is Admin-only; booking override is Admin/Staff only",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify role-based access control on API endpoints: 401 for unauthenticated requests and 403 for unauthorised roles (SEC-3, REQ-13)",
+          "preconditions": "Customer, Staff and Admin accounts exist; booking BK-1003 owned by another customer and order OR-2001 exist",
+          "steps": "1: Without logging in, call GET /api/bookings and POST /api/orders\n2: Log in as Customer and call POST /api/menu and PATCH /api/orders/OR-2001/status\n3: As the same Customer, cancel BK-1003 using PATCH /api/bookings/BK-1003/cancel\n4: Log in as Staff and call POST /api/menu\n5: Log in as Admin and call POST /api/menu",
+          "data": "Customer, Staff and Admin credentials; Booking ID: BK-1003; Order ID: OR-2001; Menu item: 'Veg Soup', Price: 150, Category: 'Starters'",
+          "expected": "Step 1 returns 401 Unauthorized; steps 2, 3 and 4 return 403 Forbidden and no data is changed; step 5 succeeds",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_04",
+      "variants": [
+        {
+          "module": "Security - SEC-4",
+          "description": "Verify SQL-injection payloads are not executed (SEC-4)",
+          "preconditions": "Test environment with resettable DB snapshot",
+          "steps": "1: Enter SQL-injection payloads in login, booking, search and menu fields (manual + sqlmap)\n2: Observe responses and check the database",
+          "data": "' OR '1'='1 ; '; DROP TABLE bookings;--",
+          "expected": "Payloads are not executed; no data is changed or leaked; queries go through the ORM/parameterised queries",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify SQL injection input is treated as plain data and is not executed (SEC-4)",
+          "preconditions": "Menu items and bookings exist in the database",
+          "steps": "1: Submit the login form with SQL text in the email field\n2: Call GET /api/menu with SQL text in the category filter\n3: Query the database for the menu and bookings tables and their record counts",
+          "data": "Email: admin' OR '1'='1, Password: abc; Category: Starters'; DROP TABLE menu_item;--",
+          "expected": "Login is rejected; the menu request returns an empty result or a 400 validation error, not a 500 error and no unrelated records; both tables still exist with the same record counts",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-4"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_05",
+      "variants": [
+        {
+          "module": "Security - SEC-4",
+          "description": "Verify XSS payloads are escaped on output and not executed (SEC-4)",
+          "preconditions": "Customer and Admin accounts exist",
+          "steps": "1: Enter script payloads in name, phone, menu description and order fields\n2: View the stored data in customer and admin pages",
+          "data": "<script>alert(1)</script> ; <img src=x onerror=alert(1)>",
+          "expected": "Output is escaped; no script executes; stored data is not rendered unescaped",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify cross-site-scripting input is escaped on output and is not executed (SEC-4)",
+          "preconditions": "A Staff account exists; table 6 is free for the slot",
+          "steps": "1: Register a new customer with a script tag as the name\n2: Log in as this customer and book a table\n3: Log in as Staff and open the Bookings section of the dashboard\n4: View the page source and check the stored value",
+          "data": "Name: <script>alert('XSS')</script>, Email: customer6@example.com, Password: Cust@8888; Booking: Table 6, 2026-10-25, 20:00, Party size: 2",
+          "expected": "No alert is shown; the customer name appears as plain text in the dashboard; the page source shows the escaped text (&lt;script&gt;); the booking is created normally",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-4"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_06",
+      "variants": [
+        {
+          "module": "Security - SEC-5",
+          "description": "Verify state-changing requests without a valid CSRF/auth token are rejected (SEC-5)",
+          "preconditions": "Test accounts exist; request-replay tool (Postman/ZAP) ready",
+          "steps": "1: Send POST/PUT/PATCH/DELETE requests with no CSRF token\n2: Send the same requests with no authentication token",
+          "data": "Booking, order and menu endpoints",
+          "expected": "Every such request is rejected with HTTP 403",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify state-changing requests without a valid CSRF token are rejected (SEC-5)",
+          "preconditions": "Customer is logged in and has a valid session cookie",
+          "steps": "1: Send POST /api/bookings with the session cookie and no CSRF token\n2: Send the same request with an invalid CSRF token\n3: Send PATCH /api/bookings/BK-1004/cancel with no CSRF token\n4: Send the POST request again with a valid CSRF token\n5: Query the database for new bookings",
+          "data": "POST /api/bookings {table:5, date:'2026-10-26', time:'19:00', guests:2}; Invalid token: 'abc123invalid'; Booking ID: BK-1004",
+          "expected": "Steps 1, 2 and 3 return 403 Forbidden and no booking is created or cancelled; step 4 returns 201 Created and one new booking exists",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-5"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_07",
+      "variants": [
+        {
+          "module": "Security - SEC-6",
+          "description": "Verify account lockout for 15 minutes after 5 consecutive failed logins (SEC-6)",
+          "preconditions": "A registered customer account exists",
+          "steps": "1: Enter a wrong password 5 times in a row\n2: Enter the correct password\n3: Retry after 15 minutes (test clock)",
+          "data": "customer2@example.com; wrong password: Wrong@123",
+          "expected": "Account is locked after the 5th failure; correct password is rejected during the lock; login succeeds after 15 minutes",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify an account is locked for 15 minutes after 5 consecutive failed login attempts (SEC-6)",
+          "preconditions": "A registered account exists; the account has no earlier failed attempts",
+          "steps": "1: Log in with a wrong password 5 times in a row\n2: Log in with the correct password immediately after\n3: Wait 15 minutes\n4: Log in with the correct password",
+          "data": "Email: customer7@example.com, Correct password: Cust@2468, Wrong password: Wrong@111",
+          "expected": "The 5 wrong attempts are rejected; the login in step 2 is rejected because the account is locked; the login in step 4 succeeds",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-6"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_08",
+      "variants": [
+        {
+          "module": "Security - SEC-7",
+          "description": "Verify an audit-log entry is written for privileged actions and kept for at least 90 days (SEC-7)",
+          "preconditions": "Admin and Staff users logged in; audit logging enabled",
+          "steps": "1: Change a menu item as Admin\n2: Override (create/cancel) a booking as Staff\n3: Change an order status as Staff\n4: Inspect the audit log and the retention setting",
+          "data": "Item: Paneer Tikka; BK-1001; OR-2001",
+          "expected": "Each action has an entry with user ID, action and timestamp; retention is configured as at least 90 days",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify an audit-log entry is written for every menu change, staff booking override and order-status change, and entries are retained for at least 90 days (SEC-7)",
+          "preconditions": "Admin and Staff accounts exist; audit log can be viewed; booking BK-1003 and order OR-2002 (status Received) exist; an audit entry dated 90 days earlier exists",
+          "steps": "1: Log in as Admin and change the price of a menu item\n2: Log in as Staff and manually cancel a booking from the dashboard\n3: As Staff, change the status of an order to 'Preparing'\n4: Inspect the audit log for these three actions\n5: Check the audit-log retention setting and the entry dated 90 days earlier",
+          "data": "Item: 'Veg Soup', price 150 -> 160; Booking ID: BK-1003; Order ID: OR-2002",
+          "expected": "The audit log has one entry for each of the three actions with the user ID, action and timestamp; the retention setting is at least 90 days and the 90-day-old entry is still present",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-7"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_09",
+      "variants": [
+        {
+          "module": "Security - SEC-8",
+          "description": "Verify session cookies carry the HttpOnly and Secure flags (SEC-8)",
+          "preconditions": "A registered user account exists",
+          "steps": "1: Log in over HTTPS\n2: Inspect the session cookie in browser dev tools / ZAP",
+          "data": "customer2@example.com",
+          "expected": "Session cookie has both HttpOnly and Secure flags set",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify the session cookie has the HttpOnly and Secure flags set (SEC-8)",
+          "preconditions": "System is deployed with HTTPS enabled; a registered account exists",
+          "steps": "1: Log in over https\n2: Inspect the session cookie in the browser developer tools\n3: Run document.cookie in the browser console",
+          "data": "Email: customer2@example.com, Password: Cust@5678",
+          "expected": "The session cookie shows the HttpOnly and Secure flags; the session cookie is not listed in the document.cookie output",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "SEC-8"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    },
+    {
+      "id": "SV_10",
+      "variants": [
+        {
+          "module": "Security - SEC-8 / REQ-14",
+          "description": "Verify the session is invalidated after 30 minutes of inactivity (SEC-8, REQ-14)",
+          "preconditions": "User is logged in with a valid session",
+          "steps": "1: Remain idle for 30 minutes (test clock or reduced timeout)\n2: Perform an action in the same session",
+          "data": "customer2@example.com; idle time: 30 minutes",
+          "expected": "Session is invalidated and the user is required to log in again",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
+        },
+        {
+          "module": "Security Validation",
+          "description": "Verify the session is invalidated after 30 minutes of inactivity on the deployed system (SEC-8, REQ-14)",
+          "preconditions": "System is deployed; a registered account exists",
+          "steps": "1: Log in and note the session cookie\n2: Leave the session idle for 31 minutes\n3: Open a protected page using the same session cookie\n4: Log in again",
+          "data": "Email: customer2@example.com, Password: Cust@5678; Inactivity period: 30 minutes (idle for 31 minutes)",
+          "expected": "The request in step 3 returns 401 Unauthorized, the session is no longer valid and the user is asked to log in again; the login in step 4 succeeds",
+          "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        }
+      ],
+      "result": "Not Executed",
+      "evidence": [],
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "canonical_variant": 1,
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+    }
+  ],
+  "design_derived_tests": [
+    {
+      "id": "NFT_01",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    },
+    {
+      "id": "NFT_02",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    },
+    {
+      "id": "NFT_03",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    },
+    {
+      "id": "NFT_04",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    },
+    {
+      "id": "NFT_05",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    },
+    {
+      "id": "NFT_06",
+      "result": "Not Executed",
+      "source": "SAD 10.1",
+      "note": "Design suggestion outside 58 canonical tests; no execution claimed."
+    }
+  ]
+}
