@@ -9,13 +9,13 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 
 from accounts.permissions import IsOwnerOrStaffAdmin
-from accounts.views import SessionAPIView
+from .api_base import BookingActionView
 from .cancellation import cancel_own_booking
 from .models import Booking
 from .services import BookingError
 
 
-class BookingCancelView(SessionAPIView):
+class BookingCancelView(BookingActionView):
     permission_classes = [IsOwnerOrStaffAdmin]
 
     def post(self, request, pk):

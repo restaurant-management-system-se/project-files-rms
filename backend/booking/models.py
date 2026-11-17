@@ -40,3 +40,4 @@ class Booking(models.Model):
 
 # Register the booking-owned idempotency model without altering shared entities.
 from .request_models import BookingRequestKey  # noqa: E402,F401
+from .staff_models import BookingOverride  # noqa: E402,F401
