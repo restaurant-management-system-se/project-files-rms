@@ -1,0 +1,73 @@
+name: RMS browser regression (partial ST_13)
+on:
+  pull_request:
+    paths:
+      - 'backend/**'
+      - '.github/workflows/rms-browser-smoke.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/rms-browser-smoke.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox]
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: rms_browser
+          POSTGRES_USER: rms_browser
+          POSTGRES_PASSWORD: ephemeral-browser-test-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DB_NAME: rms_browser
+      DB_USER: rms_browser
+      DB_PASSWORD: ephemeral-browser-test-only
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DEBUG: 'True'
+      RMS_BROWSER: ${{ matrix.browser }}
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            backend/requirements.txt
+            backend/verification/requirements.txt
+      - run: python -m pip install -r requirements.txt -r verification/requirements.txt
+      - run: python -m playwright install --with-deps ${{ matrix.browser }}
+      - name: Record environment and run real PostgreSQL browser smoke
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p ../test-results/browser
+          python --version > ../test-results/browser/environment.txt
+          python -m playwright --version >> ../test-results/browser/environment.txt
+          git rev-parse HEAD >> ../test-results/browser/environment.txt
+          python manage.py test verification.browser_smoke --verbosity=2 2>&1 | tee ../test-results/browser/run.log
+      - name: Retain actual browser evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-${{ matrix.browser }}-${{ github.sha }}
+          path: test-results/browser/
+          if-no-files-found: warn
+          retention-days: 30
