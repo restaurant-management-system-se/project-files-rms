@@ -30,3 +30,7 @@ class Checkout(CartWrite):
         if (data['context']=='booking') != ('booking_id' in data):
             raise serializers.ValidationError({'booking_id':['Provide an owned booking only for booking context.']})
         return data
+
+class StatusChange(serializers.Serializer):
+    status = serializers.ChoiceField(choices=['Received','Preparing','Served'])
+    expected_version = StrictInteger(min_value=1)

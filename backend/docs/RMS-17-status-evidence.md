@@ -1,0 +1,5 @@
+# RMS-17 / issue #23
+
+Staff/Admin /staff/orders/ queue and GET /api/staff/orders?status=Received&page=1 (25 per page); POST /api/staff/orders/<id>/status {status,expected_version}. Reuses session/CSRF and roles. Durable PostgreSQL transaction locks fresh actor then Order; only Received→Preparing→Served. Repeat current status is unchanged/idempotent; skipped/backward/stale-version conflict returns 409. No delete or Cancelled transition. Historical model Cancelled is retained per PENDING03 without enabling that policy. Additive version defaults to 1; no User/Booking fields change.
+
+When RMS23 auditlog is installed, audited_change wraps status save in the same transaction; failures roll back state/version. Endpoint audit integration needs the combined-stack test before closing #9. RMS18 adds committed notifications separately. Tests cover permissions, transitions, stale versions, repeats and concurrent updates on PostgreSQL. Actual results in PR; full browser/security/release acceptance separate. Demo: Staff opens queue, moves a Received order to Preparing then Served; stale page must refresh.
