@@ -144,6 +144,7 @@ MAILERS = {
 
 # Set before the first migration: all feature apps reference this user model.
 AUTH_USER_MODEL = "accounts.User"
+INSTALLED_APPS += ['auditlog.apps.AuditlogConfig']
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Same-origin cookie sessions. Public auth writes also require CSRF.
