@@ -1,0 +1,12 @@
+{$RMS_PUBLIC_HOST} {
+    tls {
+        protocols tls1.2 tls1.3
+    }
+
+    @private path /internal /internal/* /api/internal /api/internal/*
+    respond @private 404
+
+    @socket path /socket.io /socket.io/*
+    reverse_proxy @socket 127.0.0.1:3000
+    reverse_proxy 127.0.0.1:8000
+}
