@@ -1,0 +1,10 @@
+Creating test database for alias 'default'...
+........................................................................sssssssssssssssssssssssssssssssssss
+----------------------------------------------------------------------
+Ran 107 tests in 3.139s
+
+OK (skipped=35)
+Destroying test database for alias 'default'...
+Found 107 test(s).
+System check identified no issues (0 silenced).
+RMS-08 local API+template smoke duration: 0.0080s (not browser/load evidence)

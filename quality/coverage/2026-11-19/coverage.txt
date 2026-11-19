@@ -1,0 +1,57 @@
+Name                                        Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------
+accounts/__init__.py                            0      0      0      0   100%
+accounts/admin.py                              32      2      0      0    94%   13, 25
+accounts/apps.py                                3      0      0      0   100%
+accounts/authentication.py                     37      1     10      1    96%   16
+accounts/forms.py                               9      0      0      0   100%
+accounts/lockout_models.py                      9      0      0      0   100%
+accounts/management/__init__.py                 0      0      0      0   100%
+accounts/management/commands/__init__.py        0      0      0      0   100%
+accounts/management/commands/seed_demo.py      42      0     16      0   100%
+accounts/middleware.py                         17      0      6      0   100%
+accounts/models.py                             33      0      6      0   100%
+accounts/permissions.py                        21      0      4      0   100%
+accounts/resources.py                          15      0      2      0   100%
+accounts/serializers.py                        58      2     10      0    97%   41-42
+accounts/urls.py                                3      0      0      0   100%
+accounts/views.py                              91      4     16      2    91%   79-81, 118
+booking/__init__.py                             0      0      0      0   100%
+booking/admin.py                                7      0      0      0   100%
+booking/api_base.py                             3      0      0      0   100%
+booking/apps.py                                 3      0      0      0   100%
+booking/availability.py                        34      0     12      0   100%
+booking/cancellation.py                        25     16     10      1    29%   17-33
+booking/customer_views.py                      36      2      8      1    93%   30, 41
+booking/models.py                              28      0      0      0   100%
+booking/request_models.py                      10      0      0      0   100%
+booking/serializers.py                         38      3     10      0    94%   13-14, 52
+booking/services.py                            41     29     16      0    21%   17-37, 42-57
+booking/staff_models.py                        13      0      0      0   100%
+booking/staff_services.py                      42     35     12      0    13%   9-14, 18-35, 39-53
+booking/staff_views.py                         87     15     12      0    83%   80-89, 97-101
+booking/urls.py                                 5      0      0      0   100%
+booking/views.py                               44      9      8      1    77%   54-62
+menu/__init__.py                                0      0      0      0   100%
+menu/admin.py                                   1      0      0      0   100%
+menu/apps.py                                    3      0      0      0   100%
+menu/models.py                                 17      1      0      0    94%   26
+menu/serializers.py                            12      0      2      0   100%
+menu/services.py                               40      8     14      3    76%   12-17, 22, 36-37
+menu/urls.py                                    3      0      0      0   100%
+menu/views.py                                  50     10      4      0    74%   15-19, 28, 32, 38-40
+orders/__init__.py                              0      0      0      0   100%
+orders/admin.py                                 1      0      0      0   100%
+orders/apps.py                                  3      0      0      0   100%
+orders/cart.py                                 21      0      4      0   100%
+orders/cart_views.py                           25      3      6      0    84%   25-27
+orders/models.py                               32      0      0      0   100%
+orders/serializers.py                          30      5     12      3    76%   14, 24, 26->25, 30-32
+orders/services.py                             36     25     16      0    21%   9-10, 13-35
+orders/urls.py                                  3      0      0      0   100%
+orders/views.py                                19      4      4      1    78%   14->exit, 17-20
+rms_backend/__init__.py                         0      0      0      0   100%
+rms_backend/settings.py                        37      1      2      1    95%   169
+rms_backend/urls.py                             8      0      0      0   100%
+---------------------------------------------------------------------------------------
+TOTAL                                        1127    175    222     14    81%
