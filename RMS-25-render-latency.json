@@ -1,0 +1,154 @@
+{
+  "issue": 28,
+  "test": "IT_07 / ST_05",
+  "clock": "One Python perf_counter_ns clock, after transaction.on_commit to Chromium two-frame acknowledgement; includes IPC acknowledgement overhead (conservative upper bound)",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "browser": "Chromium headless, local test environment",
+  "sample_count": 20,
+  "p95_ms_nearest_rank": 112.075977,
+  "within_1s_count": 20,
+  "PERF_2_pass": true,
+  "REQ_10_each_update_pass_for_this_sample_only": true,
+  "observations": [
+    {
+      "order_id": 1,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 125.808249,
+      "within_1s": true
+    },
+    {
+      "order_id": 1,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 107.173642,
+      "within_1s": true
+    },
+    {
+      "order_id": 2,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 96.985045,
+      "within_1s": true
+    },
+    {
+      "order_id": 2,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 109.48058,
+      "within_1s": true
+    },
+    {
+      "order_id": 3,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 112.075977,
+      "within_1s": true
+    },
+    {
+      "order_id": 3,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 111.804919,
+      "within_1s": true
+    },
+    {
+      "order_id": 4,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 111.757453,
+      "within_1s": true
+    },
+    {
+      "order_id": 4,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 111.453857,
+      "within_1s": true
+    },
+    {
+      "order_id": 5,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 96.006929,
+      "within_1s": true
+    },
+    {
+      "order_id": 5,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 95.998526,
+      "within_1s": true
+    },
+    {
+      "order_id": 6,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 110.331143,
+      "within_1s": true
+    },
+    {
+      "order_id": 6,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 97.693934,
+      "within_1s": true
+    },
+    {
+      "order_id": 7,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 95.671308,
+      "within_1s": true
+    },
+    {
+      "order_id": 7,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 95.978431,
+      "within_1s": true
+    },
+    {
+      "order_id": 8,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 95.461231,
+      "within_1s": true
+    },
+    {
+      "order_id": 8,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 97.475556,
+      "within_1s": true
+    },
+    {
+      "order_id": 9,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 95.797469,
+      "within_1s": true
+    },
+    {
+      "order_id": 9,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 109.907618,
+      "within_1s": true
+    },
+    {
+      "order_id": 10,
+      "version": 2,
+      "status": "Preparing",
+      "elapsed_ms_upper_bound": 96.661532,
+      "within_1s": true
+    },
+    {
+      "order_id": 10,
+      "version": 3,
+      "status": "Served",
+      "elapsed_ms_upper_bound": 107.145255,
+      "within_1s": true
+    }
+  ]
+}
