@@ -1,0 +1,13 @@
+{
+  "issue": 28,
+  "test": "IT_07 / ST_05",
+  "clock": "One Python perf_counter_ns clock, after transaction.on_commit to Chromium two-frame acknowledgement; includes IPC acknowledgement overhead (conservative upper bound)",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "browser": "Chromium headless, local test environment",
+  "sample_count": 0,
+  "p95_ms_nearest_rank": null,
+  "within_1s_count": 0,
+  "PERF_2_pass": false,
+  "REQ_10_each_update_pass_for_this_sample_only": false,
+  "observations": []
+}

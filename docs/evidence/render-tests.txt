@@ -1,0 +1,91 @@
+Creating test database for alias 'default' ('test_rms_browser')...
+Found 1 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: accounts, admin, auditlog, auth, booking, contenttypes, menu, orders, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying accounts.0001_initial... OK
+  Applying accounts.0002_loginguard... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying booking.0001_initial... OK
+  Applying booking.0002_bookingrequestkey... OK
+  Applying booking.0003_bookingoverride... OK
+  Applying auditlog.0001_initial... OK
+  Applying menu.0001_initial... OK
+  Applying menu.0002_menuitem_description... OK
+  Applying orders.0001_initial... OK
+  Applying orders.0002_orderrequestkey... OK
+  Applying orders.0003_order_version... OK
+  Applying orders.0004_orderevent... OK
+  Applying sessions.0001_initial.../workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/django/core/handlers/base.py:63: UserWarning: No directory at: /workspace/scratch/9aec41f07c45/rms-closeout/backend/staticfiles/
+  mw_instance = middleware(adapted_handler)
+test_it07_commit_to_customer_paint (orders.test_render_latency.RenderLatencyTests.test_it07_commit_to_customer_paint) ... ERROR
+
+======================================================================
+ERROR: test_it07_commit_to_customer_paint (orders.test_render_latency.RenderLatencyTests.test_it07_commit_to_customer_paint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/9aec41f07c45/rms-closeout/backend/orders/test_render_latency.py", line 75, in test_it07_commit_to_customer_paint
+    browser = pw.chromium.launch(**({'executable_path': os.environ['RMS_BROWSER_EXECUTABLE']} if os.environ.get('RMS_BROWSER_EXECUTABLE') else {}))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 4103, in launch
+    self._sync(
+  File "/workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 111, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 101, in launch
+    await self._channel.send(
+  File "/workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 78, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/9aec41f07c45/rms-sprint2-venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-4Dgj4g --remote-debugging-pipe --no-startup-window
+<launched> pid=883
+[pid=883][err] /usr/bin/chromium: 9: [: 5222481920: unexpected operator
+[pid=883][err] [883:883:1119/071029.896855:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+[pid=883][err] [1119/071029.901455:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)
+Call log:
+  - <launching> /usr/bin/chromium --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-4Dgj4g --remote-debugging-pipe --no-startup-window
+  - <launched> pid=883
+  - [pid=883][err] /usr/bin/chromium: 9: [: 5222481920: unexpected operator
+  - [pid=883][err] [883:883:1119/071029.896855:FATAL:chrome/browser/process_singleton_posix.cc:297] Check failed: . socket() failed: Operation not permitted (1)
+  - [pid=883][err] [1119/071029.901455:ERROR:third_party/crashpad/crashpad/util/linux/scoped_ptrace_attach.cc:27] ptrace: Operation not permitted (1)
+  - [pid=883] <gracefully close start>
+  - [pid=883] <kill>
+  - [pid=883] <will force kill>
+  - [pid=883] <process did exit: exitCode=null, signal=SIGABRT>
+  - [pid=883] starting temporary directories cleanup
+  - [pid=883] finished temporary directories cleanup
+  - [pid=883] <gracefully close end>
+
+
+----------------------------------------------------------------------
+Ran 1 test in 2.523s
+
+FAILED (errors=1)
+Destroying test database for alias 'default' ('test_rms_browser')...
+ OK
+System check identified no issues (0 silenced).

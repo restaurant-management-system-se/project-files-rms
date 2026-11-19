@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
   "baseline_commit": "b171c48cf07c0742891151c58df68dbe1876be35",
-  "inspected_on": "2026-10-23",
+  "inspected_on": "2026-11-19",
   "sources": [
     {
       "path": "SRS and Test Plan Details/SRS/SRS-_Restaurant_Management_System.docx",
-      "sha256": "c4347af5dc3a6a8d8af462e5db692b50000c9ceea489383d92b317607f3d4c1b"
+      "sha256": "d5c710f478c813047cf345f14c99bac566d6e53d42ed0856e4d5b1a056acb4d8"
     },
     {
       "path": "Software Design And Architecture Specification/SAD- Restaurant Management System.docx",
-      "sha256": "a9d6493d514f37bd622574e3320c7555593d5af2f8779bbe9ed156e89f6705f0"
+      "sha256": "4e3c3feb8b2ea8f18cb2ad714a7fa95343f6328269de62c21c003266878064dc"
     },
     {
       "path": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx",
-      "sha256": "6280d07847f2930ec41497ba6d5aacc0dac7ff63cac5306657fe3f87f1003ad6"
+      "sha256": "5d7030a3d9be1b0a6d0d1dbc2241a424b3acde7a7b0dc3007d4de423e8f0487b"
     },
     {
       "path": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx",
-      "sha256": "e5db433e6669c37fd0f4c34c597738c35b6c9ee6e443082f0b4a1363392c1e15"
+      "sha256": "5cf51531e749dc0136f7cd50615492268cb5fd33e38cef24984998217f2a5526"
     }
   ],
   "requirements": [
@@ -33,11 +33,14 @@
       ],
       "issue": 11,
       "owner": "Captain-King-2024",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/booking/availability.py",
+        "backend/booking/views.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates.",
       "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
     },
     {
@@ -53,12 +56,13 @@
       "issue": 12,
       "owner": "Captain-King-2024",
       "actual_paths": [
-        "backend/booking/models.py"
+        "backend/booking/services.py",
+        "backend/booking/request_models.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending.",
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates.",
       "candidate": "PR #38 (includes #39 merged into its feature branch), not merged to main at baseline; validate separately."
     },
     {
@@ -72,11 +76,14 @@
       ],
       "issue": 13,
       "owner": "Captain-King-2024",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/booking/cancellation.py",
+        "backend/booking/customer_views.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-4",
@@ -89,12 +96,13 @@
       "issue": 14,
       "owner": "Captain-King-2024",
       "actual_paths": [
-        "backend/booking/views.py"
+        "backend/booking/staff_views.py",
+        "backend/booking/staff_services.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.1, 6.2, 7.1",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-5",
@@ -110,12 +118,13 @@
       "issue": 18,
       "owner": "prasanna-p2006",
       "actual_paths": [
-        "backend/menu/admin.py"
+        "backend/menu/views.py",
+        "backend/menu/services.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-6",
@@ -128,11 +137,14 @@
       ],
       "issue": 19,
       "owner": "prasanna-p2006",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/menu/views.py",
+        "backend/menu/test_browse.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-7",
@@ -144,12 +156,13 @@
       "issue": 19,
       "owner": "prasanna-p2006",
       "actual_paths": [
-        "backend/menu/models.py"
+        "backend/menu/models.py",
+        "backend/menu/test_browse.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-8",
@@ -164,12 +177,13 @@
       "issue": 20,
       "owner": "prasanna-p2006",
       "actual_paths": [
-        "backend/orders/models.py"
+        "backend/orders/cart.py",
+        "backend/orders/services.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.2, 5.4, 7.2",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-9",
@@ -182,12 +196,13 @@
       "issue": 23,
       "owner": "prasanna-p2006",
       "actual_paths": [
-        "backend/orders/models.py"
+        "backend/orders/staff_views.py",
+        "backend/orders/services.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.2, 5.4, 7.2",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-10",
@@ -199,11 +214,14 @@
       ],
       "issue": 24,
       "owner": "prasanna-p2006",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/orders/events.py",
+        "backend/orders/realtime_views.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.2, 5.4, 7.2",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-11",
@@ -214,11 +232,14 @@
       ],
       "issue": 22,
       "owner": "prasanna-p2006",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/orders/services.py",
+        "backend/orders/test_stale.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.2, 5.4, 7.2",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-12",
@@ -234,14 +255,13 @@
       "issue": 2,
       "owner": "Noctowl-Abhay",
       "actual_paths": [
-        "backend/accounts/views.py",
         "backend/accounts/serializers.py",
-        "backend/accounts/models.py"
+        "backend/accounts/authentication.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Email required; optional exact phone login. Phone-only registration decision PENDING-02."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-13",
@@ -257,10 +277,10 @@
         "backend/accounts/permissions.py",
         "backend/accounts/resources.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Auth/read ownership guards exist; all feature mutations and pages still require integration."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "REQ-14",
@@ -272,12 +292,13 @@
       "issue": 4,
       "owner": "Noctowl-Abhay",
       "actual_paths": [
-        "backend/accounts/middleware.py"
+        "backend/accounts/middleware.py",
+        "backend/accounts/authentication.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "PERF-1",
@@ -287,11 +308,13 @@
       ],
       "issue": 27,
       "owner": "AkulkrishnaMS",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/orders/test_capacity.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "PERF-2",
@@ -302,11 +325,13 @@
       ],
       "issue": 28,
       "owner": "AkulkrishnaMS",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/orders/test_render_latency.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 5.2, 5.4, 7.2",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "PERF-3",
@@ -316,11 +341,13 @@
       ],
       "issue": 27,
       "owner": "AkulkrishnaMS",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/orders/test_capacity.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-1",
@@ -333,12 +360,12 @@
       "owner": "Noctowl-Abhay",
       "actual_paths": [
         "backend/accounts/serializers.py",
-        "backend/rms_backend/settings.py"
+        "backend/accounts/test_auth.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-2",
@@ -348,11 +375,13 @@
       ],
       "issue": 6,
       "owner": "Noctowl-Abhay",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/rms_backend/settings.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "HTTPS/WSS deployment and TLS scan not provided."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-3",
@@ -367,10 +396,10 @@
       "actual_paths": [
         "backend/accounts/permissions.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Auth/read ownership guards exist; all feature mutations and pages still require integration."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-4",
@@ -383,12 +412,12 @@
       "owner": "Noctowl-Abhay",
       "actual_paths": [
         "backend/accounts/serializers.py",
-        "backend/accounts/templates/accounts/account.html"
+        "backend/menu/serializers.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-5",
@@ -399,13 +428,13 @@
       "issue": 8,
       "owner": "Noctowl-Abhay",
       "actual_paths": [
-        "backend/accounts/views.py",
-        "backend/accounts/authentication.py"
+        "backend/accounts/authentication.py",
+        "backend/accounts/test_auth.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-6",
@@ -415,11 +444,15 @@
       ],
       "issue": 5,
       "owner": "Noctowl-Abhay",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/accounts/views.py",
+        "backend/accounts/lockout_models.py",
+        "backend/accounts/test_lockout.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-7",
@@ -429,11 +462,15 @@
       ],
       "issue": 9,
       "owner": "Noctowl-Abhay",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/auditlog/models.py",
+        "backend/auditlog/services.py",
+        "backend/auditlog/signals.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "SEC-8",
@@ -449,10 +486,10 @@
         "backend/rms_backend/settings.py",
         "backend/accounts/middleware.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 4, 5.3",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "QA-1",
@@ -462,11 +499,13 @@
       ],
       "issue": 15,
       "owner": "Captain-King-2024",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/booking/templates/booking/book.html"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "QA-2",
@@ -477,15 +516,12 @@
       "issue": 25,
       "owner": "AkulkrishnaMS",
       "actual_paths": [
-        "backend/accounts/apps.py",
-        "backend/booking/apps.py",
-        "backend/menu/apps.py",
-        "backend/orders/apps.py"
+        "backend/quality/test_harness.py"
       ],
-      "implementation": "Implemented",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Static boundary execution recorded separately; startup of realtime missing at baseline."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "QA-3",
@@ -496,13 +532,12 @@
       "issue": 29,
       "owner": "AkulkrishnaMS",
       "actual_paths": [
-        "backend/booking/models.py",
-        "backend/orders/models.py"
+        "backend/orders/test_durability.py"
       ],
-      "implementation": "Partial",
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     },
     {
       "id": "QA-4",
@@ -512,11 +547,13 @@
       ],
       "issue": 16,
       "owner": "Captain-King-2024",
-      "actual_paths": [],
-      "implementation": "Pending",
+      "actual_paths": [
+        "backend/verification/browser_smoke.py"
+      ],
+      "implementation": "Integrated; acceptance evidence tracked separately",
       "result": "Not Executed",
       "design": "SAD 6, 7, 9",
-      "limitation": "Existing source is supporting coverage only; full planned acceptance remains pending."
+      "limitation": "See docs/ACCEPTANCE.md for procedure-level evidence and release gates."
     }
   ],
   "tests": [
@@ -1928,5 +1965,6 @@
       "source": "SAD 10.1",
       "note": "Design suggestion outside 58 canonical tests; no execution claimed."
     }
-  ]
+  ],
+  "integration_base": "e1fe65e"
 }

@@ -10,3 +10,8 @@ __pycache__/
 staticfiles/
 
 /test-results/
+
+# Local coverage and release runtime files
+.coverage
+htmlcov/
+*.pid

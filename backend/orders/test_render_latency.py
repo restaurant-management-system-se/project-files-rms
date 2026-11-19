@@ -72,7 +72,7 @@ class RenderLatencyTests(StaticLiveServerTestCase):
             proxy = subprocess.Popen(['node', '-e', fixed_proxy], env=os.environ | {'TEST_DJANGO': self.live_server_url, 'TEST_NODE': f'http://127.0.0.1:{node_port}'}, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             self.assertEqual(json.loads(proxy.stdout.readline())['port'], proxy_port)
             with sync_playwright() as pw:
-                browser = pw.chromium.launch()
+                browser = pw.chromium.launch(**({'executable_path': os.environ['RMS_BROWSER_EXECUTABLE']} if os.environ.get('RMS_BROWSER_EXECUTABLE') else {}))
                 context = browser.new_context()
                 context.add_cookies([{'name': settings.SESSION_COOKIE_NAME, 'value': client.cookies[settings.SESSION_COOKIE_NAME].value, 'url': origin}])
                 page = context.new_page()

@@ -4,12 +4,22 @@ on:
     paths:
       - 'backend/**'
       - 'realtime/**'
+      - 'quality/**'
+      - 'scripts/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
   push:
     branches: [main]
     paths:
       - 'backend/**'
       - 'realtime/**'
+      - 'quality/**'
+      - 'scripts/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
 permissions:
   contents: read
@@ -54,7 +64,7 @@ jobs:
       - name: Install and test real-time service
         working-directory: realtime
         run: npm ci && npm test
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements-test.txt
       - run: python manage.py check
       - run: python manage.py makemigrations --check --dry-run
       - run: python manage.py migrate --noinput
@@ -65,21 +75,14 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p ../test-results
-          python manage.py test accounts booking menu orders --verbosity=2 2>&1 | tee ../test-results/feature-postgres.log
-      - name: Verify proposed RMS-23 integration in disposable checkout
-        working-directory: .
-        shell: bash
-        run: |
-          set -o pipefail
-          git fetch origin c14d4469a409003db99af322471ab2fb5f4f7751
-          git -c user.name='RMS disposable integration' -c user.email='rms-ci@example.invalid' merge --no-commit --no-ff FETCH_HEAD
-          python backend/manage.py makemigrations --check --dry-run
-          python backend/manage.py test accounts booking menu orders --verbosity=2 2>&1 | tee test-results/audit-postgres.log
+          python -m coverage run --branch --source=accounts,booking,menu,orders,auditlog,rms_backend --omit='*/test*.py,*/migrations/*,*/wsgi.py,*/asgi.py' manage.py test accounts booking menu orders quality.test_harness --testrunner=quality.runner.EvidenceRunner --verbosity=2 2>&1 | tee ../test-results/feature-postgres.log
+      - run: python -m coverage xml -o ../test-results/coverage.xml
+      - run: python ../quality/check_traceability.py
       - name: Preserve executed evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: prasanna-postgres-${{ github.sha }}
+          name: integrated-postgres-${{ github.sha }}
           path: test-results/
           retention-days: 30
           if-no-files-found: warn

@@ -1,3 +1,5 @@
+> 19 November 2026 integration update: this document retains the earlier baseline and evidence history. Current integrated scope, commands and release gates are in [delivery status](../docs/DELIVERY-STATUS.md), [acceptance disposition](../docs/ACCEPTANCE.md), and [deployment](../deploy/README.md). Historical statements that a feature is absent must not be read as the current integration status.
+
 # Execution and review records
 
 Copy a template for an actual execution. Empty fields mean Pending, never Pass. Keep credentials/session cookies out of logs and screenshots. Link immutable source commits and workflow runs/artifacts.
