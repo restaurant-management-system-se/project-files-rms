@@ -13,4 +13,4 @@ Integrate existing owner-authored audit, ordering, realtime, recovery, capacity,
 - Setup, deployment, coverage and release instructions match the integrated tree.
 - Teammate review and owner merge remain pending; genuine usability, recordings, browser matrix and deployment evidence are explicit release gates.
 
-Create this single issue under Captain-King-2024 and link the consolidated review PR. The issue is not complete merely because code was integrated.
+Created as issue #66 under Captain-King-2024: https://github.com/restaurant-management-system-se/project-files-rms/issues/66. Link the consolidated review PR. The issue is not complete merely because code was integrated.

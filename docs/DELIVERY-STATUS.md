@@ -61,7 +61,7 @@ Chromium launch and render measurement failed before app interaction: the execut
 
 ## Remaining release gates
 
-1. Publish the single overall issue and make the final single branch push under Captain-King-2024. Connector writes return 403, local git has no write credential, and the cloud browser session is Noctowl-Abhay. No account was switched and no teammate was impersonated. The issue statement is ready in OVERALL-UPDATE-ISSUE.md.
+1. Issue #66 is created and assigned under verified Captain-King-2024 (https://github.com/restaurant-management-system-se/project-files-rms/issues/66). The final single branch publication remains pending: connector writes return 403, local git has no write credential, and the VS Code web editor requires explicit authorization for GitHub repository/workflow scopes. No teammate was impersonated.
 2. Owner review/merge of the integration and explicit source-contract decisions: phone-only registration, context escaping wording, DRF error envelope, and per-event versus percentile timing.
 3. Supported Chromium/render run and latest two stable Chrome/Firefox/Edge acceptance matrix; actual deployed TLS/cookie scan.
 4. Genuine first-time usability participants, both actual sprint videos, verified board estimates/allocations and final owner freeze.

@@ -6,4 +6,4 @@ The acceptance inventory addresses every original requirement and canonical proc
 
 Validation and remaining gates are in docs/DELIVERY-STATUS.md. No human usability sessions, historical sprint allocation, deployed TLS result, reviewer approval, or owner freeze is fabricated. Chromium and rendering need a supported runner.
 
-Link the single overall update issue after it is created. Leave the issue In Review and this PR unmerged for another teammate and the repository owner.
+Refs #66 (https://github.com/restaurant-management-system-se/project-files-rms/issues/66). Leave the issue In Review and this PR unmerged for another teammate and the repository owner.
