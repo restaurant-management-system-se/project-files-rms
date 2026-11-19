@@ -1,6 +1,6 @@
 # Original requirement and acceptance disposition
 
-This inventory preserves every original requirement and canonical procedure. Integrated implementation is not a claim of full acceptance. The PostgreSQL regression has 132 passes and 3 explicit skips. The first full capacity run failed on one transport timeout; browser/load runs have separate records. Human usability, six-version browser acceptance and deployed TLS require separate evidence.
+This inventory preserves every original requirement and canonical procedure. Integrated implementation is not a claim of full acceptance. The PostgreSQL regression has 132 passes and 3 explicit skips. The first full capacity run failed on one transport timeout; the second full isolated run passed. Both attempts and the browser results are retained separately. Human usability, six-version browser acceptance and deployed TLS require separate evidence.
 
 ## All requirements
 

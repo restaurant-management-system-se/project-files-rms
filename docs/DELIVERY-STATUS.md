@@ -57,7 +57,7 @@ The final run summaries and exact outcome counts are in docs/evidence/postgres-t
 
 At initial integrated run: PostgreSQL 16.15 / Python 3.12.14 / Django 6.1.2: 135 tests, 132 passed, 3 skipped, no failures. Skips: SQLite-only fail-closed case (run separately), opt-in load and opt-in Chromium render measurement. Node: 9 passed, zero skipped. Firefox UI: 2 test methods across three viewports; no failures.
 
-Chromium launch and render measurement failed before app interaction: the execution environment refuses Chromium's Unix socket creation. The attempted browser downloads also failed. These are retained as failed execution evidence; no Chromium or PERF-2 pass is claimed. CI must rerun these suites in a supported runner after publication. The first full capacity run (60-second ramp, 600-second steady state, 50 users) failed on one transport timeout. It achieved 97.89% within two seconds and zero HTTP 5xx responses; these metrics do not turn the failed run into a pass. Its log and compressed raw observations are retained as capacity-attempt1 files. A second full isolated run is recorded separately in capacity-tests.txt.
+Chromium launch and render measurement failed before app interaction: the execution environment refuses Chromium's Unix socket creation. The attempted browser downloads also failed. These are retained as failed execution evidence; no Chromium or PERF-2 pass is claimed. CI must rerun these suites in a supported runner after publication. The first full capacity run (60-second ramp, 600-second steady state, 50 users) failed on one transport timeout. It achieved 97.89% within two seconds and zero HTTP 5xx responses; these metrics do not turn the failed run into a pass. Its log and compressed raw observations are retained as capacity-attempt1 files. The second full isolated run passed: 98.948% within two seconds, p95 784.43 ms, zero transport errors, zero unexpected responses and zero HTTP 5xx. Both attempts are retained.
 
 ## Remaining release gates
 
@@ -68,3 +68,5 @@ Chromium launch and render measurement failed before app interaction: the execut
 5. A provisioned deployment target and operator evidence. A tested artifact or local HTTP run alone does not prove HTTPS/WSS deployment.
 
 Never remove tests, relax thresholds, or rename blocked procedures as passed to close these gates.
+
+Final separate SQLite boundary run: 4 tests passed. Exact PostgreSQL statement coverage: 94.81%; branch coverage: 80.14%; combined: 92.32%. These measurements exclude tests, migrations and WSGI/ASGI entry points; JavaScript coverage is not included.

@@ -36,4 +36,12 @@ Running migrations:
   Applying orders.0002_orderrequestkey... OK
   Applying orders.0003_order_version... OK
   Applying orders.0004_orderevent... OK
-  Applying sessions.0001_initial...test_st10_http_workload (orders.test_capacity.CapacityTests.test_st10_http_workload) ... 
+  Applying sessions.0001_initial...test_st10_http_workload (orders.test_capacity.CapacityTests.test_st10_http_workload) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 663.869s
+
+OK
+Destroying test database for alias 'default' ('test_rms_isolated')...
+ OK
+System check identified no issues (0 silenced).
