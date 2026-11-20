@@ -1,6 +1,6 @@
 # Consolidated RMS delivery report
 
-Date: 19 November 2026. Integration base: main e1fe65e. The local integration branch is integration/checklist-closeout. This report records actual work and remaining gates; it does not declare the project frozen or universally accepted.
+Date: 19 November 2026. Integration base: main e1fe65e. The integration branch merged into main through PR #67. This report records actual work and remaining gates; it does not declare the project frozen or universally accepted.
 
 ## Implementation delivered by this branch
 
@@ -32,12 +32,12 @@ Added reproducible PostgreSQL verification, coverage XML/JSON, Node checks, deli
 | Story points for every item | Requires board inspection and confirmation of all 32 entries; not inferred from aggregate estimate. |
 | Individually assigned stories | Existing named issue owners retained. |
 | Both sprints clearly planned | Requested dates recorded; actual historical allocation and board evidence require owner confirmation. |
-| Actions for PRs and commits | Existing workflows retained; integrated regression/coverage and release packaging updated. New remote outcomes await push. |
+| Actions for PRs and commits | Existing workflows retained; integrated regression/coverage and release packaging updated. PR #67 is merged on main; this report records local verification evidence. |
 | Approved implementation methods/SRS/SAD constraints | Existing implementations reused; discrepancies recorded. Team confirmation of permitted methods and outstanding decisions remains required. |
 | PRs raised by assigned member | Original author and merge history retained; this consolidation does not replace original ownership. |
-| Formal review and owner merge | Required for this consolidated branch; not self-approved or auto-merged. |
+| Formal review and owner merge | PR #67 merged into main. Formal reviewer approval is tracked independently. |
 | Sprint 1 one-minute video | Actual recording required in docs/demo; no fabricated video/history. |
-| Sprint 2 complete and frozen | Not declared: owner review and unresolved acceptance gates remain. |
+| Sprint 2 complete and frozen | Integration merged; project freeze and complete acceptance are unverified. |
 | Deviations documented | Register appended with current runtime/contract reconciliation and approval distinction. |
 | Remaining documentation finalized | Four source documents and PDFs updated; final team sign-off depends on remaining evidence. |
 | Sprint 2 two-minute video | Actual recording required in docs/demo. |
@@ -46,7 +46,7 @@ Added reproducible PostgreSQL verification, coverage XML/JSON, Node checks, deli
 | Generated reports in docs | docs/evidence contains raw output, coverage, machine results and measurement artifacts. |
 | Core use cases work | PostgreSQL and Node automated evidence supports integrated flow; Firefox covers booking/checkout/admin UI smoke. |
 | Explain deviations | Deviation register and acceptance map provide concrete runtime/source differences. |
-| Accessible readable versioned code | Local isolated branch preserves original commit ancestry; remote publication pending access. |
+| Accessible readable versioned code | Local isolated branch preserves original commit ancestry; the integrated changes are published on main. |
 | Individual code contribution viva | Original author PRs and docs/demo provide presenter evidence. Live understanding is assessed by faculty. |
 | Agile/SDLC explanation | Original issues/estimates/sprint windows/real blockers must be shown; historical burndown must not be invented. |
 | Architecture/API/testing justification | SAD appendix, source-case mapping, raw test outcomes and deployment procedure provide the reference. |
@@ -61,8 +61,8 @@ Chromium launch and render measurement failed before app interaction: the execut
 
 ## Remaining release gates
 
-1. Issue #66 is created and assigned under verified Captain-King-2024 (https://github.com/restaurant-management-system-se/project-files-rms/issues/66). The final single branch publication remains pending: connector writes return 403, local git has no write credential, and the VS Code web editor requires explicit authorization for GitHub repository/workflow scopes. No teammate was impersonated.
-2. Owner review/merge of the integration and explicit source-contract decisions: phone-only registration, context escaping wording, DRF error envelope, and per-event versus percentile timing.
+1. Integration is published on main via PR #67. Issue #66 tracks consolidated delivery. Confirm formal review, sign-off and remaining acceptance evidence separately.
+2. Resolve the source-contract decisions for phone-only registration, context escaping wording, endpoint-specific error response shapes and per-event versus percentile timing.
 3. Supported Chromium/render run and latest two stable Chrome/Firefox/Edge acceptance matrix; actual deployed TLS/cookie scan.
 4. Genuine first-time usability participants, both actual sprint videos, verified board estimates/allocations and final owner freeze.
 5. A provisioned deployment target and operator evidence. A tested artifact or local HTTP run alone does not prove HTTPS/WSS deployment.
@@ -70,3 +70,11 @@ Chromium launch and render measurement failed before app interaction: the execut
 Never remove tests, relax thresholds, or rename blocked procedures as passed to close these gates.
 
 Final separate SQLite boundary run: 4 tests passed. Exact PostgreSQL statement coverage: 94.81%; branch coverage: 80.14%; combined: 92.32%. These measurements exclude tests, migrations and WSGI/ASGI entry points; JavaScript coverage is not included.
+
+## 20 November documentation and verification review
+
+20 November 2026 review of main at ffe761f (PR #67). All 58 Test Plan cases now carry an actual result and a status. The 15 companion rows reuse the same case dispositions. The case totals are 35 Pass, 19 Partial, 3 Blocked, 1 Not Executed. See [acceptance evidence](ACCEPTANCE.md).
+
+Fresh checks on 20 November: Django system check and migration drift check passed. PostgreSQL 16.13 regression reported 132 passes and three skips. The SQLite smoke passed 12 tests and Node passed nine. The original capacity, Firefox, and release evidence remain available.
+
+The commit-to-screen rerun reached the Chromium launch step and stopped before collecting samples. The [20 November render log](evidence/render-2026-11-20.txt) records the environment error.

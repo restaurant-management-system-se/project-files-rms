@@ -1,0 +1,22 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> realtime@1.0.0 test
+> node --test test/*.test.js
+
+✔ H_NODE_01 client receives a fixture event after subscription (65.970188ms)
+✔ H_NODE_02 rejected fixture handshake remains a failure (15.082086ms)
+✔ H_NODE_03 missing fixture event expires instead of passing (39.149762ms)
+✔ server fails closed without strong key and non-loopback HTTPS (2.147063ms)
+✔ unauthenticated internal publisher is rejected (89.522828ms)
+✔ reconnect fetches missed state; late REST and duplicate/stale events never regress UI (10.294877ms)
+✔ expired REST session stops reconnection and rejects pending events (6.226034ms)
+✔ Node/client outage still polls authoritative REST and recovers transient HTTP errors (4.55803ms)
+✔ server authorization revocation stops automatic resubscription (2.368738ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 502.207831

@@ -5,19 +5,19 @@
   "sources": [
     {
       "path": "SRS and Test Plan Details/SRS/SRS-_Restaurant_Management_System.docx",
-      "sha256": "d5c710f478c813047cf345f14c99bac566d6e53d42ed0856e4d5b1a056acb4d8"
+      "sha256": "4079f42abf893a64ef185f9696c11445d85bc02c02e526015368c3b6f2b9c074"
     },
     {
       "path": "Software Design And Architecture Specification/SAD- Restaurant Management System.docx",
-      "sha256": "4e3c3feb8b2ea8f18cb2ad714a7fa95343f6328269de62c21c003266878064dc"
+      "sha256": "4dd526a5ade0544f0164a88103c390ff2efed5b4d3314c89e77c4bd25e4d8ea9"
     },
     {
       "path": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx",
-      "sha256": "5d7030a3d9be1b0a6d0d1dbc2241a424b3acde7a7b0dc3007d4de423e8f0487b"
+      "sha256": "d6ab03dd756bb782d5ed89bd6315664eac173d492d3f7a3adc0b5388090bc2c0"
     },
     {
       "path": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx",
-      "sha256": "5cf51531e749dc0136f7cd50615492268cb5fd33e38cef24984998217f2a5526"
+      "sha256": "f7f35d0ceaeeaf73bd8f046eb51ca98dce8afa10dc6c1d11458495a07cc6478a"
     }
   ],
   "requirements": [
@@ -570,13 +570,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut01_filters_capacity_active_and_overlap"
+        }
+      ],
       "requirements": [
         "REQ-1"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Availability filtered active tables by capacity and slot overlap."
     },
     {
       "id": "UT_02",
@@ -591,13 +597,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_nearest_merges_busy_intervals_and_crosses_day"
+        }
+      ],
       "requirements": [
         "REQ-1"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Nearest-slot logic passed; the exact no-free-tables procedure and response were not replayed as written."
     },
     {
       "id": "UT_03",
@@ -612,13 +624,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut03_confirmation_persisted_and_correct"
+        }
+      ],
       "requirements": [
         "REQ-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Confirmation persisted and reserved the interval through its booking row."
     },
     {
       "id": "UT_04",
@@ -633,13 +651,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut04_overlap_409_and_alternatives"
+        }
+      ],
       "requirements": [
         "REQ-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Overlapping request returned 409 with alternatives; simultaneous requests produced one booking."
     },
     {
       "id": "UT_05",
@@ -654,13 +678,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_release_preserves_history_and_can_be_rebooked"
+        }
+      ],
       "requirements": [
         "REQ-3"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Cancellation before cutoff retained the cancelled record and freed the interval for rebooking."
     },
     {
       "id": "UT_06",
@@ -675,13 +705,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        }
+      ],
       "requirements": [
         "REQ-5"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Admin created a menu item with valid fields and retrieved it."
     },
     {
       "id": "UT_07",
@@ -696,13 +732,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_invalid_and_permissions"
+        }
+      ],
       "requirements": [
         "REQ-5"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Invalid or missing menu input was rejected without creating a valid item."
     },
     {
       "id": "UT_08",
@@ -717,13 +759,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        }
+      ],
       "requirements": [
         "REQ-5"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Admin changes to menu item details persisted."
     },
     {
       "id": "UT_09",
@@ -738,13 +786,23 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_referenced_item_is_unavailable_and_history_kept"
+        }
+      ],
       "requirements": [
         "REQ-5"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Unreferenced item deleted; a referenced item was retired to keep order history."
     },
     {
       "id": "UT_10",
@@ -759,13 +817,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-6"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Only available menu items were returned."
     },
     {
       "id": "UT_11",
@@ -780,13 +844,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-7"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Available items were returned in their category groups."
     },
     {
       "id": "UT_12",
@@ -801,13 +871,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_add_edit_remove_and_total"
+        }
+      ],
       "requirements": [
         "REQ-8"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Cart accepted available items and preserved quantities."
     },
     {
       "id": "UT_13",
@@ -822,14 +898,20 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_commit_price_snapshot_retry_and_owner_read"
+        }
+      ],
       "requirements": [
         "REQ-8",
         "REQ-9"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Checkout persisted a single Received order with items; same-key retry returned the existing order."
     },
     {
       "id": "UT_14",
@@ -844,13 +926,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_forward_only_repeat_and_no_delete"
+        }
+      ],
       "requirements": [
         "REQ-9"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Forward status transitions passed; repeats were safe and reverse changes were denied."
     },
     {
       "id": "UT_15",
@@ -865,13 +953,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_item_sells_out_after_cart_and_direct_api_cannot_bypass"
+        }
+      ],
       "requirements": [
         "REQ-11"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Stale checkout rejected unavailable items, identified them, and created no order."
     },
     {
       "id": "UT_16",
@@ -886,13 +980,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_add_edit_remove_and_total"
+        }
+      ],
       "requirements": [
         "REQ-8"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Cart totals reflected item prices and quantities using decimal arithmetic."
     },
     {
       "id": "UT_17",
@@ -907,13 +1007,23 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_registration_defaults_customer_and_no_password_response"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_optional_phone_and_required_email_preserve_model_contract"
+        }
+      ],
       "requirements": [
         "REQ-12"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Email registration created a Customer and stored a hash. Registration without email is unsupported."
     },
     {
       "id": "UT_18",
@@ -928,13 +1038,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_duplicate_email_case_insensitive_and_phone"
+        }
+      ],
       "requirements": [
         "REQ-12"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Duplicate email, including a case variant, and duplicate phone were rejected."
     },
     {
       "id": "UT_19",
@@ -949,14 +1065,20 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs"
+        }
+      ],
       "requirements": [
         "REQ-12",
         "SEC-1"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Identical passwords generated different salted PBKDF2 values; plaintext was absent from inspected responses and application logs."
     },
     {
       "id": "UT_20",
@@ -980,14 +1102,20 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_idle_boundary_before_at_after_and_replay"
+        }
+      ],
       "requirements": [
         "REQ-14",
         "SEC-8"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Idle session was accepted before 30 minutes and rejected at and after the boundary."
     },
     {
       "id": "UT_21",
@@ -1011,13 +1139,19 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut05_ut21_exact_cutoff_and_offsets"
+        }
+      ],
       "requirements": [
         "REQ-3"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Cancellation inside 30 minutes was rejected and the booking stayed confirmed."
     },
     {
       "id": "UT_22",
@@ -1032,13 +1166,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_password_boundary_seven_rejected_eight_accepted"
+        }
+      ],
       "requirements": [
         "REQ-12"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Seven characters were rejected and eight were accepted."
     },
     {
       "id": "UT_23",
@@ -1053,13 +1193,23 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut05_ut21_exact_cutoff_and_offsets"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_release_preserves_history_and_can_be_rebooked"
+        }
+      ],
       "requirements": [
         "REQ-3"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Cancellation exactly at 30 minutes succeeded; cancellation releases the interval."
     },
     {
       "id": "IT_01",
@@ -1074,14 +1224,24 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut03_confirmation_persisted_and_correct"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut04_overlap_409_and_alternatives"
+        }
+      ],
       "requirements": [
         "REQ-1",
         "REQ-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "API created a booking and the confirmed database interval blocked overlapping requests."
     },
     {
       "id": "IT_02",
@@ -1096,13 +1256,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_search_reference_customer_table_date_status_and_invalid"
+        }
+      ],
       "requirements": [
         "REQ-4"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Staff list and filters passed at API level; rendered dashboard verification remains."
     },
     {
       "id": "IT_03",
@@ -1117,13 +1283,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_staff_cancel_inside_customer_cutoff_and_repeat"
+        }
+      ],
       "requirements": [
         "REQ-4"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Staff API cancellation passed and retained the cancelled row; the dashboard procedure remains to run."
     },
     {
       "id": "IT_04",
@@ -1138,14 +1310,24 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-5",
         "REQ-6"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Menu updates persisted and subsequent customer reads were fresh; the original no-refresh observation was unverified."
     },
     {
       "id": "IT_05",
@@ -1160,13 +1342,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-6"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "After availability changed, a fresh customer API read excluded the item."
     },
     {
       "id": "IT_06",
@@ -1181,13 +1369,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_real_django_node_room_delivery_and_cross_customer_denial"
+        }
+      ],
       "requirements": [
         "REQ-10"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Real Django and Node delivered the committed Preparing event to the owning customer; another customer was denied."
     },
     {
       "id": "IT_07",
@@ -1211,14 +1405,22 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Blocked",
+      "evidence": [
+        {
+          "path": "docs/evidence/render-tests.txt"
+        },
+        {
+          "path": "docs/evidence/render-2026-11-20.txt"
+        }
+      ],
       "requirements": [
         "REQ-10",
         "PERF-2"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Chromium failed at launch before any commit-to-screen samples. The delivery test covered the event, with browser paint timing still open."
     },
     {
       "id": "IT_08",
@@ -1233,13 +1435,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_commit_price_snapshot_retry_and_owner_read"
+        }
+      ],
       "requirements": [
         "REQ-8"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Checkout stored item rows and price snapshots with correct totals; replay did not duplicate the order."
     },
     {
       "id": "IT_09",
@@ -1254,14 +1462,24 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_customer_and_staff_menu_denied_and_context_is_reset"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        }
+      ],
       "requirements": [
         "REQ-13",
         "SEC-3"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Admin could use menu management; customer and staff were denied."
     },
     {
       "id": "IT_10",
@@ -1276,13 +1494,23 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_login_email_and_phone_rotates_session_and_csrf"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_H_02_real_login_role_fixture_and_exact_idle_boundary"
+        }
+      ],
       "requirements": [
         "REQ-12"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Login rotated the session and CSRF credentials; the protected endpoint accepted the session cookie."
     },
     {
       "id": "ST_01",
@@ -1297,14 +1525,23 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/firefox-tests.txt"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_public_api_and_page_timing"
+        }
+      ],
       "requirements": [
         "REQ-1",
         "REQ-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Firefox booking smoke passed; the original two-second browser availability measurement remains open."
     },
     {
       "id": "ST_02",
@@ -1319,14 +1556,20 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ut04_overlap_409_and_alternatives"
+        }
+      ],
       "requirements": [
         "REQ-1",
         "REQ-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "API rejected an overlap and returned alternatives; browser observation and its two-second criterion remain open."
     },
     {
       "id": "ST_03",
@@ -1341,14 +1584,24 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_create_edit_delete"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-5",
         "REQ-7"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Admin mutation and grouped public read passed in regression; combined browser steps remain open."
     },
     {
       "id": "ST_04",
@@ -1363,13 +1616,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_grouping_only_available_fresh_and_empty"
+        }
+      ],
       "requirements": [
         "REQ-6"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Fresh customer reads omit unavailable items; the complete admin-to-customer browser run remains open."
     },
     {
       "id": "ST_05",
@@ -1384,8 +1643,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Blocked",
+      "evidence": [
+        {
+          "path": "docs/evidence/render-tests.txt"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_real_django_node_room_delivery_and_cross_customer_denial"
+        },
+        {
+          "path": "docs/evidence/render-2026-11-20.txt"
+        }
+      ],
       "requirements": [
         "REQ-8",
         "REQ-9",
@@ -1393,7 +1663,8 @@
         "PERF-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Status transitions and owned event delivery passed. Browser timing for every transition remains unmeasured."
     },
     {
       "id": "ST_06",
@@ -1408,13 +1679,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_item_sells_out_after_cart_and_direct_api_cannot_bypass"
+        }
+      ],
       "requirements": [
         "REQ-11"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Stale checkout returned unavailable-item details and blocked the order; exact end-to-end browser steps remain open."
     },
     {
       "id": "ST_07",
@@ -1429,13 +1706,22 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_real_register_login_book_read_and_logout_flow"
+        },
+        {
+          "path": "docs/evidence/firefox-tests.txt"
+        }
+      ],
       "requirements": [
         "REQ-12"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Integrated registration, login and owned booking passed; Firefox booking smoke used a seeded account. Full new-user browser flow remains open."
     },
     {
       "id": "ST_08",
@@ -1450,14 +1736,20 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_admin_pages_reject_customer_and_staff"
+        }
+      ],
       "requirements": [
         "REQ-13",
         "SEC-3"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "An authenticated Staff user received HTTP 403 on the Admin-only menu page."
     },
     {
       "id": "ST_09",
@@ -1481,14 +1773,20 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_customer_cancel_staff_search_and_rebook"
+        }
+      ],
       "requirements": [
         "REQ-3",
         "REQ-4"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Customer cancellation, staff search and rebooking passed at API level. Staff dashboard variants still need browser execution."
     },
     {
       "id": "ST_10",
@@ -1510,16 +1808,33 @@
           "data": "Concurrent users: 50; Test period: 5 minutes; Operations: menu browse, availability check, order placement",
           "expected": "At least 95% of page loads and REST API responses complete within 2 seconds; HTTP 5xx error rate is no more than 1%; all 50 users are served for the full test period",
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
+        },
+        {
+          "module": "Performance",
+          "description": "Verify the 50-user HTTP capacity workload (PERF-1, PERF-3).",
+          "preconditions": "Isolated HTTP test server backed by PostgreSQL with documented fixtures.",
+          "steps": "Run the isolated ST_10 workload in orders.test_capacity. Ramp to 50 users in 60 seconds, then hold 50 users for 600 seconds. Exercise menu, availability and order requests. Record latency, HTTP status and transport errors.",
+          "data": "50 users; 60 seconds ramp; 600 seconds steady; workload weights 50/30/20.",
+          "expected": "At least 95% of responses within 2 seconds and at most 1% HTTP 5xx. Require zero transport errors and zero unexpected responses for a clean run.",
+          "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/capacity-summary.json"
+        },
+        {
+          "path": "docs/evidence/capacity-attempt1-summary.json"
+        }
+      ],
       "requirements": [
         "PERF-1",
         "PERF-3"
       ],
-      "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "canonical_variant": 2,
+      "reconciliation": "Merged measured workload supersedes the original five-minute companion variant; originals retained for history.",
+      "actual_result": "Run 2 served 50 users after a 60 s ramp for 600 s steady: 98.95% within 2 s, p95 784.43 ms, 0% HTTP 5xx and zero transport errors. Run 1 failed on a timeout."
     },
     {
       "id": "ST_11",
@@ -1535,12 +1850,17 @@
         }
       ],
       "result": "Not Executed",
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "backend/docs/RMS-26-usability.md"
+        }
+      ],
       "requirements": [
         "QA-1"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "No qualifying sessions with first-time participants were recorded."
     },
     {
       "id": "ST_12",
@@ -1555,13 +1875,18 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/RMS-28-restart.json"
+        }
+      ],
       "requirements": [
         "QA-3"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Real Django and Node process restarts preserved identical authenticated REST snapshots and PostgreSQL item rows. Browser UI recheck remains open."
     },
     {
       "id": "ST_13",
@@ -1576,13 +1901,21 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/firefox-customer-390.json"
+        },
+        {
+          "path": "docs/evidence/chromium-tests.txt"
+        }
+      ],
       "requirements": [
         "QA-4"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Firefox 157.0 passed smoke at 320, 390 and 1280 px. Chromium failed at startup. The required Chrome, Firefox and Edge version matrix remains incomplete."
     },
     {
       "id": "ST_14",
@@ -1597,12 +1930,22 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_staff_cancel_inside_customer_cutoff_and_repeat"
+        }
+      ],
       "requirements": [],
       "business_rule": "SRS 6.5 no hard delete of confirmed records",
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Deletion was denied by the resource API; supported cancellation retained records. The complete staff UI procedure remains open."
     },
     {
       "id": "SR_01",
@@ -1617,13 +1960,19 @@
           "source": "SRS and Test Plan Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_SR_01_no_cross_app_view_imports"
+        }
+      ],
       "requirements": [
         "QA-2"
       ],
       "canonical_variant": 0,
-      "reconciliation": "Test Plan appendix"
+      "reconciliation": "Test Plan appendix",
+      "actual_result": "Fresh static boundary test found no cross-app view imports among the four application modules."
     },
     {
       "id": "SV_01",
@@ -1647,13 +1996,19 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs"
+        }
+      ],
       "requirements": [
         "SEC-1"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "PBKDF2 hashes differed for identical passwords and plaintext was absent from inspected application logs and persisted passwords."
     },
     {
       "id": "SV_02",
@@ -1677,13 +2032,21 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Blocked",
+      "evidence": [
+        {
+          "path": "deploy/Caddyfile"
+        },
+        {
+          "path": "deploy/README.md"
+        }
+      ],
       "requirements": [
         "SEC-2"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Caddy configuration specifies TLS 1.2 and 1.3; deployed redirect, protocol rejection and WSS were unverified."
     },
     {
       "id": "SV_03",
@@ -1707,14 +2070,28 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_protected_api_missing_auth_401"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_role_permissions_and_anonymous_default_deny"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_role_guards_enforce_real_api_requests"
+        }
+      ],
       "requirements": [
         "REQ-13",
         "SEC-3"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Protected APIs returned 401 for missing identity and 403 for wrong roles. Admin menu and Staff/Admin override boundaries were exercised."
     },
     {
       "id": "SV_04",
@@ -1738,13 +2115,19 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_invalid_unknown_inactive_and_sql_like_login_are_generic"
+        }
+      ],
       "requirements": [
         "SEC-4"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Defensive login input handling passed; the full menu procedure and data-integrity cross-check remain open."
     },
     {
       "id": "SV_05",
@@ -1768,13 +2151,23 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_form_flow_inline_validation_safe_output_and_logout"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_page_is_owned_paginated_and_escaped"
+        }
+      ],
       "requirements": [
         "SEC-4"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Output escaping passed in rendered account and booking views. The exact staff dashboard case remains open."
     },
     {
       "id": "SV_06",
@@ -1798,13 +2191,23 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_shared_api_csrf_guard_covers_all_mutation_verbs"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_real_session_valid_missing_and_invalid_csrf"
+        }
+      ],
       "requirements": [
         "SEC-5"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Session CSRF checks rejected missing or invalid credentials and accepted valid booking mutations."
     },
     {
       "id": "SV_07",
@@ -1828,13 +2231,23 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_fifth_failure_locks_correct_password_and_does_not_extend"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_exact_expiry_and_pre_boundary"
+        }
+      ],
       "requirements": [
         "SEC-6"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "The fifth failure locked the account, a correct password was refused during the lock, and the expiry boundary passed."
     },
     {
       "id": "SV_08",
@@ -1858,13 +2271,31 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Pass",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_menu_create_change_delete_are_attributed_and_minimal"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_real_booking_create_cancel_and_retry_event_completeness"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_order_status_capture_and_failed_business_change_rollback"
+        },
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_ninety_day_boundary_and_dry_run"
+        }
+      ],
       "requirements": [
         "SEC-7"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Menu, booking override and order status events were attributed; the 90-day retention boundary passed using dated fixtures."
     },
     {
       "id": "SV_09",
@@ -1888,13 +2319,19 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_https_cookie_flags"
+        }
+      ],
       "requirements": [
         "SEC-8"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Simulated HTTPS response set HttpOnly and Secure. Deployed response and browser inspection remain open."
     },
     {
       "id": "SV_10",
@@ -1918,14 +2355,20 @@
           "source": "Test Cases related to Test Plan/Test_Cases-Restaurant_Management_System.docx"
         }
       ],
-      "result": "Not Executed",
-      "evidence": [],
+      "result": "Partial",
+      "evidence": [
+        {
+          "path": "docs/evidence/postgres-2026-11-20.txt",
+          "executable": "test_idle_boundary_before_at_after_and_replay"
+        }
+      ],
       "requirements": [
         "REQ-14",
         "SEC-8"
       ],
       "canonical_variant": 1,
-      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted."
+      "reconciliation": "Additional revision refines the same ID; original scope retained where broader. No additional pass counted.",
+      "actual_result": "Automated clock-boundary and replay tests rejected the idle session. Deployed idle/relogin procedure remains open."
     }
   ],
   "design_derived_tests": [

@@ -1,0 +1,196 @@
+Creating test database for alias 'default' ('test_postgres')...
+Found 135 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: corsheaders, messages, rest_framework, staticfiles
+  Apply all migrations: accounts, admin, auditlog, auth, booking, contenttypes, menu, orders, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying accounts.0001_initial... OK
+  Applying accounts.0002_loginguard... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying booking.0001_initial... OK
+  Applying booking.0002_bookingrequestkey... OK
+  Applying booking.0003_bookingoverride... OK
+  Applying auditlog.0001_initial... OK
+  Applying menu.0001_initial... OK
+  Applying menu.0002_menuitem_description... OK
+  Applying orders.0001_initial... OK
+  Applying orders.0002_orderrequestkey... OK
+  Applying orders.0003_order_version... OK
+  Applying orders.0004_orderevent... OK
+  Applying sessions.0001_initial...test_admin_view_is_readonly_and_customer_staff_cannot_access (accounts.test_audit.AuditTests.test_admin_view_is_readonly_and_customer_staff_cannot_access) ... /tmp/rms-venv/lib/python3.12/site-packages/django/core/handlers/base.py:63: UserWarning: No directory at: /workspace/scratch/0b73a9bfd3dd/rms/backend/staticfiles/
+  mw_instance = middleware(adapted_handler)
+ok
+test_audit_failure_rolls_back_menu (accounts.test_audit.AuditTests.test_audit_failure_rolls_back_menu) ... ok
+test_customer_and_staff_menu_denied_and_context_is_reset (accounts.test_audit.AuditTests.test_customer_and_staff_menu_denied_and_context_is_reset) ... ok
+test_events_are_immutable_and_actor_protected (accounts.test_audit.AuditTests.test_events_are_immutable_and_actor_protected) ... ok
+test_menu_create_change_delete_are_attributed_and_minimal (accounts.test_audit.AuditTests.test_menu_create_change_delete_are_attributed_and_minimal) ... ok
+test_ninety_day_boundary_and_dry_run (accounts.test_audit.AuditTests.test_ninety_day_boundary_and_dry_run) ... ok
+test_order_status_capture_and_failed_business_change_rollback (accounts.test_audit.AuditTests.test_order_status_capture_and_failed_business_change_rollback) ... ok
+test_unpersisted_menu_and_order_status_do_not_create_false_events (accounts.test_audit.AuditTests.test_unpersisted_menu_and_order_status_do_not_create_false_events) ... ok
+test_activity_resets_deadline_but_status_poll_does_not (accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not) ... ok
+test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs (accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs) ... ok
+test_anonymous_login_and_registration_require_csrf (accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf) ... ok
+test_auth_page_rejects_non_post_mutations (accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations) ... ok
+test_authenticated_logout_csrf_missing_invalid_valid_and_replay (accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay) ... ok
+test_concurrent_duplicate_is_validation_error (accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error) ... ok
+test_csrf_bad_origin_and_rotated_prelogin_token_rejected (accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected) ... ok
+test_duplicate_email_case_insensitive_and_phone (accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone) ... ok
+test_existing_admin_session_gets_idle_deadline (accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline) ... ok
+test_form_flow_inline_validation_safe_output_and_logout (accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout) ... ok
+test_https_cookie_flags (accounts.test_auth.AuthTests.test_https_cookie_flags) ... ok
+test_idle_boundary_before_at_after_and_replay (accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay) ... ok
+test_invalid_unknown_inactive_and_sql_like_login_are_generic (accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic) ... ok
+test_login_email_and_phone_rotates_session_and_csrf (accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf) ... ok
+test_malformed_input_and_unknown_fields_fail_safely (accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely) ... ok
+test_optional_phone_and_required_email_preserve_model_contract (accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract) ... ok
+test_password_boundary_seven_rejected_eight_accepted (accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted) ... ok
+test_protected_api_missing_auth_401 (accounts.test_auth.AuthTests.test_protected_api_missing_auth_401) ... ok
+test_public_registration_rejects_all_escalation_fields (accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields) ... ok
+test_registration_defaults_customer_and_no_password_response (accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response) ... ok
+test_list_and_direct_object_role_matrix (accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix) ... ok
+test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation (accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation) ... ok
+test_role_guards_enforce_real_api_requests (accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests) ... ok
+test_role_permissions_and_anonymous_default_deny (accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny) ... ok
+test_shared_api_csrf_guard_covers_all_mutation_verbs (accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs) ... ok
+test_aliases_and_admin_username_share_counter (accounts.test_lockout.LockoutTests.test_aliases_and_admin_username_share_counter) ... ok
+test_api_and_html_login_share_generic_failure_and_csrf (accounts.test_lockout.LockoutTests.test_api_and_html_login_share_generic_failure_and_csrf) ... ok
+test_exact_expiry_and_pre_boundary (accounts.test_lockout.LockoutTests.test_exact_expiry_and_pre_boundary) ... ok
+test_fifth_failure_locks_correct_password_and_does_not_extend (accounts.test_lockout.LockoutTests.test_fifth_failure_locks_correct_password_and_does_not_extend) ... ok
+test_success_resets_and_expired_failure_starts_new_sequence (accounts.test_lockout.LockoutTests.test_success_resets_and_expired_failure_starts_new_sequence) ... ok
+test_unknown_account_does_not_create_guard_or_leak_identifier (accounts.test_lockout.LockoutTests.test_unknown_account_does_not_create_guard_or_leak_identifier) ... ok
+test_admin_can_provision_staff_and_maintain_tables (accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables) ... ok
+test_admin_pages_reject_customer_and_staff (accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff) ... ok
+test_booking_constraints_and_retention (accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention) ... ok
+test_menu_constraints_and_zero_price (accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price) ... ok
+test_order_constraints_references_and_price_snapshot (accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot) ... ok
+test_table_constraints (accounts.tests.DatabaseFoundationTests.test_table_constraints) ... ok
+test_user_identifiers_roles_and_default (accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default) ... ok
+test_reserved_user_collision_rolls_back_seed (accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed) ... ok
+test_seed_disabled_outside_development (accounts.tests.DemoSeedTests.test_seed_disabled_outside_development) ... ok
+test_seed_is_repeatable_complete_and_has_no_passwords (accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords) ... ok
+test_anonymous_role_and_csrf_guards (booking.test_cancellation.CancellationBoundaryTests.test_anonymous_role_and_csrf_guards) ... ok
+test_page_is_owned_paginated_and_escaped (booking.test_cancellation.CancellationBoundaryTests.test_page_is_owned_paginated_and_escaped) ... ok
+test_payload_and_method_allowlist (booking.test_cancellation.CancellationBoundaryTests.test_payload_and_method_allowlist) ... ok
+test_sqlite_mutation_is_refused (booking.test_cancellation.CancellationBoundaryTests.test_sqlite_mutation_is_refused) ... skipped 'SQLite-specific fail-closed check'
+test_request_shape_and_spoofing_validation_without_database_write (booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write) ... ok
+test_session_requires_csrf (booking.test_confirmation.PermissionTests.test_session_requires_csrf) ... ok
+test_staff_and_admin_denied_customer_flow (booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow) ... ok
+test_unauthenticated_is_401 (booking.test_confirmation.PermissionTests.test_unauthenticated_is_401) ... ok
+test_auth_role_and_csrf (booking.test_staff.StaffReadTests.test_auth_role_and_csrf) ... ok
+test_dashboard_paginates_and_escapes_audit (booking.test_staff.StaffReadTests.test_dashboard_paginates_and_escapes_audit) ... ok
+test_reference_search_does_not_match_table_with_same_number (booking.test_staff.StaffReadTests.test_reference_search_does_not_match_table_with_same_number) ... ok
+test_search_reference_customer_table_date_status_and_invalid (booking.test_staff.StaffReadTests.test_search_reference_customer_table_date_status_and_invalid) ... ok
+test_validation_and_no_delete_or_customer_create_regression (booking.test_staff.StaffReadTests.test_validation_and_no_delete_or_customer_create_regression) ... ok
+test_adjacent_and_cancelled_intervals_are_free (booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free) ... ok
+test_configurable_duration (booking.tests.AvailabilityTests.test_configurable_duration) ... ok
+test_nearest_merges_busy_intervals_and_crosses_day (booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day) ... ok
+test_nearest_sorts_tables_deterministically (booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically) ... ok
+test_nearest_tie_uses_earlier_start (booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start) ... ok
+test_public_api_and_page_timing (booking.tests.AvailabilityTests.test_public_api_and_page_timing) ... ok
+test_ut01_filters_capacity_active_and_overlap (booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap) ... ok
+test_ut02_api_rejects_bad_dates_and_guest_counts (booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts) ... ok
+test_grouping_only_available_fresh_and_empty (menu.test_browse.MenuBrowseTests.test_grouping_only_available_fresh_and_empty) ... ok
+test_public_read_cannot_write_and_responsive_template (menu.test_browse.MenuBrowseTests.test_public_read_cannot_write_and_responsive_template) ... ok
+test_create_edit_delete (menu.test_management.MenuTests.test_create_edit_delete) ... ok
+test_invalid_and_permissions (menu.test_management.MenuTests.test_invalid_and_permissions) ... ok
+test_real_session_csrf (menu.test_management.MenuTests.test_real_session_csrf) ... ok
+test_referenced_item_is_unavailable_and_history_kept (menu.test_management.MenuTests.test_referenced_item_is_unavailable_and_history_kept) ... ok
+test_real_menu_endpoints_capture_description_once_and_delete (orders.test_audit_contract.MenuAuditContract.test_real_menu_endpoints_capture_description_once_and_delete) ... ok
+test_add_edit_remove_and_total (orders.test_cart.CartTests.test_add_edit_remove_and_total) ... ok
+test_cart_requires_customer_identity_and_csrf (orders.test_cart.CartTests.test_cart_requires_customer_identity_and_csrf) ... ok
+test_invalid_cart_keeps_valid_contents (orders.test_cart.CartTests.test_invalid_cart_keeps_valid_contents) ... ok
+test_strict_request_validation_and_permissions (orders.test_checkout.CheckoutValidationTests.test_strict_request_validation_and_permissions) ... ok
+test_customer_and_anonymous_denied (orders.test_status.StatusPermissions.test_customer_and_anonymous_denied) ... ok
+test_H_02_real_login_role_fixture_and_exact_idle_boundary (quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary) ... ok
+test_H_03_registered_customer_reads_own_empty_resources_then_logs_out (quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out) ... ok
+test_central_audit_failure_rolls_back_booking_override_and_status (accounts.test_audit.AuditBookingTests.test_central_audit_failure_rolls_back_booking_override_and_status) ... ok
+test_real_booking_create_cancel_and_retry_event_completeness (accounts.test_audit.AuditBookingTests.test_real_booking_create_cancel_and_retry_event_completeness) ... ok
+test_retention_command_backfills_missing_events_idempotently (accounts.test_audit.AuditBookingTests.test_retention_command_backfills_missing_events_idempotently) ... ok
+test_correct_attempt_cannot_pass_an_existing_lock (accounts.test_lockout.LockoutRaceTests.test_correct_attempt_cannot_pass_an_existing_lock) ... ok
+test_simultaneous_failures_initialize_one_guard_and_lock_at_five (accounts.test_lockout.LockoutRaceTests.test_simultaneous_failures_initialize_one_guard_and_lock_at_five) ... ok
+test_cancellation_and_confirmation_serialize_on_table (booking.test_cancellation.CancellationPostgresTests.test_cancellation_and_confirmation_serialize_on_table) ... ok
+test_commit_failure_rolls_back_status (booking.test_cancellation.CancellationPostgresTests.test_commit_failure_rolls_back_status) ... ok
+test_csrf_and_logout_in_real_session (booking.test_cancellation.CancellationPostgresTests.test_csrf_and_logout_in_real_session) ... ok
+test_inactive_customer_revalidated_by_service (booking.test_cancellation.CancellationPostgresTests.test_inactive_customer_revalidated_by_service) ... ok
+test_release_preserves_history_and_can_be_rebooked (booking.test_cancellation.CancellationPostgresTests.test_release_preserves_history_and_can_be_rebooked) ... ok
+test_repeated_cancellation_after_cutoff_is_safe (booking.test_cancellation.CancellationPostgresTests.test_repeated_cancellation_after_cutoff_is_safe) ... ok
+test_simultaneous_cancellations_change_once (booking.test_cancellation.CancellationPostgresTests.test_simultaneous_cancellations_change_once) ... ok
+test_ut05_ut21_exact_cutoff_and_offsets (booking.test_cancellation.CancellationPostgresTests.test_ut05_ut21_exact_cutoff_and_offsets) ... ok
+test_ut23_owner_only_and_not_found (booking.test_cancellation.CancellationPostgresTests.test_ut23_owner_only_and_not_found) ... ok
+test_active_capacity_rechecked_after_search (booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search) ... ok
+test_adjacent_and_cancelled_bookings (booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings) ... ok
+test_failed_metadata_write_rolls_back_booking (booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking) ... ok
+test_idempotency_retry_changed_payload_and_customer_scope (booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope) ... ok
+test_invalid_requests_and_spoofed_customer (booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer) ... ok
+test_real_register_login_book_read_and_logout_flow (booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow) ... ok
+test_real_session_valid_missing_and_invalid_csrf (booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf) ... ok
+test_simultaneous_different_customers_exactly_one_booking (booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking) ... ok
+test_simultaneous_key_reused_for_different_tables (booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables) ... ok
+test_simultaneous_same_key_returns_same_booking (booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking) ... ok
+test_ut03_confirmation_persisted_and_correct (booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct) ... ok
+test_ut04_overlap_409_and_alternatives (booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives) ... ok
+test_audit_failure_rolls_back_create_and_cancel (booking.test_staff.StaffPostgresTests.test_audit_failure_rolls_back_create_and_cancel) ... ok
+test_customer_cancel_staff_search_and_rebook (booking.test_staff.StaffPostgresTests.test_customer_cancel_staff_search_and_rebook) ... ok
+test_customer_vs_staff_cancel_serializes_without_duplicate_override (booking.test_staff.StaffPostgresTests.test_customer_vs_staff_cancel_serializes_without_duplicate_override) ... ok
+test_manual_create_retry_and_audit (booking.test_staff.StaffPostgresTests.test_manual_create_retry_and_audit) ... ok
+test_overlap_capacity_active_customer_and_payload_validation (booking.test_staff.StaffPostgresTests.test_overlap_capacity_active_customer_and_payload_validation) ... ok
+test_real_csrf_logout_and_inactive_staff (booking.test_staff.StaffPostgresTests.test_real_csrf_logout_and_inactive_staff) ... ok
+test_staff_cancel_inside_customer_cutoff_and_repeat (booking.test_staff.StaffPostgresTests.test_staff_cancel_inside_customer_cutoff_and_repeat) ... ok
+test_staff_same_key_race_one_booking_and_one_audit (booking.test_staff.StaffPostgresTests.test_staff_same_key_race_one_booking_and_one_audit) ... ok
+test_staff_vs_customer_same_table_only_one_commits (booking.test_staff.StaffPostgresTests.test_staff_vs_customer_same_table_only_one_commits) ... ok
+test_status_endpoint_audit_and_rollback_before_publishing (orders.test_audit_contract.StatusAuditContract.test_status_endpoint_audit_and_rollback_before_publishing) ... ok
+test_st10_http_workload (orders.test_capacity.CapacityTests.test_st10_http_workload) ... skipped 'Opt-in real PostgreSQL 50-user run'
+test_commit_price_snapshot_retry_and_owner_read (orders.test_checkout.CheckoutPostgresTests.test_commit_price_snapshot_retry_and_owner_read) ... ok
+test_rollback_and_unavailable (orders.test_checkout.CheckoutPostgresTests.test_rollback_and_unavailable) ... ok
+test_same_key_concurrent_orders_create_once (orders.test_checkout.CheckoutPostgresTests.test_same_key_concurrent_orders_create_once) ... ok
+test_failure_before_confirmation_commit_leaves_no_partial_rows (orders.test_durability.DurabilityTests.test_failure_before_confirmation_commit_leaves_no_partial_rows) ... ok
+test_saved_booking_order_survive_both_service_process_restarts (orders.test_durability.DurabilityTests.test_saved_booking_order_survive_both_service_process_restarts) ... ok
+test_internal_secret_and_ownership (orders.test_realtime.EventTests.test_internal_secret_and_ownership) ... /tmp/rms-venv/lib/python3.12/site-packages/django/core/handlers/base.py:63: UserWarning: No directory at: /workspace/scratch/0b73a9bfd3dd/rms/backend/staticfiles/
+  mw_instance = middleware(adapted_handler)
+ok
+test_rollback_never_publishes_and_pending_is_retryable (orders.test_realtime.EventTests.test_rollback_never_publishes_and_pending_is_retryable) ... ok
+test_real_django_node_room_delivery_and_cross_customer_denial (orders.test_realtime.LiveOrderTests.test_real_django_node_room_delivery_and_cross_customer_denial) ... ok
+test_it07_commit_to_customer_paint (orders.test_render_latency.RenderLatencyTests.test_it07_commit_to_customer_paint) ... skipped 'Opt-in real Chromium render measurement'
+test_item_sells_out_after_cart_and_direct_api_cannot_bypass (orders.test_stale.StaleCartTests.test_item_sells_out_after_cart_and_direct_api_cannot_bypass) ... /tmp/rms-venv/lib/python3.12/site-packages/django/core/handlers/base.py:63: UserWarning: No directory at: /workspace/scratch/0b73a9bfd3dd/rms/backend/staticfiles/
+  mw_instance = middleware(adapted_handler)
+ok
+test_forward_only_repeat_and_no_delete (orders.test_status.StatusPostgresTests.test_forward_only_repeat_and_no_delete) ... ok
+test_simultaneous_repeat_changes_once (orders.test_status.StatusPostgresTests.test_simultaneous_repeat_changes_once) ... ok
+test_H_01_evidence_keeps_failure_skip_and_success_distinct (quality.test_harness.ModuleBoundaryTests.test_H_01_evidence_keeps_failure_skip_and_success_distinct) ... ok
+test_SR_01_no_cross_app_view_imports (quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports) ... ok
+
+----------------------------------------------------------------------
+Ran 135 tests in 61.126s
+
+OK (skipped=3)
+Destroying test database for alias 'default' ('test_postgres')...
+ OK
+System check identified no issues (0 silenced).
+RMS-08 local API+template smoke duration: 0.0071s (not browser/load evidence)
+PostgreSQL login race: six failures, one guard, five counted, account locked
+PostgreSQL cancel/rebook race: serialized; one confirmed row plus retained cancelled row
+PostgreSQL cancellation race: 200,200; exactly one status transition; history rows=1
+PostgreSQL simultaneous same-table booking: statuses 201,409; confirmed rows=1
+PostgreSQL staff/customer same-table race: 201,409; confirmed rows=1
+PostgreSQL checkout retry race: one committed order, one replay
+PostgreSQL + real Node: owned room received committed version 2; other customer denied
+PostgreSQL status race: one transition, one safe repeat

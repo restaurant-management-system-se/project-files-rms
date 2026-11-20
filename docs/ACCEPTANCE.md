@@ -1,6 +1,8 @@
-# Original requirement and acceptance disposition
+# RMS acceptance at the merged baseline
 
-This inventory preserves every original requirement and canonical procedure. Integrated implementation is not a claim of full acceptance. The PostgreSQL regression has 132 passes and 3 explicit skips. The first full capacity run failed on one transport timeout; the second full isolated run passed. Both attempts and the browser results are retained separately. Human usability, six-version browser acceptance and deployed TLS require separate evidence.
+20 November 2026 review of main at ffe761f (PR #67). Across the 58 canonical cases, 35 Pass, 19 Partial, 3 Blocked, 1 Not Executed.
+
+Pass means the stated criterion was verified within the recorded scope. Partial means some steps or variants remain open. Blocked means a required environment was unavailable. Not Executed means no qualifying execution was recorded. These are case dispositions, separate from individual executable outcomes.
 
 ## All requirements
 
@@ -36,67 +38,67 @@ This inventory preserves every original requirement and canonical procedure. Int
 | QA-3 | Once a booking or order is confirmed to the customer, it shall be persisted in the database; no confirmed record shall be lost across a server restart. | Integrated paths: backend/orders/test_durability.py; automated evidence in docs/evidence/django.json. Full source procedure requires verification. |
 | QA-4 | The web interface shall render and function correctly in the latest two stable versions of Chrome, Firefox and Edge. | Exact latest two stable Chrome, Firefox and Edge versions required. |
 
-## All canonical procedures
+## Case results and evidence
 
-Every row retains its original steps, expected results and variants in quality/traceability.json. Mapped executables support partial evidence; they do not automatically certify the full procedure.
+Unqualified executable names refer to the 20 November [PostgreSQL run](evidence/postgres-2026-11-20.txt). The [machine-readable results](evidence/django-2026-11-20.json) identify the build, environment and skips. The [Node run](evidence/node-2026-11-20.txt) passed all nine checks. The result is for the scoped procedure in the updated Test Plan. Historical procedures remain in `quality/traceability.json`.
 
-| Case | Original purpose | Supporting executables or action |
-|---|---|---|
-| UT_01 | Verify the system displays available tables for a valid date, time and party size (REQ-1) | Run original procedure and record evidence. |
-| UT_02 | Verify the system returns no tables when none are free for the requested slot (REQ-1, negative) | Run original procedure and record evidence. |
-| UT_03 | Verify creating a booking locks the selected table for its reserved slot (REQ-2) | Run original procedure and record evidence. |
-| UT_04 | Verify a booking cannot be created for a table already locked in an overlapping slot (REQ-2, negative) | Run original procedure and record evidence. |
-| UT_05 | Verify a booking can be cancelled more than 30 minutes before the reserved time (REQ-3) | Run original procedure and record evidence. |
-| UT_06 | Verify an admin can create a new menu item with valid name, price and category (REQ-5) | Run original procedure and record evidence. |
-| UT_07 | Verify menu item creation is rejected when the price is negative or a required field is missing (REQ-5, negative) | Run original procedure and record evidence. |
-| UT_08 | Verify an admin can update an existing menu item's details (REQ-5) | Run original procedure and record evidence. |
-| UT_09 | Verify an admin can delete a menu item (REQ-5) | Run original procedure and record evidence. |
-| UT_10 | Verify only menu items marked 'available' are returned by the menu listing function (REQ-6) | Run original procedure and record evidence. |
-| UT_11 | Verify menu items are grouped correctly by category (REQ-7) | Run original procedure and record evidence. |
-| UT_12 | Verify a customer can add one or more available menu items to the cart (REQ-8) | Run original procedure and record evidence. |
-| UT_13 | Verify submitting a cart creates a single order with status 'Received' (REQ-8, REQ-9) | Run original procedure and record evidence. |
-| UT_14 | Verify staff can update an order's status from Received to Preparing to Served (REQ-9) | Run original procedure and record evidence. |
-| UT_15 | Verify an order is rejected if it contains a menu item marked unavailable, with correct notification (REQ-11, negative) | Run original procedure and record evidence. |
-| UT_16 | Verify the cart correctly calculates the total price for multiple items and quantities (REQ-8) | Run original procedure and record evidence. |
-| UT_17 | Verify a new customer can register with a valid email/phone and password (REQ-12) | accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response, accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields, accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic |
-| UT_18 | Verify registration is rejected for an email that is already registered (REQ-12, negative) | accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone, accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error |
-| UT_19 | Verify passwords are stored using a secure salted hash and never in plain text (REQ-12, SEC-1) | accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs |
-| UT_20 | Verify a logged-in user's session/token is invalidated after 30 minutes of inactivity (REQ-14, SEC-8) | accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay, accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not, accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline |
-| UT_21 | Verify a booking cannot be cancelled less than 30 minutes before the reserved time (REQ-3, negative) | Run original procedure and record evidence. |
-| UT_22 | Verify registration is rejected when the password is shorter than 8 characters (REQ-12, negative) | accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted |
-| UT_23 | Verify a booking can be cancelled exactly 30 minutes before the reserved time (REQ-3, boundary) | Run original procedure and record evidence. |
-| IT_01 | Verify the booking API persists a new booking to the database and updates table status (REQ-1, REQ-2) | Run original procedure and record evidence. |
-| IT_02 | Verify the staff dashboard retrieves and displays current bookings from the booking service (REQ-4) | Run original procedure and record evidence. |
-| IT_03 | Verify staff can manually cancel a booking from the dashboard and the change reflects in the database (REQ-4) | Run original procedure and record evidence. |
-| IT_04 | Verify a menu update made via the admin panel is immediately reflected in the customer-facing menu API (REQ-5, REQ-6) | Run original procedure and record evidence. |
-| IT_05 | Verify marking an item unavailable removes it from the customer menu listing returned by the API (REQ-6) | Run original procedure and record evidence. |
-| IT_06 | Verify an order-status change in the backend triggers a WebSocket push event to the Node.js real-time service (REQ-10) | Run original procedure and record evidence. |
-| IT_07 | Verify the customer's order-tracking screen updates in real time upon receiving WebSocket status pushes, with at least 95% of updates within 1 second (REQ-10, PERF-2) | orders.test_render_latency; log in docs/evidence/render-tests.txt. |
-| IT_08 | Verify order submission correctly persists the order and order items in the database with correct totals (REQ-8) | Run original procedure and record evidence. |
-| IT_09 | Verify an Admin-role user can access menu-management endpoints while a Customer-role user is denied (REQ-13) | Run original procedure and record evidence. |
-| IT_10 | Verify login issues a valid session/token that is accepted by protected API endpoints (REQ-12, REQ-13) | accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf, quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary, quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out |
-| ST_01 | End-to-end: customer books a table via the UI; available tables are shown within 2 seconds and a confirmation with a booking reference is displayed (REQ-1, REQ-2) | Run original procedure and record evidence. |
-| ST_02 | End-to-end: customer attempts to double-book an already reserved slot; system rejects and suggests the nearest available slot (REQ-1, REQ-2) | Run original procedure and record evidence. |
-| ST_03 | End-to-end: admin adds a new Starters item; customer browsing the menu sees it under Starters (REQ-5, REQ-7) | Run original procedure and record evidence. |
-| ST_04 | End-to-end: admin marks an item unavailable; customer no longer sees it while browsing the live menu (REQ-6) | Run original procedure and record evidence. |
-| ST_05 | End-to-end: customer places an order, staff updates status through all stages, customer sees live updates within 1 second of each change (REQ-8, REQ-9, REQ-10, PERF-2) | Run original procedure and record evidence. |
-| ST_06 | End-to-end: customer attempts to order an item that becomes unavailable after adding it to the cart (REQ-11) | Run original procedure and record evidence. |
-| ST_07 | End-to-end: customer registers, logs in, and books a table using their authenticated session (REQ-12) | accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout, quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out |
-| ST_08 | End-to-end: a Staff-role user attempts to access an Admin-only menu-management page and is denied access (REQ-13) | Run original procedure and record evidence. |
-| ST_09 | End-to-end: customer cancels a booking more than 30 minutes before the reserved time; staff finds it in the dashboard, sees the table released and manually creates a new booking for that slot (REQ-3, REQ-4) | Run original procedure and record evidence. |
-| ST_10 | Performance: system under 50 concurrent users meets the response-time and error-rate limits (PERF-1, PERF-3) | orders.test_capacity; canonical run log in docs/evidence/capacity-tests.txt. |
-| ST_11 | First-time customer completes a table booking within 3 minutes and no more than 6 page interactions without training (QA-1) | Blocked on genuine first-time participants; use RMS-26 protocol. |
-| ST_12 | Confirmed bookings and orders persist across a server restart (QA-3) | Run original procedure and record evidence. |
-| ST_13 | Core flows work in the latest two stable versions of Chrome, Firefox and Edge (QA-4) | Partial browser smoke only; complete six-version acceptance matrix. |
-| ST_14 | Staff cannot delete a confirmed booking or order (SRS 6.5) | accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation |
-| SR_01 | Verify no Django app imports another app's views (QA-2) | quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports |
-| SV_01 | Verify passwords are stored only as salted PBKDF2-SHA256 or Argon2 hashes and do not appear in application logs (SEC-1) | accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs |
-| SV_02 | Verify all pages, REST endpoints and WebSocket connections use TLS 1.2 or higher and HTTP requests are redirected to HTTPS (SEC-2) | Blocked on deployed HTTPS/WSS target and certificate scan. |
-| SV_03 | Verify role-based access control on API endpoints: 401 for unauthenticated requests and 403 for unauthorised roles (SEC-3, REQ-13) | accounts.test_auth.AuthTests.test_protected_api_missing_auth_401, accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix, accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny |
-| SV_04 | Verify SQL injection input is treated as plain data and is not executed (SEC-4) | accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic, accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely |
-| SV_05 | Verify cross-site-scripting input is escaped on output and is not executed (SEC-4) | accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout |
-| SV_06 | Verify state-changing requests without a valid CSRF token are rejected (SEC-5) | accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf, accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf, accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay |
-| SV_07 | Verify an account is locked for 15 minutes after 5 consecutive failed login attempts (SEC-6) | Run original procedure and record evidence. |
-| SV_08 | Verify an audit-log entry is written for every menu change, staff booking override and order-status change, and entries are retained for at least 90 days (SEC-7) | Run original procedure and record evidence. |
-| SV_09 | Verify the session cookie has the HttpOnly and Secure flags set (SEC-8) | accounts.test_auth.AuthTests.test_https_cookie_flags |
-| SV_10 | Verify the session is invalidated after 30 minutes of inactivity on the deployed system (SEC-8, REQ-14) | accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay, accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay, accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline |
+| Case | Test result | Actual result | Evidence |
+| --- | --- | --- | --- |
+| UT_01 | Pass | Availability filtered active tables by capacity and slot overlap. | `test_ut01_filters_capacity_active_and_overlap` |
+| UT_02 | Partial | Nearest-slot logic passed; the exact no-free-tables procedure and response were not replayed as written. | `test_nearest_merges_busy_intervals_and_crosses_day` |
+| UT_03 | Pass | Confirmation persisted and reserved the interval through its booking row. | `test_ut03_confirmation_persisted_and_correct` |
+| UT_04 | Pass | Overlapping request returned 409 with alternatives; simultaneous requests produced one booking. | `test_ut04_overlap_409_and_alternatives` |
+| UT_05 | Pass | Cancellation before cutoff retained the cancelled record and freed the interval for rebooking. | `test_release_preserves_history_and_can_be_rebooked` |
+| UT_06 | Pass | Admin created a menu item with valid fields and retrieved it. | `test_create_edit_delete` |
+| UT_07 | Pass | Invalid or missing menu input was rejected without creating a valid item. | `test_invalid_and_permissions` |
+| UT_08 | Pass | Admin changes to menu item details persisted. | `test_create_edit_delete` |
+| UT_09 | Pass | Unreferenced item deleted; a referenced item was retired to keep order history. | `test_create_edit_delete`; `test_referenced_item_is_unavailable_and_history_kept` |
+| UT_10 | Pass | Only available menu items were returned. | `test_grouping_only_available_fresh_and_empty` |
+| UT_11 | Pass | Available items were returned in their category groups. | `test_grouping_only_available_fresh_and_empty` |
+| UT_12 | Pass | Cart accepted available items and preserved quantities. | `test_add_edit_remove_and_total` |
+| UT_13 | Pass | Checkout persisted a single Received order with items; same-key retry returned the existing order. | `test_commit_price_snapshot_retry_and_owner_read` |
+| UT_14 | Pass | Forward status transitions passed; repeats were safe and reverse changes were denied. | `test_forward_only_repeat_and_no_delete` |
+| UT_15 | Pass | Stale checkout rejected unavailable items, identified them, and created no order. | `test_item_sells_out_after_cart_and_direct_api_cannot_bypass` |
+| UT_16 | Pass | Cart totals reflected item prices and quantities using decimal arithmetic. | `test_add_edit_remove_and_total` |
+| UT_17 | Partial | Email registration created a Customer and stored a hash. Registration without email is unsupported. | `test_registration_defaults_customer_and_no_password_response`; `test_optional_phone_and_required_email_preserve_model_contract` |
+| UT_18 | Pass | Duplicate email, including a case variant, and duplicate phone were rejected. | `test_duplicate_email_case_insensitive_and_phone` |
+| UT_19 | Pass | Identical passwords generated different salted PBKDF2 values; plaintext was absent from inspected responses and application logs. | `test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs` |
+| UT_20 | Pass | Idle session was accepted before 30 minutes and rejected at and after the boundary. | `test_idle_boundary_before_at_after_and_replay` |
+| UT_21 | Pass | Cancellation inside 30 minutes was rejected and the booking stayed confirmed. | `test_ut05_ut21_exact_cutoff_and_offsets` |
+| UT_22 | Pass | Seven characters were rejected and eight were accepted. | `test_password_boundary_seven_rejected_eight_accepted` |
+| UT_23 | Pass | Cancellation exactly at 30 minutes succeeded; cancellation releases the interval. | `test_ut05_ut21_exact_cutoff_and_offsets`; `test_release_preserves_history_and_can_be_rebooked` |
+| IT_01 | Pass | API created a booking and the confirmed database interval blocked overlapping requests. | `test_ut03_confirmation_persisted_and_correct`; `test_ut04_overlap_409_and_alternatives` |
+| IT_02 | Partial | Staff list and filters passed at API level; rendered dashboard verification remains. | `test_search_reference_customer_table_date_status_and_invalid` |
+| IT_03 | Partial | Staff API cancellation passed and retained the cancelled row; the dashboard procedure remains to run. | `test_staff_cancel_inside_customer_cutoff_and_repeat` |
+| IT_04 | Partial | Menu updates persisted and subsequent customer reads were fresh; the original no-refresh observation was unverified. | `test_create_edit_delete`; `test_grouping_only_available_fresh_and_empty` |
+| IT_05 | Pass | After availability changed, a fresh customer API read excluded the item. | `test_grouping_only_available_fresh_and_empty` |
+| IT_06 | Pass | Real Django and Node delivered the committed Preparing event to the owning customer; another customer was denied. | `test_real_django_node_room_delivery_and_cross_customer_denial` |
+| IT_07 | Blocked | Chromium failed at launch before any commit-to-screen samples. The delivery test covered the event, with browser paint timing still open. | [19 November launch error](evidence/render-tests.txt); [20 November launch error](evidence/render-2026-11-20.txt) |
+| IT_08 | Pass | Checkout stored item rows and price snapshots with correct totals; replay did not duplicate the order. | `test_commit_price_snapshot_retry_and_owner_read` |
+| IT_09 | Pass | Admin could use menu management; customer and staff were denied. | `test_customer_and_staff_menu_denied_and_context_is_reset`; `test_create_edit_delete` |
+| IT_10 | Pass | Login rotated the session and CSRF credentials; the protected endpoint accepted the session cookie. | `test_login_email_and_phone_rotates_session_and_csrf`; `test_H_02_real_login_role_fixture_and_exact_idle_boundary` |
+| ST_01 | Partial | Firefox booking smoke passed; the original two-second browser availability measurement remains open. | [docs/evidence/firefox-tests.txt](evidence/firefox-tests.txt); `test_public_api_and_page_timing` |
+| ST_02 | Partial | API rejected an overlap and returned alternatives; browser observation and its two-second criterion remain open. | `test_ut04_overlap_409_and_alternatives` |
+| ST_03 | Partial | Admin mutation and grouped public read passed in regression; combined browser steps remain open. | `test_create_edit_delete`; `test_grouping_only_available_fresh_and_empty` |
+| ST_04 | Partial | Fresh customer reads omit unavailable items; the complete admin-to-customer browser run remains open. | `test_grouping_only_available_fresh_and_empty` |
+| ST_05 | Blocked | Status transitions and owned event delivery passed. Browser timing for every transition remains unmeasured. | [19 November launch error](evidence/render-tests.txt); [20 November launch error](evidence/render-2026-11-20.txt); `test_real_django_node_room_delivery_and_cross_customer_denial` |
+| ST_06 | Partial | Stale checkout returned unavailable-item details and blocked the order; exact end-to-end browser steps remain open. | `test_item_sells_out_after_cart_and_direct_api_cannot_bypass` |
+| ST_07 | Partial | Integrated registration, login and owned booking passed; Firefox booking smoke used a seeded account. Full new-user browser flow remains open. | `test_real_register_login_book_read_and_logout_flow`; [docs/evidence/firefox-tests.txt](evidence/firefox-tests.txt) |
+| ST_08 | Pass | An authenticated Staff user received HTTP 403 on the Admin-only menu page. | `test_admin_pages_reject_customer_and_staff` |
+| ST_09 | Partial | Customer cancellation, staff search and rebooking passed at API level. Staff dashboard variants still need browser execution. | `test_customer_cancel_staff_search_and_rebook` |
+| ST_10 | Pass | Run 2 served 50 users after a 60 s ramp for 600 s steady: 98.95% within 2 s, p95 784.43 ms, 0% HTTP 5xx and zero transport errors. Run 1 failed on a timeout. | [docs/evidence/capacity-summary.json](evidence/capacity-summary.json); [docs/evidence/capacity-attempt1-summary.json](evidence/capacity-attempt1-summary.json) |
+| ST_11 | Not Executed | No qualifying sessions with first-time participants were recorded. | [backend/docs/RMS-26-usability.md](../backend/docs/RMS-26-usability.md) |
+| ST_12 | Partial | Real Django and Node process restarts preserved identical authenticated REST snapshots and PostgreSQL item rows. Browser UI recheck remains open. | [docs/evidence/RMS-28-restart.json](evidence/RMS-28-restart.json) |
+| ST_13 | Partial | Firefox 157.0 passed smoke at 320, 390 and 1280 px. Chromium failed at startup. The required Chrome, Firefox and Edge version matrix remains incomplete. | [docs/evidence/firefox-customer-390.json](evidence/firefox-customer-390.json); [docs/evidence/chromium-tests.txt](evidence/chromium-tests.txt) |
+| ST_14 | Partial | Deletion was denied by the resource API; supported cancellation retained records. The complete staff UI procedure remains open. | `test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation`; `test_staff_cancel_inside_customer_cutoff_and_repeat` |
+| SR_01 | Pass | Fresh static boundary test found no cross-app view imports among the four application modules. | `test_SR_01_no_cross_app_view_imports` |
+| SV_01 | Pass | PBKDF2 hashes differed for identical passwords and plaintext was absent from inspected application logs and persisted passwords. | `test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs` |
+| SV_02 | Blocked | Caddy configuration specifies TLS 1.2 and 1.3; deployed redirect, protocol rejection and WSS were unverified. | [deploy/Caddyfile](../deploy/Caddyfile); [deploy/README.md](../deploy/README.md) |
+| SV_03 | Pass | Protected APIs returned 401 for missing identity and 403 for wrong roles. Admin menu and Staff/Admin override boundaries were exercised. | `test_protected_api_missing_auth_401`; `test_role_permissions_and_anonymous_default_deny`; `test_role_guards_enforce_real_api_requests` |
+| SV_04 | Partial | Defensive login input handling passed; the full menu procedure and data-integrity cross-check remain open. | `test_invalid_unknown_inactive_and_sql_like_login_are_generic` |
+| SV_05 | Partial | Output escaping passed in rendered account and booking views. The exact staff dashboard case remains open. | `test_form_flow_inline_validation_safe_output_and_logout`; `test_page_is_owned_paginated_and_escaped` |
+| SV_06 | Pass | Session CSRF checks rejected missing or invalid credentials and accepted valid booking mutations. | `test_shared_api_csrf_guard_covers_all_mutation_verbs`; `test_real_session_valid_missing_and_invalid_csrf` |
+| SV_07 | Pass | The fifth failure locked the account, a correct password was refused during the lock, and the expiry boundary passed. | `test_fifth_failure_locks_correct_password_and_does_not_extend`; `test_exact_expiry_and_pre_boundary` |
+| SV_08 | Pass | Menu, booking override and order status events were attributed; the 90-day retention boundary passed using dated fixtures. | `test_menu_create_change_delete_are_attributed_and_minimal`; `test_real_booking_create_cancel_and_retry_event_completeness`; `test_order_status_capture_and_failed_business_change_rollback`; `test_ninety_day_boundary_and_dry_run` |
+| SV_09 | Partial | Simulated HTTPS response set HttpOnly and Secure. Deployed response and browser inspection remain open. | `test_https_cookie_flags` |
+| SV_10 | Partial | Automated clock-boundary and replay tests rejected the idle session. Deployed idle/relogin procedure remains open. | `test_idle_boundary_before_at_after_and_replay` |

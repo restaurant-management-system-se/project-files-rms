@@ -9,35 +9,16 @@ Central repository for all project documents: SRS, Test Plan, Design Documents, 
 - **Real-time layer:** Node.js (WebSocket / Socket.io) for live order-status updates
 - **Author:** Abhay Dubey H (PES1UG24CS551), Dept. of Computer Science and Engineering, PES University
 
-## Repository Structure
+## Project documents
 
-```
-project-documentation/
-├── .github/
-│   └── workflows/
-│       └── readme-reminder.yml
-├── SRS and Test Plan Details/
-│   ├── SRS/
-│   │   ├── SRS - Restaurant Management System.docx
-│   │   └── SRS - Restaurant Management System.pdf
-│   └── Test-Plan/
-│       ├── Test-Plan - Restaurant Management System.docx
-│       └── Test-Plan - Restaurant Management System.pdf
-├── Software Design And Architecture Specification/
-│   ├── SAD- Restaurant Management System.docx
-│   └── SAD- Restaurant Management System.pdf
-├── Test cases related update for Test plan/
-│   └── UpdateThemHere
-└── README.md
-```
-
-## Documents
-
-| Document | Status | Description |
+| Document | Editable | PDF |
 |---|---|---|
-| Software Requirements Specification (SRS) | ✅ Added | Functional & non-functional requirements, system features (Table Booking, Menu Management, Ordering & Tracking, Auth), and requirement traceability matrix. |
-| Test Plan | ✅ Complete | Test strategy and functional test cases mapped to SRS requirements (REQ-1 → REQ-14). |
-| Software Architecture and Design Specification (SAD) | ✅ Complete | Architecture, data design, security design, APIs, sequence diagrams, error handling, deployment view, and requirements traceability. |
+| Software Requirements Specification | [DOCX](SRS%20and%20Test%20Plan%20Details/SRS/SRS-_Restaurant_Management_System.docx) | [PDF](SRS%20and%20Test%20Plan%20Details/SRS/SRS-_Restaurant_Management_System.pdf) |
+| Software Architecture and Design | [DOCX](Software%20Design%20And%20Architecture%20Specification/SAD-%20Restaurant%20Management%20System.docx) | [PDF](Software%20Design%20And%20Architecture%20Specification/SAD-%20Restaurant%20Management%20System.pdf) |
+| Test Plan | [DOCX](SRS%20and%20Test%20Plan%20Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.docx) | [PDF](SRS%20and%20Test%20Plan%20Details/Test-Plan/Test_Plan_Restaurant_Management_System_SE.pdf) |
+| Test Cases supplement | [DOCX](Test%20Cases%20related%20to%20Test%20Plan/Test_Cases-Restaurant_Management_System.docx) | [PDF](Test%20Cases%20related%20to%20Test%20Plan/Test_Cases-Restaurant_Management_System.pdf) |
+
+The Test Plan records actual results and dispositions for all 58 canonical cases. The Test Cases supplement repeats 15 of those cases. See the [acceptance evidence](docs/ACCEPTANCE.md) and [delivery status](docs/DELIVERY-STATUS.md) for coverage and pending checks.
 
 ## SAD Summary
 
@@ -51,14 +32,6 @@ The design includes safeguards against double booking, unavailable menu items at
 - **Revision history:** every document should carry its own Revision History table for tracked changes.
 - **Traceability:** requirement IDs introduced in the SRS (`REQ-1` … `REQ-14`) should be reused as-is in the Test Plan and Design Documents so items stay traceable across all three.
 - **Format:** `.docx` for formal deliverables; `.md` acceptable for lighter-weight or working documents.
-
-## Status
-
-| Milestone | Status |
-|---|---|
-| SRS drafted and reviewed | ✅ Complete |
-| Test Plan | ✅ Complete |
-| SAD prepared and reviewed | ✅ Complete |
 
 ## Local Setup Instructions
 
