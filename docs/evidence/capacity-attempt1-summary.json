@@ -1,0 +1,30 @@
+{
+  "issue": 27,
+  "test": "ST_10",
+  "mode": "ramp-steady",
+  "canonical_duration": true,
+  "users": 50,
+  "ramp_s": 60,
+  "steady_s": 600,
+  "workload_weights": {
+    "menu": 50,
+    "availability": 30,
+    "order": 20
+  },
+  "hardware": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "cpu": "",
+    "logical_cpus": 9
+  },
+  "dataset": {
+    "users": 50,
+    "tables": 50,
+    "menu_items": 1
+  },
+  "database": "postgresql",
+  "percent_within_2s": 97.89037079415024,
+  "p95_ms_nearest_rank": 1327.6347539999733,
+  "http_5xx_percent": 0.0,
+  "transport_errors": 1,
+  "unexpected_http_responses": 1
+}

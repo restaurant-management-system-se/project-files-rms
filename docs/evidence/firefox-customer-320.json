@@ -1,0 +1,23 @@
+{
+  "case": "customer",
+  "browser": "firefox",
+  "actual_version": "157.0",
+  "viewport": {
+    "width": 320,
+    "height": 568
+  },
+  "timezone": "Asia/Kolkata",
+  "database": "postgresql",
+  "python": "3.12.14",
+  "executed_at": "2026-11-19T07:10:20.214941+00:00",
+  "build": "a2e87fc10a568c8edc8e7b88349c298b3dc3ae0b",
+  "scope": "automated regression, not complete ST_13 or human ST_11",
+  "unexecuted_required_flows": [
+    "staff booking/status UI",
+    "live tracking",
+    "reconnect"
+  ],
+  "status": "Passed",
+  "elapsed_seconds": 4.005,
+  "page_errors": []
+}

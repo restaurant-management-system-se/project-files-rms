@@ -1,3 +1,5 @@
+> 19 November 2026 integration update: this document retains the earlier baseline and evidence history. Current integrated scope, commands and release gates are in [delivery status](../docs/DELIVERY-STATUS.md), [acceptance disposition](../docs/ACCEPTANCE.md), and [deployment](../deploy/README.md). Historical statements that a feature is absent must not be read as the current integration status.
+
 # Integration contract and setup review
 
 Review candidate dated 23 October 2026, based on main `b171c48`. Existing owner contracts are reused: `backend/docs/auth-security-contract.md` and the RMS-08/09 contracts on PR #38. Teammate agreement is pending. Posting this file does not approve a deviation.

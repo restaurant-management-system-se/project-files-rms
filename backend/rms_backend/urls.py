@@ -1,10 +1,17 @@
+from django.db import connection
+from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import include, path
 from accounts import views
 from booking.views import BookingReadView, BookingView
 from orders.views import OrderReadView
 
+def health(request):
+    connection.ensure_connection()
+    return JsonResponse({"status": "ok"})
+
 urlpatterns = [
+    path("health/", health, name="health"),
     path("", include("booking.urls")),
     path("admin/", admin.site.urls),
     path("api/auth/", include("accounts.urls")),

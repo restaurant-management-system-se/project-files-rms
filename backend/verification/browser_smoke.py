@@ -47,6 +47,8 @@ class BrowserSmoke(StaticLiveServerTestCase):
         self.addCleanup(self.pw.stop)
         launcher = self.pw.firefox if self.engine == 'firefox' else self.pw.chromium
         options = {'headless': True}
+        if os.environ.get('RMS_BROWSER_EXECUTABLE'):
+            options['executable_path'] = os.environ['RMS_BROWSER_EXECUTABLE']
         if self.engine in ('chrome', 'msedge'):
             options['channel'] = self.engine
         self.browser = launcher.launch(**options)

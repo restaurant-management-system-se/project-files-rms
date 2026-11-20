@@ -3,11 +3,23 @@ on:
   pull_request:
     paths:
       - 'backend/**'
+      - 'realtime/**'
+      - 'quality/**'
+      - 'scripts/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
   push:
     branches: [main]
     paths:
       - 'backend/**'
+      - 'realtime/**'
+      - 'quality/**'
+      - 'scripts/**'
+      - 'SRS and Test Plan Details/**'
+      - 'Software Design And Architecture Specification/**'
+      - 'Test Cases related to Test Plan/**'
       - '.github/workflows/rms-database-tests.yml'
 permissions:
   contents: read
@@ -39,15 +51,38 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: backend/requirements.txt
-      - run: pip install -r requirements.txt
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install and test real-time service
+        working-directory: realtime
+        run: npm ci && npm test
+      - run: pip install -r requirements-test.txt
       - run: python manage.py check
       - run: python manage.py makemigrations --check --dry-run
       - run: python manage.py migrate --noinput
       - run: python manage.py seed_demo
       - run: python manage.py seed_demo
-      - run: python manage.py test accounts booking menu orders --verbosity=2
+      - name: Test owned feature stack on PostgreSQL
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p ../test-results
+          python -m coverage run --branch --source=accounts,booking,menu,orders,auditlog,rms_backend --omit='*/test*.py,*/migrations/*,*/wsgi.py,*/asgi.py' manage.py test accounts booking menu orders quality.test_harness --testrunner=quality.runner.EvidenceRunner --verbosity=2 2>&1 | tee ../test-results/feature-postgres.log
+      - run: python -m coverage xml -o ../test-results/coverage.xml
+      - run: python ../quality/check_traceability.py
+      - name: Preserve executed evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrated-postgres-${{ github.sha }}
+          path: test-results/
+          retention-days: 30
+          if-no-files-found: warn

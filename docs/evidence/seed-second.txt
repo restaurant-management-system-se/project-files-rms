@@ -1,0 +1,1 @@
+Demo data ready: 3 roles, 4 tables, 4 categories, 2 bookings/orders. No login passwords created.

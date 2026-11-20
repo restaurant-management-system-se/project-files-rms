@@ -1,0 +1,68 @@
+{
+  "database": "PostgreSQL test database retained",
+  "before_pids": [
+    2870,
+    2871
+  ],
+  "after_pids": [
+    2906,
+    2907
+  ],
+  "before": {
+    "booking": {
+      "id": 3,
+      "table_id": 2,
+      "start_at": "2026-11-02T09:16:23.216877Z",
+      "end_at": "2026-11-02T10:46:23.216877Z",
+      "party_size": 2,
+      "status": "Confirmed"
+    },
+    "order": {
+      "id": 3,
+      "version": 1,
+      "booking_id": 3,
+      "context": "booking",
+      "status": "Received",
+      "total_amount": "4.50",
+      "placed_at": "2026-10-31T09:16:23.228339Z",
+      "items": [
+        {
+          "menu_item_id": 2,
+          "name": "Durable soup",
+          "quantity": 2,
+          "unit_price": "2.25",
+          "line_total": "4.50"
+        }
+      ]
+    }
+  },
+  "after": {
+    "booking": {
+      "id": 3,
+      "table_id": 2,
+      "start_at": "2026-11-02T09:16:23.216877Z",
+      "end_at": "2026-11-02T10:46:23.216877Z",
+      "party_size": 2,
+      "status": "Confirmed"
+    },
+    "order": {
+      "id": 3,
+      "version": 1,
+      "booking_id": 3,
+      "context": "booking",
+      "status": "Received",
+      "total_amount": "4.50",
+      "placed_at": "2026-10-31T09:16:23.228339Z",
+      "items": [
+        {
+          "menu_item_id": 2,
+          "name": "Durable soup",
+          "quantity": 2,
+          "unit_price": "2.25",
+          "line_total": "4.50"
+        }
+      ]
+    }
+  },
+  "passed": true
+}

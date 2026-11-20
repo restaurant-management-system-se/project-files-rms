@@ -1,0 +1,54 @@
+name: RMS reviewed release package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: rms_release_test
+          POSTGRES_USER: rms_ci
+          POSTGRES_PASSWORD: ephemeral-ci-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DB_NAME: rms_release_test
+      DB_USER: rms_ci
+      DB_PASSWORD: ephemeral-ci-only
+      DB_HOST: 127.0.0.1
+      DB_PORT: '5432'
+      DEBUG: 'True'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r backend/requirements-test.txt
+      - run: scripts/verify.sh
+      - name: Package exact source revision
+        run: |
+          mkdir -p release
+          git archive --format=tar.gz --prefix=rms/ HEAD > release/rms-source.tar.gz
+          git rev-parse HEAD > release/REVISION
+          sha256sum release/rms-source.tar.gz > release/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rms-reviewed-source-${{ github.sha }}
+          path: release/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rms-release-evidence-${{ github.sha }}
+          path: test-results/

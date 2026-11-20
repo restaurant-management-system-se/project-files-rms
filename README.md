@@ -77,10 +77,16 @@ See [backend database setup](backend/README.md) for model details, safe demo dat
 1. `cd realtime`
 2. Install dependencies: `npm install`
 3. Copy `.env.example` to `.env`.
-4. Run server: `node index.js`
+4. Run server: `npm start`
 
 ## Booking feature work
 
 The public `/book/` search and `/api/tables/availability` endpoint are described in [RMS-08 contract/evidence](backend/docs/RMS-08-contract-and-evidence.md). The implementation reuses the merged RMS-03 migrations/data. Sprint allocation remains pending; integration contracts require teammate review.
 
 Transactional Customer confirmation, retry safety, PostgreSQL concurrency tests and demonstration steps are recorded in [RMS-09](backend/docs/RMS-09-contract-and-evidence.md). Keep linked issues In Review pending teammate review and owner merge.
+
+## Integrated evaluation closeout
+
+The closeout branch integrates the original audit, ordering, realtime, recovery, performance and deployment contributions without changing their authorship. See [delivery status](docs/DELIVERY-STATUS.md), [deployment](deploy/README.md), [acceptance disposition](docs/ACCEPTANCE.md), and [recording checklist](docs/demo/README.md). Source specifications carry a dated reconciliation appendix. Review and owner merge remain required.
+
+Run Python 3.12 with backend/requirements-test.txt, Node 22 and a disposable PostgreSQL 16 database with CREATEDB privileges, then scripts/verify.sh. Optional browser, capacity and render-latency acceptance suites have separate workflows and must retain their actual outputs.

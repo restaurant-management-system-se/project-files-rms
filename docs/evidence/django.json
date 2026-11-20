@@ -1,0 +1,1258 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-19T07:15:32.688647+00:00",
+  "finished_utc": "2026-11-19T07:16:58.106643+00:00",
+  "build": {
+    "revision": "a2e87fc10a568c8edc8e7b88349c298b3dc3ae0b",
+    "dirty": true,
+    "python": "3.12.14",
+    "django": "6.1.2",
+    "database_vendor": "postgresql",
+    "database_server_version": 160015
+  },
+  "successful": true,
+  "executables": [
+    {
+      "executable": "accounts.test_audit.AuditTests.test_admin_view_is_readonly_and_customer_staff_cannot_access",
+      "outcome": "passed",
+      "seconds": 0.556878,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_audit_failure_rolls_back_menu",
+      "outcome": "passed",
+      "seconds": 0.017691,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_customer_and_staff_menu_denied_and_context_is_reset",
+      "outcome": "passed",
+      "seconds": 0.012844,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_events_are_immutable_and_actor_protected",
+      "outcome": "passed",
+      "seconds": 0.029096,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_menu_create_change_delete_are_attributed_and_minimal",
+      "outcome": "passed",
+      "seconds": 0.038628,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_ninety_day_boundary_and_dry_run",
+      "outcome": "passed",
+      "seconds": 0.029356,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_order_status_capture_and_failed_business_change_rollback",
+      "outcome": "passed",
+      "seconds": 0.026698,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditTests.test_unpersisted_menu_and_order_status_do_not_create_false_events",
+      "outcome": "passed",
+      "seconds": 0.012593,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_activity_resets_deadline_but_status_poll_does_not",
+      "outcome": "passed",
+      "seconds": 1.116246,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_actual_pbkdf2_salts_and_no_password_in_response_or_application_logs",
+      "outcome": "passed",
+      "seconds": 1.133329,
+      "requirements": [
+        "REQ-12",
+        "SEC-1"
+      ],
+      "planned_ids": [
+        "SV_01",
+        "UT_19"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_anonymous_login_and_registration_require_csrf",
+      "outcome": "passed",
+      "seconds": 0.466169,
+      "requirements": [
+        "REQ-12",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06",
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_auth_page_rejects_non_post_mutations",
+      "outcome": "passed",
+      "seconds": 0.034794,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_authenticated_logout_csrf_missing_invalid_valid_and_replay",
+      "outcome": "passed",
+      "seconds": 0.936288,
+      "requirements": [
+        "REQ-14",
+        "SEC-5",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_06",
+        "SV_10"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_concurrent_duplicate_is_validation_error",
+      "outcome": "passed",
+      "seconds": 0.743686,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_18"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_csrf_bad_origin_and_rotated_prelogin_token_rejected",
+      "outcome": "passed",
+      "seconds": 0.815946,
+      "requirements": [
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_duplicate_email_case_insensitive_and_phone",
+      "outcome": "passed",
+      "seconds": 0.442265,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_18"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_existing_admin_session_gets_idle_deadline",
+      "outcome": "passed",
+      "seconds": 0.393579,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_10",
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_form_flow_inline_validation_safe_output_and_logout",
+      "outcome": "passed",
+      "seconds": 0.87841,
+      "requirements": [
+        "REQ-12",
+        "REQ-14",
+        "SEC-4",
+        "SEC-5",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "ST_07",
+        "SV_05",
+        "SV_06",
+        "SV_10"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_https_cookie_flags",
+      "outcome": "passed",
+      "seconds": 0.868651,
+      "requirements": [
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_09"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_idle_boundary_before_at_after_and_replay",
+      "outcome": "passed",
+      "seconds": 1.688599,
+      "requirements": [
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "SV_10",
+        "UT_20"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_invalid_unknown_inactive_and_sql_like_login_are_generic",
+      "outcome": "passed",
+      "seconds": 1.768266,
+      "requirements": [
+        "REQ-12",
+        "SEC-4"
+      ],
+      "planned_ids": [
+        "SV_04",
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_login_email_and_phone_rotates_session_and_csrf",
+      "outcome": "passed",
+      "seconds": 1.342448,
+      "requirements": [
+        "REQ-12",
+        "REQ-13",
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_malformed_input_and_unknown_fields_fail_safely",
+      "outcome": "passed",
+      "seconds": 0.15383,
+      "requirements": [
+        "SEC-4"
+      ],
+      "planned_ids": [
+        "SV_04"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_optional_phone_and_required_email_preserve_model_contract",
+      "outcome": "passed",
+      "seconds": 0.508945,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_password_boundary_seven_rejected_eight_accepted",
+      "outcome": "passed",
+      "seconds": 1.181005,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_22"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_protected_api_missing_auth_401",
+      "outcome": "passed",
+      "seconds": 0.08527,
+      "requirements": [
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_public_registration_rejects_all_escalation_fields",
+      "outcome": "passed",
+      "seconds": 0.1644,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.AuthTests.test_registration_defaults_customer_and_no_password_response",
+      "outcome": "passed",
+      "seconds": 1.1673,
+      "requirements": [
+        "REQ-12"
+      ],
+      "planned_ids": [
+        "UT_17"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_list_and_direct_object_role_matrix",
+      "outcome": "passed",
+      "seconds": 1.655996,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_read_only_resources_never_allow_staff_hard_delete_or_customer_mutation",
+      "outcome": "passed",
+      "seconds": 1.040441,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "ST_14"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_role_guards_enforce_real_api_requests",
+      "outcome": "passed",
+      "seconds": 0.881736,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_role_permissions_and_anonymous_default_deny",
+      "outcome": "passed",
+      "seconds": 0.936332,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_auth.OwnershipTests.test_shared_api_csrf_guard_covers_all_mutation_verbs",
+      "outcome": "passed",
+      "seconds": 0.854293,
+      "requirements": [
+        "SEC-5"
+      ],
+      "planned_ids": [
+        "SV_06"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_aliases_and_admin_username_share_counter",
+      "outcome": "passed",
+      "seconds": 2.587199,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_api_and_html_login_share_generic_failure_and_csrf",
+      "outcome": "passed",
+      "seconds": 3.463615,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_exact_expiry_and_pre_boundary",
+      "outcome": "passed",
+      "seconds": 1.16088,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_fifth_failure_locks_correct_password_and_does_not_extend",
+      "outcome": "passed",
+      "seconds": 3.655046,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_success_resets_and_expired_failure_starts_new_sequence",
+      "outcome": "passed",
+      "seconds": 3.893422,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutTests.test_unknown_account_does_not_create_guard_or_leak_identifier",
+      "outcome": "passed",
+      "seconds": 2.875782,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_admin_can_provision_staff_and_maintain_tables",
+      "outcome": "passed",
+      "seconds": 1.276382,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_admin_pages_reject_customer_and_staff",
+      "outcome": "passed",
+      "seconds": 0.477514,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_booking_constraints_and_retention",
+      "outcome": "passed",
+      "seconds": 0.388526,
+      "requirements": [
+        "REQ-2",
+        "QA-3"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_menu_constraints_and_zero_price",
+      "outcome": "passed",
+      "seconds": 0.354249,
+      "requirements": [
+        "REQ-5",
+        "REQ-7"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_order_constraints_references_and_price_snapshot",
+      "outcome": "passed",
+      "seconds": 0.4076,
+      "requirements": [
+        "REQ-8",
+        "QA-3"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_table_constraints",
+      "outcome": "passed",
+      "seconds": 0.366036,
+      "requirements": [
+        "REQ-1"
+      ],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DatabaseFoundationTests.test_user_identifiers_roles_and_default",
+      "outcome": "passed",
+      "seconds": 0.712821,
+      "requirements": [
+        "REQ-13",
+        "SEC-3"
+      ],
+      "planned_ids": [
+        "SV_03"
+      ],
+      "scope": "Automated subcase only; full canonical procedure still pending"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_reserved_user_collision_rolls_back_seed",
+      "outcome": "passed",
+      "seconds": 0.455938,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_seed_disabled_outside_development",
+      "outcome": "passed",
+      "seconds": 0.008095,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "accounts.tests.DemoSeedTests.test_seed_is_repeatable_complete_and_has_no_passwords",
+      "outcome": "passed",
+      "seconds": 0.21284,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Foundation support; no complete feature or canonical case claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationBoundaryTests.test_anonymous_role_and_csrf_guards",
+      "outcome": "passed",
+      "seconds": 0.227063,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationBoundaryTests.test_page_is_owned_paginated_and_escaped",
+      "outcome": "passed",
+      "seconds": 0.124986,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationBoundaryTests.test_payload_and_method_allowlist",
+      "outcome": "passed",
+      "seconds": 0.137543,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationBoundaryTests.test_sqlite_mutation_is_refused",
+      "outcome": "skipped",
+      "seconds": 3.6e-05,
+      "reason": "SQLite-specific fail-closed check",
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_request_shape_and_spoofing_validation_without_database_write",
+      "outcome": "passed",
+      "seconds": 0.125078,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_session_requires_csrf",
+      "outcome": "passed",
+      "seconds": 0.073094,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_staff_and_admin_denied_customer_flow",
+      "outcome": "passed",
+      "seconds": 0.09936,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.PermissionTests.test_unauthenticated_is_401",
+      "outcome": "passed",
+      "seconds": 0.035593,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffReadTests.test_auth_role_and_csrf",
+      "outcome": "passed",
+      "seconds": 0.201068,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffReadTests.test_dashboard_paginates_and_escapes_audit",
+      "outcome": "passed",
+      "seconds": 0.182596,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffReadTests.test_reference_search_does_not_match_table_with_same_number",
+      "outcome": "passed",
+      "seconds": 0.06455,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffReadTests.test_search_reference_customer_table_date_status_and_invalid",
+      "outcome": "passed",
+      "seconds": 0.230052,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffReadTests.test_validation_and_no_delete_or_customer_create_regression",
+      "outcome": "passed",
+      "seconds": 0.122839,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_adjacent_and_cancelled_intervals_are_free",
+      "outcome": "passed",
+      "seconds": 0.012964,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_configurable_duration",
+      "outcome": "passed",
+      "seconds": 0.005708,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_merges_busy_intervals_and_crosses_day",
+      "outcome": "passed",
+      "seconds": 0.008263,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_sorts_tables_deterministically",
+      "outcome": "passed",
+      "seconds": 0.01372,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_nearest_tie_uses_earlier_start",
+      "outcome": "passed",
+      "seconds": 0.008246,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_public_api_and_page_timing",
+      "outcome": "passed",
+      "seconds": 0.041079,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_ut01_filters_capacity_active_and_overlap",
+      "outcome": "passed",
+      "seconds": 0.013363,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.tests.AvailabilityTests.test_ut02_api_rejects_bad_dates_and_guest_counts",
+      "outcome": "passed",
+      "seconds": 0.071186,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_browse.MenuBrowseTests.test_grouping_only_available_fresh_and_empty",
+      "outcome": "passed",
+      "seconds": 0.05948,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_browse.MenuBrowseTests.test_public_read_cannot_write_and_responsive_template",
+      "outcome": "passed",
+      "seconds": 0.115414,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_management.MenuTests.test_create_edit_delete",
+      "outcome": "passed",
+      "seconds": 0.081812,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_management.MenuTests.test_invalid_and_permissions",
+      "outcome": "passed",
+      "seconds": 0.074828,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_management.MenuTests.test_real_session_csrf",
+      "outcome": "passed",
+      "seconds": 0.134752,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "menu.test_management.MenuTests.test_referenced_item_is_unavailable_and_history_kept",
+      "outcome": "passed",
+      "seconds": 0.059697,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_audit_contract.MenuAuditContract.test_real_menu_endpoints_capture_description_once_and_delete",
+      "outcome": "passed",
+      "seconds": 0.48746,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_cart.CartTests.test_add_edit_remove_and_total",
+      "outcome": "passed",
+      "seconds": 0.401732,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_cart.CartTests.test_cart_requires_customer_identity_and_csrf",
+      "outcome": "passed",
+      "seconds": 0.429392,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_cart.CartTests.test_invalid_cart_keeps_valid_contents",
+      "outcome": "passed",
+      "seconds": 0.4261,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_checkout.CheckoutValidationTests.test_strict_request_validation_and_permissions",
+      "outcome": "passed",
+      "seconds": 0.419869,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_status.StatusPermissions.test_customer_and_anonymous_denied",
+      "outcome": "passed",
+      "seconds": 0.42459,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "quality.test_harness.SharedFlowTests.test_H_02_real_login_role_fixture_and_exact_idle_boundary",
+      "outcome": "passed",
+      "seconds": 0.129193,
+      "requirements": [
+        "REQ-12",
+        "REQ-14",
+        "SEC-8"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "UT_20"
+      ],
+      "scope": "H_02 shared role/clock integration support"
+    },
+    {
+      "executable": "quality.test_harness.SharedFlowTests.test_H_03_registered_customer_reads_own_empty_resources_then_logs_out",
+      "outcome": "passed",
+      "seconds": 0.125233,
+      "requirements": [
+        "REQ-12",
+        "REQ-13",
+        "REQ-14"
+      ],
+      "planned_ids": [
+        "IT_10",
+        "ST_07"
+      ],
+      "scope": "H_03 partial customer flow; booking/menu/checkout absent on main"
+    },
+    {
+      "executable": "accounts.test_audit.AuditBookingTests.test_central_audit_failure_rolls_back_booking_override_and_status",
+      "outcome": "passed",
+      "seconds": 0.191964,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditBookingTests.test_real_booking_create_cancel_and_retry_event_completeness",
+      "outcome": "passed",
+      "seconds": 0.161789,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_audit.AuditBookingTests.test_retention_command_backfills_missing_events_idempotently",
+      "outcome": "passed",
+      "seconds": 0.11774,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutRaceTests.test_correct_attempt_cannot_pass_an_existing_lock",
+      "outcome": "passed",
+      "seconds": 1.153135,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "accounts.test_lockout.LockoutRaceTests.test_simultaneous_failures_initialize_one_guard_and_lock_at_five",
+      "outcome": "passed",
+      "seconds": 4.138325,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_cancellation_and_confirmation_serialize_on_table",
+      "outcome": "passed",
+      "seconds": 0.755056,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_commit_failure_rolls_back_status",
+      "outcome": "passed",
+      "seconds": 0.159495,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_csrf_and_logout_in_real_session",
+      "outcome": "passed",
+      "seconds": 0.189176,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_inactive_customer_revalidated_by_service",
+      "outcome": "passed",
+      "seconds": 0.055139,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_release_preserves_history_and_can_be_rebooked",
+      "outcome": "passed",
+      "seconds": 0.285693,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_repeated_cancellation_after_cutoff_is_safe",
+      "outcome": "passed",
+      "seconds": 0.206514,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_simultaneous_cancellations_change_once",
+      "outcome": "passed",
+      "seconds": 0.710836,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_ut05_ut21_exact_cutoff_and_offsets",
+      "outcome": "passed",
+      "seconds": 0.347813,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_cancellation.CancellationPostgresTests.test_ut23_owner_only_and_not_found",
+      "outcome": "passed",
+      "seconds": 0.178627,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_active_capacity_rechecked_after_search",
+      "outcome": "passed",
+      "seconds": 0.179559,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_adjacent_and_cancelled_bookings",
+      "outcome": "passed",
+      "seconds": 0.180813,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_failed_metadata_write_rolls_back_booking",
+      "outcome": "passed",
+      "seconds": 0.193577,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_idempotency_retry_changed_payload_and_customer_scope",
+      "outcome": "passed",
+      "seconds": 0.283328,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_invalid_requests_and_spoofed_customer",
+      "outcome": "passed",
+      "seconds": 0.21028,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_real_register_login_book_read_and_logout_flow",
+      "outcome": "passed",
+      "seconds": 0.918407,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_real_session_valid_missing_and_invalid_csrf",
+      "outcome": "passed",
+      "seconds": 0.126127,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_different_customers_exactly_one_booking",
+      "outcome": "passed",
+      "seconds": 0.270917,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_key_reused_for_different_tables",
+      "outcome": "passed",
+      "seconds": 0.214561,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_simultaneous_same_key_returns_same_booking",
+      "outcome": "passed",
+      "seconds": 0.220553,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_ut03_confirmation_persisted_and_correct",
+      "outcome": "passed",
+      "seconds": 0.095998,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_confirmation.ConfirmationTests.test_ut04_overlap_409_and_alternatives",
+      "outcome": "passed",
+      "seconds": 0.148421,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_audit_failure_rolls_back_create_and_cancel",
+      "outcome": "passed",
+      "seconds": 0.142957,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_customer_cancel_staff_search_and_rebook",
+      "outcome": "passed",
+      "seconds": 0.177801,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_customer_vs_staff_cancel_serializes_without_duplicate_override",
+      "outcome": "passed",
+      "seconds": 0.336652,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_manual_create_retry_and_audit",
+      "outcome": "passed",
+      "seconds": 0.284501,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_overlap_capacity_active_customer_and_payload_validation",
+      "outcome": "passed",
+      "seconds": 0.357424,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_real_csrf_logout_and_inactive_staff",
+      "outcome": "passed",
+      "seconds": 0.377257,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_staff_cancel_inside_customer_cutoff_and_repeat",
+      "outcome": "passed",
+      "seconds": 0.389048,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_staff_same_key_race_one_booking_and_one_audit",
+      "outcome": "passed",
+      "seconds": 0.327124,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "booking.test_staff.StaffPostgresTests.test_staff_vs_customer_same_table_only_one_commits",
+      "outcome": "passed",
+      "seconds": 0.311359,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_audit_contract.StatusAuditContract.test_status_endpoint_audit_and_rollback_before_publishing",
+      "outcome": "passed",
+      "seconds": 0.50203,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_capacity.CapacityTests.test_st10_http_workload",
+      "outcome": "skipped",
+      "seconds": 2.9e-05,
+      "reason": "Opt-in real PostgreSQL 50-user run",
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_checkout.CheckoutPostgresTests.test_commit_price_snapshot_retry_and_owner_read",
+      "outcome": "passed",
+      "seconds": 0.104831,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_checkout.CheckoutPostgresTests.test_rollback_and_unavailable",
+      "outcome": "passed",
+      "seconds": 0.148664,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_checkout.CheckoutPostgresTests.test_same_key_concurrent_orders_create_once",
+      "outcome": "passed",
+      "seconds": 0.044131,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_durability.DurabilityTests.test_failure_before_confirmation_commit_leaves_no_partial_rows",
+      "outcome": "passed",
+      "seconds": 0.104161,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_durability.DurabilityTests.test_saved_booking_order_survive_both_service_process_restarts",
+      "outcome": "passed",
+      "seconds": 2.938788,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_realtime.EventTests.test_internal_secret_and_ownership",
+      "outcome": "passed",
+      "seconds": 1.264421,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_realtime.EventTests.test_rollback_never_publishes_and_pending_is_retryable",
+      "outcome": "passed",
+      "seconds": 0.375637,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_realtime.LiveOrderTests.test_real_django_node_room_delivery_and_cross_customer_denial",
+      "outcome": "passed",
+      "seconds": 1.81177,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_render_latency.RenderLatencyTests.test_it07_commit_to_customer_paint",
+      "outcome": "skipped",
+      "seconds": 2.9e-05,
+      "reason": "Opt-in real Chromium render measurement",
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_stale.StaleCartTests.test_item_sells_out_after_cart_and_direct_api_cannot_bypass",
+      "outcome": "passed",
+      "seconds": 0.517364,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_status.StatusPostgresTests.test_forward_only_repeat_and_no_delete",
+      "outcome": "passed",
+      "seconds": 0.590729,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "orders.test_status.StatusPostgresTests.test_simultaneous_repeat_changes_once",
+      "outcome": "passed",
+      "seconds": 0.842793,
+      "requirements": [],
+      "planned_ids": [],
+      "scope": "Unmapped executable; no canonical coverage claimed"
+    },
+    {
+      "executable": "quality.test_harness.ModuleBoundaryTests.test_H_01_evidence_keeps_failure_skip_and_success_distinct",
+      "outcome": "passed",
+      "seconds": 0.002891,
+      "requirements": [
+        "QA-2"
+      ],
+      "planned_ids": [],
+      "scope": "H_01 harness self-check; intentional child failure is expected and verified"
+    },
+    {
+      "executable": "quality.test_harness.ModuleBoundaryTests.test_SR_01_no_cross_app_view_imports",
+      "outcome": "passed",
+      "seconds": 0.293414,
+      "requirements": [
+        "QA-2"
+      ],
+      "planned_ids": [
+        "SR_01"
+      ],
+      "scope": "Complete static SR_01 check over current four-app source"
+    }
+  ],
+  "canonical_case_results": "Not Executed unless separately evidenced in manual execution records",
+  "note": "Passing automated subcases do not prove a full system/security procedure. Skips are not passes.",
+  "manifest_sha256": "e8c389dedcd83e88897661211b7b92a3bd3d46381453ed9073c0c9985e356b6c"
+}

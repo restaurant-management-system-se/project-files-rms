@@ -1,0 +1,2 @@
+
+162 static files copied to '/workspace/scratch/9aec41f07c45/rms-closeout/backend/staticfiles'.

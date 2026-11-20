@@ -1,3 +1,5 @@
+> 19 November 2026 integration update: this document retains the earlier baseline and evidence history. Current integrated scope, commands and release gates are in [delivery status](../docs/DELIVERY-STATUS.md), [acceptance disposition](../docs/ACCEPTANCE.md), and [deployment](../deploy/README.md). Historical statements that a feature is absent must not be read as the current integration status.
+
 # Shared regression harness
 
 RMS-30 / #31 builds on RMS-29, completed RMS-02 #34 and database #35; no production feature is recreated. Feature owners keep their implementations/tests. `backend/quality` is test support, not a production Django app. Python dependencies and all migration files are reused unchanged.

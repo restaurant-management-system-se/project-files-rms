@@ -48,3 +48,15 @@ These are proposals, not additional approved deviations. See #11 and the RMS-08/
 - Shared integration: preserve RMS-03 entity fields; propose booking-owned durable retry metadata and Customer self-booking using Django sessions. Uses Noctowl's owner-published session contract and merged PR #36 permissions. Peer review remains pending; on-behalf staff flow and ownership remain unchanged.
 - Formal Sprint 1 allocations remain unset under DEV-07; the user-proposed RMS-03/08/09 selection is the working scope, not an approved team-wide sprint plan.
 - PR #35 is already merged with a successful PostgreSQL check; no submitted review was returned by GitHub. Reused as-is; no retroactive reviewer approval is claimed.
+
+## Consolidated closeout reconciliation 19 November 2026
+
+This integration preserves original requirement IDs and source procedures. It does not turn earlier proposals into teammate-approved changes. The source-document appendices and docs/ACCEPTANCE.md identify the implemented interpretation and outstanding acceptance evidence.
+
+- Runtime: one modular Django backend owns PostgreSQL writes. Node delivers authorized persisted events, with durable outbox retry and REST recovery; a reverse proxy serves HTTPS/WSS and hides internal routes.
+- Registration currently requires email; optional phone is accepted as a login identifier. Phone-only registration remains a requirement discrepancy pending the owners' model/data decision.
+- Store validated canonical text with ORM parameterization and escape in each output context. The ambiguous SEC-4 storage wording remains a proposal for source clarification.
+- Unauthenticated protected requests return 401; authenticated wrong-role and missing/invalid session-CSRF mutations return 403. DRF field/detail errors are the current contract; the SAD code/message envelope remains an outstanding contract decision.
+- Customer cancellation permits the exact 30-minute boundary. Staff overrides require a reason and immutable audit evidence; hard deletion is forbidden. Used menu items are retired, preserving order snapshots.
+- PERF-2 uses 95% within one second. REQ-10's universal one-second wording is retained and reported separately; a percentile result cannot prove every-event compliance.
+- The user-requested sprint windows are October 19–23 and October 26–31, 2026. No historical board transition, first-time participant session, review, freeze or recording is invented.
